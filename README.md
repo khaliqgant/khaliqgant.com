@@ -1,7 +1,7 @@
 khaliqgant.com
 =====
 
-My personal website.
+My personal website and also a good way for me to learn python and django.
 
 
 What I want to accomplish
