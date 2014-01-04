@@ -21,5 +21,21 @@ APIs
 * StackOverflow (http://api.stackoverflow.com/1.0/usage)
 * Github API
 
+Topics To Filter
+=====
+* Music
+- Listening
+- Production
+* Development
+- Vector Work
+- Personal work
+* Sports
+- Injury
+- Playing days
+* Writing
+- Blog
+* Data
+-
+
 
 
