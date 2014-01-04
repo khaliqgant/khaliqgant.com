@@ -35,7 +35,18 @@ Topics To Filter
 * Writing
 - Blog
 * Data
--
+
+On Main page below the filter show an activity stream as first item with logos for the activity
+=====
+Activity stream will include
+* Github activity
+* lastfm activity
+* foursquare? (could be creepy)
+* instagram activity
+* twitter activity
+* tumblr posts
+
+
 
 
 
