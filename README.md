@@ -47,6 +47,8 @@ Activity stream will include
 * tumblr posts
 
 
+This looks useful from
+* https://devcharm.com/pages/79-must-have-django-packages
 
 
 
