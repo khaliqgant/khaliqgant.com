@@ -1,7 +1,7 @@
-khaliqgant.com
+khaliqgant.com - A [Flask](http://flask.pocoo.org/docs/0.10/) App
 =====
 
-My personal website and also a good way for me to learn python and django.
+My personal website and also a good way for me to learn python
 
 
 What I want to accomplish
@@ -45,10 +45,3 @@ Activity stream will include
 * instagram activity
 * twitter activity
 * tumblr posts
-
-
-This looks useful from
-* https://devcharm.com/pages/79-must-have-django-packages
-
-
-
