@@ -1,6 +1,6 @@
-.header h1 {
-  color: blue;
+header p {
+  font-size: 18px;
 }
-.header p {
-  font-size: 14px;
+header a {
+  color: blue;
 }
