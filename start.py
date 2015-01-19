@@ -7,11 +7,6 @@ def index():
     return render_template('layout.html')
 
 
-@app.route('/')
-def show_header():
-    return render_template('header.html')
-
-
 @app.route('/about')
 def about():
     return 'This the about page'
