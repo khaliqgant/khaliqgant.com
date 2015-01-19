@@ -21,3 +21,6 @@ My personal website
     sudo pip install Flask
     ```
 
+## Deployment
+* [Digital Ocean Tutorial](https://www.digitalocean.com/community/tutorials/how-to-deploy-a-flask-application-on-an-ubuntu-vps)
+
