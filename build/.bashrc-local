@@ -1,0 +1,1 @@
+alias init='tab ". venv/bin/activate && python __init__.py"'
