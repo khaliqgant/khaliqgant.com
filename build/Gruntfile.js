@@ -1,17 +1,18 @@
 module.exports = function(grunt) {
 
   var
-    project    = '../static/',
-    scss       = project + 'scss/',
-    coffee     = project + 'coffee/',
-    css        = project + 'css/',
-    js         = project + 'js/';
+    project = '../static/',
+    scss    = project + 'scss/',
+    coffee  = project + 'coffee/',
+    css     = project + 'css/',
+    js      = project + 'js/',
+    npmcss  = require('npm-css');
 
   grunt.initConfig({
 
     pkg: grunt.file.readJSON('package.json'),
 
-    clean: [css+"*"],
+    clean: [css+'*'],
 
     sass: {
       dev: {
@@ -19,8 +20,8 @@ module.exports = function(grunt) {
           expand: true,
           cwd: scss,
           src: [
-            "*.scss",
-            "!_*.scss"
+            '*.scss',
+            '!_*.scss'
           ],
           dest: project + css + 'components',
           ext: '.css'
@@ -106,7 +107,13 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-uglify');
 
+  grunt.registerTask('build', 'def', function(){
+      var css = npmcss('../static/css/build/plugins.css');
+      grunt.file.write('../static/css/components/main.css',css);
+  });
+
   grunt.registerTask('styles', 'def', function(){
+    grunt.task.run('build');
     grunt.task.run('sass');
     grunt.task.run('cssmin');
   });
