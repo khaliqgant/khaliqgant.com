@@ -23,8 +23,8 @@ nav.navbar.navbar-default.top-header h1 a {
   color: white;
 }
 nav.navbar.navbar-default.top-header h1 a:hover {
-  color: black;
   text-decoration: none;
+  color: #bbc7d3;
 }
 nav.navbar.navbar-default.top-header ul.left-nav {
   float: right;
@@ -33,6 +33,29 @@ nav.navbar.navbar-default.top-header ul.left-nav li {
   display: inline-block;
   padding: 0 6px;
   margin-top: 12px;
+}
+nav.navbar.navbar-default.top-header ul.left-nav li.mobile {
+  display: none;
+}
+@media only screen and (max-width: 485px) {
+  nav.navbar.navbar-default.top-header ul.left-nav li {
+    display: none;
+  }
+  nav.navbar.navbar-default.top-header ul.left-nav li.mobile {
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+  }
+  nav.navbar.navbar-default.top-header ul.left-nav li.mobile a {
+    position: relative;
+    top: 5px;
+  }
+  nav.navbar.navbar-default.top-header ul.left-nav li.mobile img {
+    width: 50px;
+  }
+  nav.navbar.navbar-default.top-header ul.left-nav li.mobile img.circle {
+    border-radius: 40px;
+  }
 }
 nav.navbar.navbar-default.top-header ul.left-nav li img {
   width: 40px;

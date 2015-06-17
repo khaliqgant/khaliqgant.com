@@ -1,13 +1,21 @@
+@import "settings";
+
 ul {
     list-style-type: none;
 }
 
+.mobile {
+    display:none;
+}
 
 .splash {
     padding-top:85px;
     margin:0 auto;
     width:900px;
     .me {
+        @media only screen and (max-width: $mobile-breakpoint) {
+            display:none;
+        }
         &.circle {
             border-radius:250px;
         }
@@ -15,5 +23,16 @@ ul {
         position:absolute;
         left:50%;
         margin-left:-185px;
+    }
+}
+
+main {
+    padding-top:260px;
+    @media only screen and (max-width: $mobile-breakpoint) {
+        padding-top:100px;
+    }
+    h1 {
+        font-size:24px;
+        text-align:center;
     }
 }

@@ -1,3 +1,5 @@
+@import "settings";
+
 header {
     p {
         font-size: 18px;
@@ -22,8 +24,8 @@ nav.navbar.navbar-default.top-header {
         a {
             color:white;
             &:hover {
-                color:black;
                 text-decoration:none;
+                color:#bbc7d3;
             }
         }
     }
@@ -33,10 +35,33 @@ nav.navbar.navbar-default.top-header {
             display:inline-block;
             padding: 0 6px;
             margin-top:12px;
+            &.mobile {
+                display: none;
+            }
+            @media only screen and (max-width: $mobile-breakpoint) {
+                display:none;
+                &.mobile {
+                    margin:0;
+                    padding:0;
+                    display:inline-block;
+                    a {
+                        position: relative;
+                        top:5px;
+                    }
+                    img {
+                        width:50px;
+                        &.circle {
+                            border-radius: 40px;
+                        }
+                    }
+                }
+            }
             img {
                 width:40px;
             }
         }
     }
 }
+
+
 
