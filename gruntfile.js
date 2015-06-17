@@ -84,11 +84,11 @@ module.exports = function(grunt) {
       },
       styles: {
         files: [scss + '*.scss'],
-        tasks: ['clean', 'sass', 'build','cssmin']
+        tasks: ['clean', 'sass','cssmin']
       },
       triggerLiveReloadOnTheseFiles: {
           options: {
-              livereload: false
+              livereload: true
           },
           files: [
               css + '/*.css',
@@ -113,7 +113,7 @@ module.exports = function(grunt) {
 
   grunt.registerTask('build', 'def', function(){
       var css = npmcss('static/scss/build/plugins.scss');
-      grunt.file.write('static/css/components/main.css',css);
+      grunt.file.write('static/css/components/plugins.css',css);
   });
 
   grunt.registerTask('styles', 'def', function(){
