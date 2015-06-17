@@ -1,3 +1,19 @@
 ul {
     list-style-type: none;
 }
+
+
+.splash {
+    padding-top:85px;
+    margin:0 auto;
+    width:900px;
+    .me {
+        &.circle {
+            border-radius:250px;
+        }
+        width:250px;
+        position:absolute;
+        left:50%;
+        margin-left:-185px;
+    }
+}
