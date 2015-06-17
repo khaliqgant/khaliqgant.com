@@ -10,4 +10,4 @@ venv
 .sass_cache/
 
 # npm
-build/node_modules/
+node_modules/
