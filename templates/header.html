@@ -1,17 +1,22 @@
-<nav class="navbar navbar-default navbar-fixed-top">
+<nav class="navbar navbar-default navbar-fixed-top top-header">
 	<div class="container">
-		<h1>khaliqgant.com</h1>
+		<h1><a href="/">khaliqgant.com</a></h1>
+		<ul class="left-nav">
+			<li>
+				<a href="http://github.com/khaliqgant">
+					<img src="{{ url_for('static', filename='img/github.png') }}">
+				</a>
+			</li>
+			<li>
+				<a href="https://twitter.com/khaliqgant">
+					<img src="{{ url_for('static', filename='img/twitter.png') }}">
+				</a>
+			</li>
+			<li>
+				<a href="http://www.linkedin.com/in/khaliqgant">
+					<img src="{{ url_for('static', filename='img/linkedin.png') }}">
+				</a>
+			</li>
+		</ul>
 	</div>
 </nav>
-<header>
-	<h1>khaliqgant.com</h1>
-	<p>
-	Thanks for visiting. You can find me on the web here:
-	</p>
-	<ul>
-		<li><a href="http://github.com/khaliqgant" target="_blank">Github</a></li>
-		<li><a href="https://twitter.com/khaliqgant" target="_blank">Twitter</a></li>
-		<li><a href="http://www.linkedin.com/in/khaliqgant" target="_blank">LinkedIn</a></li>
-		<li><a href="http://blog.khaliqgant.com" target="_blank">Blog</a></li>
-	</ul>
-</header>

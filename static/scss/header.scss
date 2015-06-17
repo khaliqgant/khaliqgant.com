@@ -7,7 +7,36 @@ header {
     }
 }
 
-nav {
+nav.navbar.navbar-default.top-header {
     background-color: #478DD6;
+    color: white;
+    .container {
+        width:100%;
+    }
+    h1 {
+        font-size: 32px;
+        font-weight : lighter;
+        letter-spacing: 3.0px;
+        margin-top:10px;
+        float:left;
+        a {
+            color:white;
+            &:hover {
+                color:black;
+                text-decoration:none;
+            }
+        }
+    }
+    ul.left-nav {
+        float:right;
+        li {
+            display:inline-block;
+            padding: 0 6px;
+            margin-top:12px;
+            img {
+                width:40px;
+            }
+        }
+    }
 }
 
