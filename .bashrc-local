@@ -1,2 +1,1 @@
-alias init='tab ". venv/bin/activate && python __init__.py"'
-alias grunt='grunt --base build/ --gruntfile build/gruntfile.js $1'
+alias init='tab ". venv/bin/activate && python __init__.py" && tab "grunt watch"'
