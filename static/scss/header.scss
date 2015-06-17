@@ -20,6 +20,9 @@ nav.navbar.navbar-default.top-header {
         font-weight : lighter;
         letter-spacing: 3.0px;
         margin-top:10px;
+        @media only screen and (max-width: $mobile-breakpoint) {
+            font-size:24px;
+        }
         float:left;
         a {
             color:white;

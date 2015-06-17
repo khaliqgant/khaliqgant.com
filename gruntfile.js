@@ -117,7 +117,6 @@ module.exports = function(grunt) {
   });
 
   grunt.registerTask('styles', 'def', function(){
-    grunt.task.run('build');
     grunt.task.run('sass');
     grunt.task.run('cssmin');
   });
