@@ -22,6 +22,9 @@
 				Thanks for visiting! Check out my progress for this site on my
 				<a target="_blank" href="https://github.com/khaliqgant/khaliqgant">Github</a>
 			</h1>
+			{% for gh in gh_activities %}
+				{{ gh }}
+			{% endfor %}
 		</main>
 		{% include "footer.html" %}
 	</body>

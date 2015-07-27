@@ -12,3 +12,6 @@ venv
 # npm
 node_modules/
 npm-debug.log
+
+# python
+github_cache.sqlite
