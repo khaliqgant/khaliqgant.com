@@ -23,7 +23,10 @@
 				<a target="_blank" href="https://github.com/khaliqgant/khaliqgant">Github</a>
 			</h1>
 			{% for gh in gh_activities %}
-				{{ gh }}
+				{{ gh.created_at }}
+			{% endfor %}
+			{% for fs in fs_activities %}
+				{{ fs.createdAt }}
 			{% endfor %}
 		</main>
 		{% include "footer.html" %}
