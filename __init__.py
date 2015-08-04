@@ -51,6 +51,12 @@ def foursquare():
 
 def sort(github, foursquare):
     """ sort the activities by the created_at || createdAt date """
+    print type(github)
+    print type(foursquare)
+    # combine the lists
+    all = [g for f in zip(github, foursquare) for g in f]
+    # now sort the lists by created_at
+    print all
     return
 
 
