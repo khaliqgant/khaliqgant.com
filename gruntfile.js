@@ -85,19 +85,6 @@ module.exports = function(grunt) {
       styles: {
         files: [scss + '*.scss'],
         tasks: ['clean', 'sass','cssmin']
-      },
-      triggerLiveReloadOnTheseFiles: {
-          options: {
-              livereload: true
-          },
-          files: [
-              css + '/*.css',
-              js + '/*.js',
-          ],
-          tasks : [
-              'clean', 'sass', 'cssmin',
-              'coffee','concat','uglify'
-          ]
       }
     }
 
