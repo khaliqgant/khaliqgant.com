@@ -28,6 +28,10 @@
 			{% for fs in fs_activities %}
 				{{ fs.createdAt }}
 			{% endfor %}
+			{% for lf in lastfms %}
+				{{ lf.date.uts }}
+			{% endfor %}
+
 		</main>
 		{% include "footer.html" %}
 	</body>

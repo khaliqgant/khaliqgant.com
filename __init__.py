@@ -49,6 +49,20 @@ def foursquare():
     return foursquares['response']['checkins']['items']
 
 
+def lastFM():
+    """ retrieve lastFM activity """
+    username = 'khaliqgant'
+    api_key = configParser.get('lastfm', 'api_key')
+    url = "http://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user"\
+        "=%s&api_key=%s&format=json" % (username, api_key)
+    response = requests.get(url)
+    for attr, value in response.__dict__.iteritems():
+        print attr
+        print value
+    listens = json.loads(response._content)
+    return listens['recenttracks']['track']
+
+
 def sort(github, foursquare):
     """ sort the activities by the created_at || createdAt date """
     print type(github)
@@ -56,7 +70,7 @@ def sort(github, foursquare):
     # combine the lists
     all = [g for f in zip(github, foursquare) for g in f]
     # now sort the lists by created_at
-    print all
+    #print all
     return
 
 
@@ -64,10 +78,11 @@ def sort(github, foursquare):
 def index():
     gh_activities = github()
     fs_activities = foursquare()
+    lastfms = lastFM()
     activities = sort(gh_activities, fs_activities)
-    print activities
+    #print activities
     return render_template('layout.html', gh_activities=gh_activities,
-                           fs_activities=fs_activities)
+                           fs_activities=fs_activities, lastfms=lastfms)
 
 
 if __name__ == '__main__':
