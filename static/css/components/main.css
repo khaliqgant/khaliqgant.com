@@ -75,6 +75,7 @@ ul {
   .splash .bubbles a .text {
     top: 35px;
     position: relative;
+    font-size: 15px;
   }
   .splash .bubbles a .overlay {
     display: none;
