@@ -25,51 +25,89 @@ ul {
 .splash .me.circle {
   border-radius: 250px;
 }
-.splash .bubbles a {
-  display: block;
-  position: absolute;
-  color: white;
-  width: 100px;
-  height: 100px;
-  border-radius: 100px;
-  text-align: center;
-  overflow: hidden;
-}
-.splash .bubbles a .text {
-  top: 35px;
-  position: relative;
-}
-.splash .bubbles a .overlay {
+.splash .bubbles {
   display: none;
-  position: absolute;
-  opacity: .5;
-  width: 100%;
 }
-.splash .bubbles a:hover {
-  text-decoration: none;
-}
-.splash .bubbles a:hover .overlay {
-  display: block;
-}
-.splash .bubbles .facebook {
-  background-color: #B00000;
-  left: 182px;
-  top: 68px;
-}
-.splash .bubbles .tumblr {
-  background-color: #2B37FF;
-  left: 156px;
-  top: 225px;
-}
-.splash .bubbles .instagram {
-  background-color: #125688;
-  right: 287px;
-  top: 68px;
-}
-.splash .bubbles .soundcloud {
-  background-color: #FF6400;
-  right: 295px;
-  top: 267px;
+@media only screen and (min-width: 913px) {
+  .splash .bubbles {
+    display: block;
+    position: relative;
+  }
+  .splash .bubbles hr {
+    color: #478dd6;
+    position: absolute;
+    width: 250px;
+    border: 1px solid;
+    opacity: .7;
+  }
+  .splash .bubbles hr.facebook {
+    transform: rotate(27deg);
+    top: 62px;
+    left: 102px;
+  }
+  .splash .bubbles hr.tumblr {
+    transform: rotate(168deg);
+    width: 238px;
+    top: 160px;
+    left: 101px;
+  }
+  .splash .bubbles hr.instagram {
+    transform: rotate(335deg);
+    width: 225px;
+    top: 55px;
+    right: 200px;
+  }
+  .splash .bubbles hr.soundcloud {
+    transform: rotate(20deg);
+    width: 139px;
+    right: 273px;
+  }
+  .splash .bubbles a {
+    display: block;
+    position: absolute;
+    color: white;
+    width: 100px;
+    height: 100px;
+    border-radius: 100px;
+    text-align: center;
+    overflow: hidden;
+  }
+  .splash .bubbles a .text {
+    top: 35px;
+    position: relative;
+  }
+  .splash .bubbles a .overlay {
+    display: none;
+    position: absolute;
+    opacity: .5;
+    width: 100%;
+  }
+  .splash .bubbles a:hover {
+    text-decoration: none;
+  }
+  .splash .bubbles a:hover .overlay {
+    display: block;
+  }
+  .splash .bubbles .facebook {
+    background-color: #B00000;
+    top: -13px;
+    left: 60px;
+  }
+  .splash .bubbles .tumblr {
+    background-color: #2B37FF;
+    left: 35px;
+    top: 144px;
+  }
+  .splash .bubbles .instagram {
+    background-color: #125688;
+    right: 162px;
+    top: -13px;
+  }
+  .splash .bubbles .soundcloud {
+    background-color: #FF6400;
+    right: 190px;
+    top: 180px;
+  }
 }
 
 main {
@@ -83,4 +121,5 @@ main {
 main h1 {
   font-size: 24px;
   text-align: center;
+  padding-top: 25px;
 }
