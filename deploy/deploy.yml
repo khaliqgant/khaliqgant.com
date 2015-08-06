@@ -1,0 +1,11 @@
+---
+- name: Deploys the app site
+  hosts: app
+  sudo: no
+  vars:
+    site_name: app
+    git_branch: master
+    webroot: "{{ webroot_base }}/{{ site_name }}"
+
+  roles:
+    - app
