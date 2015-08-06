@@ -1,11 +1,11 @@
 ---
-- name: Deploys the app site
-  hosts: app
+- name: Deploys khaliqgant.com
+  hosts: khaliqgant
   sudo: no
   vars:
-    site_name: app
+    site_name: khaliqgant
     git_branch: master
     webroot: "{{ webroot_base }}/{{ site_name }}"
 
   roles:
-    - app
+    - khaliqgant
