@@ -1,0 +1,76 @@
+@import "settings";
+
+ul {
+    list-style-type: none;
+}
+
+.mobile {
+    display:none;
+}
+
+
+main {
+    padding-top:260px;
+    @media only screen and (max-width: $mobile-breakpoint) {
+        padding-top:100px;
+    }
+    h1 {
+        font-size:24px;
+        text-align:center;
+        padding-top: 25px;
+    }
+    ul.overview-bar {
+        display: none;
+        @media only screen and (min-width: $bubble-breakpoint) {
+            display:block;
+        }
+        background-color: black;
+        width: 865px;
+        height: 40px;
+        margin: 0 auto;
+        color: white;
+        li {
+            display: inline-block;
+            padding-right: 184px;
+            padding-left: 50px;
+            width: 10%;
+            padding-top:8px;
+            a {
+                color: white;
+                &:hover {
+                    color: antiquewhite;
+                    text-decoration:none;
+                }
+            }
+            &:first-child {
+                margin-left: -50px;
+            }
+            &:last-child {
+                padding-right: 0px;
+            }
+        }
+    }
+    .activities {
+        margin: 0 auto;
+        width: 100%;
+        margin-left: -25px;
+        padding-top: 20px;
+        display: inline-block;
+        padding-bottom: 50px;
+        .icon {
+            width: 75px;
+        }
+        .lastfm {
+            bottom: 5px;
+            .unknown-album {
+                width: 9%;
+            }
+            .live {
+                position: absolute;
+                width: 2%;
+                left: -84px;
+                top: 20px;
+            }
+        }
+    }
+}

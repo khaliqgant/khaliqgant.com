@@ -19,15 +19,11 @@
 		{% include "splash.html" %}
 		<main>
 			<ul class="overview-bar">
-				<li>Portfolio</li>
+				<li><a href="http://www.columbia.edu/~kjg2150/" target="_blank">Portfolio</a></li>
 				<li>Music</li>
 				<li>Writing</li>
 				<li>Projects</li>
 			</ul>
-			<h1>
-				Thanks for visiting! Check out my progress for this site on my
-				<a target="_blank" href="https://github.com/khaliqgant/khaliqgant">Github</a>
-			</h1>
 			<!--{% for gh in gh_activities %}-->
 				<!--{{ gh.created_at }}-->
 			<!--{% endfor %}-->
@@ -37,6 +33,33 @@
 			<!--{% for lf in lastfms %}-->
 				<!--{{ lf.date }}-->
 			<!--{% endfor %}-->
+			<ul class="activities cols-xs-12 .col-md-10">
+				{% for lf in lastfms %}
+					{% if lf["@attr"] %}
+					<li>
+						<img class="icon col-xs-6 .col-md-4" src="{{ url_for('static', filename='img/lastfm.png') }}">
+						<div class="info col-xs-8 .col-md-6 lastfm">
+							<img class="live" src="{{ url_for('static', filename='img/listening.png') }}">
+							<a href="{{ lf.url }}" target="_blank">
+							{% for img in lf.image %}
+								{% if img.size == "medium" %}
+									{% if img["#text"] != "" %}
+										<img class="album" src="{{ img['#text'] }}">
+									{% else %}
+										<img class="unknown-album" src="{{ url_for('static', filename='img/album.png') }}">
+									{% endif %}
+								{% endif %}
+							{% endfor %}
+							</a>
+							<span class="info" data-artist="{{ lf["artist"]["#text"] }}" data-track="{{ lf.name }}">{{ lf["artist"]["#text"] }} - {{ lf.name }}</span>
+							{% if lf.album["#text"] %}
+							<span class="album">from: {{ lf.album["#text"] }}</span>
+								{% endif %}
+						</div>
+					</li>
+					{% endif %}
+				{% endfor %}
+			</ul>
 
 		</main>
 		{% include "footer.html" %}

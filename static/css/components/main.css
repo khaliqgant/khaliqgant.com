@@ -1,0 +1,77 @@
+ul {
+  list-style-type: none;
+}
+
+.mobile {
+  display: none;
+}
+
+main {
+  padding-top: 260px;
+}
+@media only screen and (max-width: 485px) {
+  main {
+    padding-top: 100px;
+  }
+}
+main h1 {
+  font-size: 24px;
+  text-align: center;
+  padding-top: 25px;
+}
+main ul.overview-bar {
+  display: none;
+  background-color: black;
+  width: 865px;
+  height: 40px;
+  margin: 0 auto;
+  color: white;
+}
+@media only screen and (min-width: 913px) {
+  main ul.overview-bar {
+    display: block;
+  }
+}
+main ul.overview-bar li {
+  display: inline-block;
+  padding-right: 184px;
+  padding-left: 50px;
+  width: 10%;
+  padding-top: 8px;
+}
+main ul.overview-bar li a {
+  color: white;
+}
+main ul.overview-bar li a:hover {
+  color: antiquewhite;
+  text-decoration: none;
+}
+main ul.overview-bar li:first-child {
+  margin-left: -50px;
+}
+main ul.overview-bar li:last-child {
+  padding-right: 0px;
+}
+main .activities {
+  margin: 0 auto;
+  width: 100%;
+  margin-left: -25px;
+  padding-top: 20px;
+  display: inline-block;
+  padding-bottom: 50px;
+}
+main .activities .icon {
+  width: 75px;
+}
+main .activities .lastfm {
+  bottom: 5px;
+}
+main .activities .lastfm .unknown-album {
+  width: 9%;
+}
+main .activities .lastfm .live {
+  position: absolute;
+  width: 2%;
+  left: -84px;
+  top: 20px;
+}

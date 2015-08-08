@@ -103,3 +103,11 @@
     top: 180px;
   }
 }
+@media only screen and (min-width: 485px) {
+  .splash .bubbles {
+    /*display: block;*/
+  }
+  .splash .bubbles a {
+    display: inline-block;
+  }
+}

@@ -102,5 +102,13 @@
             }
         }
     } // end bubble breakpoint media query
-} // end bubbles selector
+    @media only screen and (min-width: $mobile-breakpoint) {
+        .bubbles {
+            /*display: block;*/
+            a {
+                display: inline-block;
+            }
+        }
+    }
+} // end splash selector
 
