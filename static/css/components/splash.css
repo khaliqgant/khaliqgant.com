@@ -1,15 +1,8 @@
-ul {
-  list-style-type: none;
-}
-
-.mobile {
-  display: none;
-}
-
 .splash {
   padding-top: 85px;
   margin: 0 auto;
   width: 900px;
+  height: 125px;
 }
 .splash .me {
   width: 250px;
@@ -109,18 +102,4 @@ ul {
     right: 190px;
     top: 180px;
   }
-}
-
-main {
-  padding-top: 260px;
-}
-@media only screen and (max-width: 485px) {
-  main {
-    padding-top: 100px;
-  }
-}
-main h1 {
-  font-size: 24px;
-  text-align: center;
-  padding-top: 25px;
 }

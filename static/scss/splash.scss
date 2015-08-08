@@ -1,17 +1,10 @@
 @import "settings";
 
-ul {
-    list-style-type: none;
-}
-
-.mobile {
-    display:none;
-}
-
 .splash {
     padding-top:85px;
     margin:0 auto;
     width:900px;
+    height: 125px;
     .me {
         @media only screen and (max-width: $mobile-breakpoint) {
             display:none;
@@ -111,14 +104,3 @@ ul {
     } // end bubble breakpoint media query
 } // end bubbles selector
 
-main {
-    padding-top:260px;
-    @media only screen and (max-width: $mobile-breakpoint) {
-        padding-top:100px;
-    }
-    h1 {
-        font-size:24px;
-        text-align:center;
-        padding-top: 25px;
-    }
-}
