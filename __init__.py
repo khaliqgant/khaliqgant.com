@@ -45,7 +45,7 @@ def github():
 
 def foursquare():
     """ retrieve foursquare (swarm) activity"""
-    token = configParser.get('config', 'foursquare')
+    token = configParser.get('foursquare', 'key')
     url = "https://api.foursquare.com/v2/users/self/checkins?oauth_token=%s&"\
         "v=20150727" % (token)
     response = requests.get(url)

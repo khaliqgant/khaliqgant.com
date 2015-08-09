@@ -14,9 +14,9 @@ node_modules/
 npm-debug.log
 
 # python
-github_cache.sqlite
 config.txt
 
-# test data
+# misc
 data
+auth
 
