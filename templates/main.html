@@ -1,0 +1,42 @@
+<main>
+	<ul class="overview-bar">
+		<li><a href="http://www.columbia.edu/~kjg2150/" target="_blank">Portfolio</a></li>
+		<li>Music</li>
+		<li>Writing</li>
+		<li>Projects</li>
+	</ul>
+
+	<div class="mobile title">
+		<h1>Activities</h1>
+	</div>
+
+	<ul class="activities cols-xs-12 .col-md-10">
+		{% for lf in lastfms %}
+			{% if lf["@attr"] %}
+			<li>
+				<img class="icon col-xs-6 .col-md-4" src="{{ url_for('static', filename='img/lastfm.png') }}">
+				<div class="info col-xs-8 .col-md-6 lastfm">
+					<img class="live" src="{{ url_for('static', filename='img/listening.png') }}">
+					<a class="album-container" href="{{ lf.url }}" target="_blank">
+					{% for img in lf.image %}
+						{% if img.size == "medium" %}
+							{% if img["#text"] != "" %}
+								<img class="album" src="{{ img['#text'] }}">
+							{% else %}
+								<img class="unknown-album" src="{{ url_for('static', filename='img/album.png') }}">
+							{% endif %}
+						{% endif %}
+					{% endfor %}
+					</a>
+					<div class="info">
+						<span class="track artist" data-artist="{{ lf["artist"]["#text"] }}" data-track="{{ lf.name }}">{{ lf["artist"]["#text"] }} - {{ lf.name }}</span>
+						{% if lf.album["#text"] %}
+							<span class="album"><br> {{ lf.album["#text"] }}</span>
+						{% endif %}
+					</div>
+				</div>
+			</li>
+			{% endif %}
+		{% endfor %}
+	</ul>
+</main>
