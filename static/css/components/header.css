@@ -21,7 +21,7 @@ nav.navbar.navbar-default.top-header h1 {
 }
 @media only screen and (max-width: 485px) {
   nav.navbar.navbar-default.top-header h1 {
-    font-size: 24px;
+    font-size: 20px;
   }
 }
 nav.navbar.navbar-default.top-header h1 a {
