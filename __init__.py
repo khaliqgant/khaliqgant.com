@@ -3,8 +3,12 @@ import requests_cache
 import json
 import calendar
 import ConfigParser
+import os
+
+pwd = os.environ['PWD']
+
 configParser = ConfigParser.RawConfigParser()
-configFilePath = r'config.txt'
+configFilePath = '%s/config.txt' % pwd
 configParser.read(configFilePath)
 
 from flask import Flask, render_template
@@ -13,7 +17,7 @@ app = Flask(__name__)
 
 # cache requests because rate limiting and like, sooo much traffic to my site
 requests_cache.install_cache(
-    'github_cache', backend='sqlite', expire_after=180
+    '%s/data/api' % pwd, backend='sqlite', expire_after=180
 )
 
 
@@ -56,17 +60,17 @@ def lastFM():
     url = "http://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user"\
         "=%s&api_key=%s&format=json" % (username, api_key)
     response = requests.get(url)
-    for attr, value in response.__dict__.iteritems():
-        print attr
-        print value
+    #for attr, value in response.__dict__.iteritems():
+        #print attr
+        #print value
     listens = json.loads(response._content)
     return listens['recenttracks']['track']
 
 
 def sort(github, foursquare):
     """ sort the activities by the created_at || createdAt date """
-    print type(github)
-    print type(foursquare)
+    #print type(github)
+    #print type(foursquare)
     # combine the lists
     all = [g for f in zip(github, foursquare) for g in f]
     # now sort the lists by created_at
