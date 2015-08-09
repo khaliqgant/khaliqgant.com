@@ -1,8 +1,10 @@
-.splash {
-  padding-top: 85px;
-  margin: 0 auto;
-  width: 900px;
-  height: 125px;
+@media only screen and (min-width: 485px) {
+  .splash {
+    padding-top: 85px;
+    margin: 0 auto;
+    width: 900px;
+    height: 125px;
+  }
 }
 .splash .me {
   width: 250px;

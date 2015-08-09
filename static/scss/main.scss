@@ -7,17 +7,33 @@ ul {
 .mobile {
     display:none;
 }
+@media only screen and (max-width: $mobile-breakpoint) {
+    .mobile {
+        display:block;
+    }
+}
 
 
 main {
     padding-top:260px;
     @media only screen and (max-width: $mobile-breakpoint) {
-        padding-top:100px;
+        padding-top:0px;
+    }
+    @media only screen and (min-width: $bubble-breakpoint) {
+        width: 980px;
+        margin: 0 auto;
     }
     h1 {
         font-size:24px;
         text-align:center;
         padding-top: 25px;
+    }
+    .title {
+        padding-left:10px;
+        padding-top: 40px;
+        h1 {
+            text-align: left;
+        }
     }
     ul.overview-bar {
         display: none;
@@ -53,9 +69,9 @@ main {
     .activities {
         margin: 0 auto;
         width: 100%;
-        margin-left: -25px;
         padding-top: 20px;
         display: inline-block;
+        position: relative;
         padding-bottom: 50px;
         .icon {
             width: 75px;
@@ -63,13 +79,22 @@ main {
         .lastfm {
             bottom: 5px;
             .unknown-album {
-                width: 9%;
+                width: 54px;
             }
             .live {
                 position: absolute;
-                width: 2%;
+                width: 13px;
                 left: -84px;
                 top: 20px;
+            }
+            .album-container {
+                display: inline-block;
+            }
+            .info {
+                display: inline-block;
+                padding-top: 6px;
+                left: 10px;
+                position: relative;
             }
         }
     }

@@ -1,10 +1,12 @@
 @import "settings";
 
 .splash {
-    padding-top:85px;
-    margin:0 auto;
-    width:900px;
-    height: 125px;
+    @media only screen and (min-width: $mobile-breakpoint) {
+        padding-top:85px;
+        margin:0 auto;
+        width:900px;
+        height: 125px;
+    }
     .me {
         @media only screen and (max-width: $mobile-breakpoint) {
             display:none;
