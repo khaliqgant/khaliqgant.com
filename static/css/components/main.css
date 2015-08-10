@@ -81,6 +81,11 @@ main .activities {
 main .activities .icon {
   width: 75px;
 }
+main .activities li {
+  clear: both;
+  padding-top: 20px;
+  display: block;
+}
 main .activities .lastfm {
   bottom: 5px;
 }

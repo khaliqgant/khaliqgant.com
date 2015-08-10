@@ -19,7 +19,7 @@ app = Flask(__name__)
 
 # cache requests because rate limiting and like, sooo much traffic to my site
 requests_cache.install_cache(
-    '%s/data/api' % pwd, backend='sqlite', expire_after=180
+    '%s/data/api' % pwd, backend='sqlite', expire_after=1800
 )
 
 
