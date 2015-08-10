@@ -38,7 +38,7 @@
 			</li>
 			{% endif %}
 
-			{% if activity.type == "lastfm" %}
+			{% if activity.type == "lastfm" and activity["@attr"] != 'True' %}
 			<li>
 				<img class="icon col-xs-6 .col-md-4" src="{{ url_for('static', filename='img/lastfm.png') }}">
 				<div class="info col-xs-8 .col-md-6 lastfm">
