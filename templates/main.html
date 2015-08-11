@@ -11,14 +11,13 @@
 	</div>
 
 	<ul class="activities cols-xs-12 .col-md-10">
-		{% for activity in activities %}
-			{% if activity["@attr"] %}
+		{% if nowPlaying %}
 			<li>
 				<img class="icon col-xs-6 .col-md-4" src="{{ url_for('static', filename='img/lastfm.png') }}">
 				<div class="info col-xs-8 .col-md-6 lastfm">
 					<img class="live" src="{{ url_for('static', filename='img/listening.png') }}">
-					<a class="album-container" href="{{ activity.url }}" target="_blank">
-					{% for img in activity.image %}
+					<a class="album-container" href="{{ nowPlaying.url }}" target="_blank">
+					{% for img in nowPlaying.image %}
 						{% if img.size == "medium" %}
 							{% if img["#text"] != "" %}
 								<img class="album" src="{{ img['#text'] }}">
@@ -29,16 +28,17 @@
 					{% endfor %}
 					</a>
 					<div class="info">
-						<span class="track artist" data-artist="{{ activity["artist"]["#text"] }}" data-track="{{ activity.name }}">{{ activity["artist"]["#text"] }} - {{ activity.name }}</span>
-						{% if activity.album["#text"] %}
-							<span class="album"><br> {{ activity.album["#text"] }}</span>
+						<span class="track artist" data-artist="{{ nowPlaying["artist"]["#text"] }}" data-track="{{ nowPlaying.name }}">{{ nowPlaying["artist"]["#text"] }} - {{ nowPlaying.name }}</span>
+						{% if nowPlaying.album["#text"] %}
+							<span class="album"><br> {{ nowPlaying.album["#text"] }}</span>
 						{% endif %}
 					</div>
 				</div>
 			</li>
-			{% endif %}
+		{% endif %}
 
-			{% if activity.type == "lastfm" and activity["@attr"] != 'True' %}
+		{% for activity in activities %}
+			{% if activity.type == "lastfm" and activity["@attr"] is not defined %}
 			<li>
 				<img class="icon col-xs-6 .col-md-4" src="{{ url_for('static', filename='img/lastfm.png') }}">
 				<div class="info col-xs-8 .col-md-6 lastfm">
@@ -62,18 +62,7 @@
 				</div>
 			</li>
 			{% endif %}
-			
-			{% if activity.type == "foursquare" %}
-				<li>
-					{{ activity.venue.name }}
-				</li>
-			{% endif %}
 
-			{% if activity.type == "github" %}
-				<li>
-					{{ activity.payload.action }}
-				</li>
-			{% endif %}
 		{% endfor %}
 
 

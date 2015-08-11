@@ -6,10 +6,11 @@ import os
 from operator import itemgetter
 from datetime import datetime
 import calendar
+import time
 
 from flask import Flask, render_template
 app = Flask(__name__)
-pwd = os.environ['PWD']
+pwd = os.path.dirname(os.path.abspath(__file__))
 
 
 # cache requests because rate limiting and like, sooo much traffic to my site
@@ -78,15 +79,18 @@ def lastFM():
     listens = json.loads(response._content)
     lastfms = listens['recenttracks']['track']
 
+    # in case there isn't anything playing right now, set empty list
+    nowPlaying = []
     # normalize timestamp
     for i, lf in enumerate(lastfms):
         lastfms[i]["type"] = "lastfm"
         if "date" in lf:
             lastfms[i]["timestamp"] = lf["date"]["uts"]
         else:
-            lastfms[i]["timestamp"] = "1439170466"
+            lastfms[i]["timestamp"] = calendar.timegm(time.gmtime())
+            nowPlaying = lastfms[i]
 
-    return lastfms
+    return [lastfms, nowPlaying]
 
 
 def sort(github, foursquare, lastfms):
@@ -106,11 +110,14 @@ def sort(github, foursquare, lastfms):
 def index():
     gh_activities = github()
     fs_activities = foursquare()
-    lastfms = lastFM()
+    songs = lastFM()
+    lastfms = songs[0]
+    nowPlaying = songs[1]
 
     activities = sort(gh_activities, fs_activities, lastfms)
 
-    return render_template('layout.html', activities=activities)
+    return render_template('layout.html', activities=activities,
+                           nowPlaying=nowPlaying)
 
 
 if __name__ == '__main__':
