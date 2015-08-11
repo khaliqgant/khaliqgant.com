@@ -8,7 +8,7 @@ My personal website
     ```
     sudo pip install virtualenv
     ```
-2. If just setting up the project run 
+2. If just setting up the project run
     ```
     virtualenv venv
     ```
@@ -24,3 +24,8 @@ My personal website
 ## Deployment
 * [Digital Ocean Tutorial](https://www.digitalocean.com/community/tutorials/how-to-deploy-a-flask-application-on-an-ubuntu-vps)
 
+
+## Feature Ideas
+* Dynamically created playlists from Spotify, lastfm, hypem apis
+* Hook in NYC things to do using Date Director code
+* Provide daily stats using movesapp, and fitbit
