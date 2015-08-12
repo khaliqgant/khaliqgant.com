@@ -27,5 +27,10 @@ My personal website
 
 ## Feature Ideas
 * Dynamically created playlists from Spotify, lastfm, hypem apis
+```
+Spotify API
+Create playlist: https://developer.spotify.com/web-api/create-playlist/
+Add Track to playlist: https://developer.spotify.com/web-api/add-tracks-to-playlist/
+```
 * Hook in NYC things to do using Date Director code
 * Provide daily stats using movesapp, and fitbit
