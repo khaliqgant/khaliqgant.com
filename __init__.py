@@ -3,7 +3,6 @@ import requests_cache
 import json
 import ConfigParser
 import os
-from operator import itemgetter
 from datetime import datetime
 import calendar
 import time
@@ -100,8 +99,9 @@ def sort(github, foursquare, lastfms):
     """
     # combine the lists
     activities = github + foursquare + lastfms
-    # sort the lists
-    all = sorted(activities, key=itemgetter('timestamp'), reverse=True)
+
+    # sort the lists and make sure timestamp is an int so sorts properly
+    all = sorted(activities, key=lambda t: int(t['timestamp']), reverse=True)
 
     return all
 
