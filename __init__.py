@@ -44,7 +44,7 @@ def github():
 
     # normalize timestamp
     for i, ac in enumerate(activities):
-        activities[i]["type"] = "github"
+        activities[i]["_type"] = "github"
         created = ac['created_at']
         timestamp = iso8601_to_epoch(created)
         activities[i]["timestamp"] = timestamp
@@ -63,7 +63,7 @@ def foursquare():
 
     # normalize timestamp
     for i, ch in enumerate(checkins):
-        checkins[i]["type"] = "foursquare"
+        checkins[i]["_type"] = "foursquare"
         checkins[i]["timestamp"] = ch["createdAt"]
 
     return checkins
@@ -83,7 +83,7 @@ def lastFM():
     nowPlaying = []
     # normalize timestamp
     for i, lf in enumerate(lastfms):
-        lastfms[i]["type"] = "lastfm"
+        lastfms[i]["_type"] = "lastfm"
         if "date" in lf:
             lastfms[i]["timestamp"] = lf["date"]["uts"]
         else:

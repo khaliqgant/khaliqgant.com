@@ -74,7 +74,8 @@ main {
         position: relative;
         padding-bottom: 50px;
         .icon {
-            width: 75px;
+            width: 65px;
+            padding-top: 7px;
         }
         li {
             clear: both;
@@ -100,6 +101,14 @@ main {
                 padding-top: 6px;
                 left: 10px;
                 position: relative;
+            }
+        }
+        .github {
+            .small {
+                width: 15px;
+            }
+            .commits {
+                clear:float;
             }
         }
     }

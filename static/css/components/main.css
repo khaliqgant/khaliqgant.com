@@ -79,7 +79,8 @@ main .activities {
   padding-bottom: 50px;
 }
 main .activities .icon {
-  width: 75px;
+  width: 65px;
+  padding-top: 7px;
 }
 main .activities li {
   clear: both;
@@ -106,4 +107,10 @@ main .activities .lastfm .info {
   padding-top: 6px;
   left: 10px;
   position: relative;
+}
+main .activities .github .small {
+  width: 15px;
+}
+main .activities .github .commits {
+  clear: float;
 }
