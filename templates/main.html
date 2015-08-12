@@ -70,15 +70,19 @@
 					<div class="info col-xs-8 .col-md-6 github">
 						<a href="{{ activity.actor.url|replace("api.","")|replace("users/","") }}" target="_blank">
 							{{ activity.actor.login }}
-						</a> 
-						pushed to {{ activity.payload.ref|replace("refs/heads/","") }} at 
+						</a>
+						pushed to {{ activity.payload.ref|replace("refs/heads/","") }} at
 						<a href="{{ activity.repo.url|replace("api.","")|replace("repos/","") }}" target="_blank">
 							{{ activity.repo.name }}
 						</a>
 						<div class="commits">
 							{% for commit in activity.payload.commits %}
 							<div class="individual">
-								<img class="small" src="{{ activity.actor.avatar_url }}"> 
+								{% if activity.org %}
+									<img class="small" src="{{ activity.org.avatar_url }}">
+								{% else %}
+									<img class="small" src="{{ activity.actor.avatar_url }}">
+								{% endif %}
 								<a href="{{ commit.url|replace("api.","")|replace("repos","") }}" target="_blank">{{ commit.sha|truncate(7, true,"") }}</a>
 								{{ commit.message }}
 							</div>
