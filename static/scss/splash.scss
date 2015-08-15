@@ -32,23 +32,31 @@
                 opacity: .7;
                 &.facebook {
                     transform: rotate(27deg);
+                    -ms-transform: rotate(27deg); /* IE 9 */
+                    -webkit-transform: rotate(27deg); /* Chrome, Safari, Opera */
                     top: 62px;
                     left: 102px;
                 }
                 &.tumblr {
                     transform: rotate(168deg);
+                    -ms-transform: rotate(168deg); /* IE 9 */
+                    -webkit-transform: rotate(168deg); /* Chrome, Safari, Opera */
                     width:238px;
                     top: 160px;
                     left: 101px;
                 }
                 &.instagram {
                     transform: rotate(335deg);
+                    -ms-transform: rotate(335deg); /* IE 9 */
+                    -webkit-transform: rotate(335deg); /* Chrome, Safari, Opera */
                     width:219px;
                     top: 71px;
                     right: 200px;
                 }
                 &.soundcloud {
                     transform: rotate(20deg);
+                    -ms-transform: rotate(20deg); /* IE 9 */
+                    -webkit-transform: rotate(20deg); /* Chrome, Safari, Opera */
                     width: 162px;
                     right: 252px;
                 }
