@@ -95,6 +95,28 @@
 				{% endif %}
 			{% endif %}
 
+			{% if activity._type == "foursquare" %}
+			<li>
+			<img class="icon icon--circle icon--left-small col-xs-6 .col-md-4" src="{{ url_for('static', filename='img/foursquare.png') }}">
+			<div class="info col-xs-8 .col-md-6 foursquare">
+				{% for cat in activity.venue.categories %}
+				<div class="left-icon bg-grey">
+					{% if loop.index == 1 %}
+					<img class="venue" src="{{ cat.icon.prefix }}64{{ cat.icon.suffix }}">
+					{% endif %}
+				</div>
+				{% endfor %}
+				{% if activity.isMayor %}
+					<img class="icon--reduced" src="{{ url_for('static', filename='img/mayor.png') }}">
+				{% endif %}
+
+				{{ activity.type|capitalize }} @ {{ activity.venue.name }}
+			</div>
+			<li>
+			{% endif %}
+
+
+
 		{% endfor %}
 
 

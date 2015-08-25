@@ -82,6 +82,17 @@ main .activities .icon {
   width: 65px;
   padding-top: 7px;
 }
+main .activities .icon--reduced {
+  width: 25px;
+}
+main .activities .icon--left-small {
+  width: 45px;
+  left: 10px;
+}
+main .activities .icon--circle {
+  padding: 0;
+  border-radius: 25px;
+}
 main .activities li {
   clear: both;
   padding-top: 20px;
@@ -118,4 +129,15 @@ main .activities .github .small {
 }
 main .activities .github .commits {
   clear: float;
+}
+main .activities .foursquare {
+  padding-left: 31px;
+}
+main .activities .foursquare .left-icon {
+  display: inline-block;
+  background-color: #C4C3BC;
+  border-radius: 25px;
+}
+main .activities .foursquare .venue {
+  width: 25px;
 }
