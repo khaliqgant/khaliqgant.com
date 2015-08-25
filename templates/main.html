@@ -58,6 +58,7 @@
 						{% if activity.album["#text"] %}
 							<span class="album"><br> {{ activity.album["#text"] }}</span>
 						{% endif %}
+						<span class="timestamp"> {{ activity.elapsed }}</span>
 					</div>
 				</div>
 			</li>
@@ -88,6 +89,7 @@
 							</div>
 							{% endfor %}
 						</div>
+						<span class="timestamp"> {{ activity.time_string }}</span>
 					</div>
 				</li>
 				{% endif %}

@@ -87,6 +87,11 @@ main .activities li {
   padding-top: 20px;
   display: block;
 }
+main .activities .timestamp {
+  position: relative;
+  color: grey;
+  font-size: 11px;
+}
 main .activities .lastfm {
   bottom: 5px;
 }

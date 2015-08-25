@@ -82,6 +82,12 @@ main {
             padding-top: 20px;
             display: block;
         }
+        .timestamp {
+            position: relative;
+            color: grey;
+            font-size: 11px;
+        }
+
         .lastfm {
             bottom: 5px;
             .unknown-album {

@@ -3,9 +3,10 @@ import requests_cache
 import json
 import ConfigParser
 import os
-from datetime import datetime
+from datetime import datetime, timedelta
 import calendar
 import time
+import humanize
 
 from flask import Flask, render_template
 app = Flask(__name__)
@@ -47,6 +48,8 @@ def github():
         created = ac['created_at']
         timestamp = iso8601_to_epoch(created)
         activities[i]["timestamp"] = timestamp
+        activities[i]["time_string"] = datetime.fromtimestamp(timestamp)\
+            .strftime('%A, %m/%d/%Y')
 
     return activities
 
@@ -85,6 +88,10 @@ def lastFM():
         lastfms[i]["_type"] = "lastfm"
         if "date" in lf:
             lastfms[i]["timestamp"] = lf["date"]["uts"]
+            now_stamp = calendar.timegm(time.gmtime())
+            elapsed = now_stamp - int(lf["date"]["uts"])
+            lastfms[i]["elapsed"] = humanize\
+                .naturaltime(timedelta(seconds=elapsed))
         else:
             lastfms[i]["timestamp"] = calendar.timegm(time.gmtime())
             nowPlaying = lastfms[i]
