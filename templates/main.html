@@ -110,7 +110,13 @@
 					<img class="icon--reduced" src="{{ url_for('static', filename='img/mayor.png') }}">
 				{% endif %}
 
-				{{ activity.type|capitalize }} @ {{ activity.venue.name }}
+				{{ activity.type|capitalize }} @
+				{% if activity.venue.url %}<a href="{{ activity.venue.url }}">{% endif %}
+					{{ activity.venue.name }}
+				{% if activity.venue.url %}</a>{% endif %}
+				{% if activity.shout %}
+					<br/>"{{ activity.shout }}"
+				{% endif %}
 			</div>
 			<li>
 			{% endif %}
