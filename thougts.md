@@ -30,9 +30,13 @@
 
 ## On Main page below the filter show an activity stream as first item  with logos for the activity
 Activity stream will include
-* Github activity
-* lastfm activity
-* foursquare? (could be creepy)
+* Github activity - done
+* lastfm activity - done
+* foursquare - done
 * instagram activity
 * twitter activity
 * tumblr posts
+
+## Next Steps
+* Leverage lastfm and Spotify api to add in Music page which will show more
+analytics and also custom programmatically generated playlists using Spotify
