@@ -1,11 +1,6 @@
-<main>
-	<ul class="overview-bar">
-		<li><a href="http://www.columbia.edu/~kjg2150/" target="_blank">Portfolio</a></li>
-		<li>Music</li>
-		<li>Writing</li>
-		<li>Projects</li>
-	</ul>
+{% extends "layout.html" %}
 
+{% block content %}
 	<div class="mobile title">
 		<h1>Activities</h1>
 	</div>
@@ -120,11 +115,6 @@
 			</div>
 			<li>
 			{% endif %}
-
-
-
 		{% endfor %}
-
-
 	</ul>
-</main>
+{% endblock %}

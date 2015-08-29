@@ -17,7 +17,16 @@
 	<body>
 		{% include "header.html" %}
 		{% include "splash.html" %}
-		{% include "main.html" %}
+		<main>
+			<ul class="overview-bar">
+				<li{% if request.endpoint == "index" %} class="active"{% endif %}><a href="/">Activities</a></li>
+				<li><a href="http://www.columbia.edu/~kjg2150/" target="_blank">Portfolio</a></li>
+				<li{% if request.endpoint == "music" %} class="active"{% endif %}><a href="">Music</a></li>
+				<li{% if request.endpoint == "writing" %} class="active"{% endif %}><a href="">Writing</a></li>
+				<li{% if request.endpoint == "projects" %} class="active"{% endif %}><a href="/projects">Projects</a></li>
+			</ul>
+			{% block content %}{% endblock %}
+		</main>
 		{% include "footer.html" %}
 	</body>
 

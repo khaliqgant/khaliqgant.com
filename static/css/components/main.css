@@ -52,10 +52,13 @@ main ul.overview-bar {
 }
 main ul.overview-bar li {
   display: inline-block;
-  padding-right: 184px;
+  padding-right: 125px;
   padding-left: 50px;
   width: 10%;
   padding-top: 8px;
+}
+main ul.overview-bar li.active a {
+  color: #478dd6;
 }
 main ul.overview-bar li a {
   color: white;

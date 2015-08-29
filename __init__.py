@@ -35,8 +35,13 @@ def index():
 
     activities = helper.sort(gh_activities, fs_activities, lastfms)
 
-    return render_template('layout.html', activities=activities,
+    return render_template('home.html', activities=activities,
                            nowPlaying=nowPlaying)
+
+
+@app.route('/projects')
+def projects():
+    return render_template('projects.html')
 
 
 if __name__ == '__main__':

@@ -47,10 +47,13 @@ main {
         color: white;
         li {
             display: inline-block;
-            padding-right: 184px;
+            padding-right: 125px;
             padding-left: 50px;
             width: 10%;
             padding-top:8px;
+            &.active a {
+                color: $blue;
+            }
             a {
                 color: white;
                 &:hover {
@@ -128,7 +131,7 @@ main {
                 clear:float;
             }
         }
-        
+
         .foursquare {
             padding-left: 31px;
             .left-icon {
