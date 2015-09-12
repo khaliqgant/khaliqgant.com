@@ -2,11 +2,11 @@ import requests_cache
 import ConfigParser
 import os
 
-from flask import Flask, render_template
+from flask import Flask, request, render_template
 app = Flask(__name__)
 
 # import custom apis
-from apis import helper, github, foursquare, lastfm
+from apis import helper, github, foursquare, lastfm, citibike
 
 pwd = os.path.dirname(os.path.abspath(__file__))
 
@@ -37,6 +37,21 @@ def index():
 
     return render_template('home.html', activities=activities,
                            nowPlaying=nowPlaying)
+
+@app.route('/citi')
+def citi():
+    home_east = configParser.get('citibike','home_east')
+    home_west = configParser.get('citibike', 'home_west')
+    school_return = configParser.get('citibike', 'school_return')
+
+    citi_info = citibike.retrieve(home_east, home_west, school_return)
+    # see if specific location is specified
+    specific = request.args.get('loc')
+    if specific == "school":
+        school = citi_info['school_return']
+        citi_info = {}
+        citi_info['school_return'] = school
+    return render_template('bike.html', citi=citi_info)
 
 
 @app.route('/projects')
