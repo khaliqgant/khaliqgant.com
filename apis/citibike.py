@@ -3,7 +3,7 @@ import requests_cache
 import json
 
 
-def retrieve(home_east, home_west, school_return):
+def retrieve(home_east, home_west, school_return, work):
     """ retrieve citi bike info"""
     url = "http://api.citybik.es/citi-bike-nyc.json"
     # don't cache citi bike b/c need up to date info!
@@ -19,5 +19,7 @@ def retrieve(home_east, home_west, school_return):
                 stats['home_west'] = str(bike['bikes'])
             if bike['number'] == int(school_return):
                 stats['school_return'] = str(bike['bikes'])
+            if bike['number'] == int(work):
+                stats['work'] = str(bike['bikes'])
 
     return stats

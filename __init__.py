@@ -38,13 +38,15 @@ def index():
     return render_template('home.html', activities=activities,
                            nowPlaying=nowPlaying)
 
+
 @app.route('/citi')
 def citi():
-    home_east = configParser.get('citibike','home_east')
+    home_east = configParser.get('citibike', 'home_east')
     home_west = configParser.get('citibike', 'home_west')
     school_return = configParser.get('citibike', 'school_return')
+    work = configParser.get('citibike', 'work')
 
-    citi_info = citibike.retrieve(home_east, home_west, school_return)
+    citi_info = citibike.retrieve(home_east, home_west, school_return, work)
     # see if specific location is specified
     specific = request.args.get('loc')
     if specific == "school":
