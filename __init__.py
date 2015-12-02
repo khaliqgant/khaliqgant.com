@@ -49,6 +49,11 @@ def citi():
     citi_info = citibike.retrieve(home_east, home_west, school_return, work)
     # see if specific location is specified
     specific = request.args.get('loc')
+    echo = request.args.get('echo')
+    if (echo):
+        #format response correctly
+        print 'yo'
+
     if specific == "school":
         school = citi_info['school_return']
         citi_info = {}
