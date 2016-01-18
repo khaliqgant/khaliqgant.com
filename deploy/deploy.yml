@@ -2,10 +2,9 @@
 - name: Deploys khaliqgant.com
   hosts: khaliqgant
   sudo: no
-  vars:
-    site_name: khaliqgant
-    git_branch: master
-    webroot: "{{ webroot_base }}/{{ site_name }}"
 
   roles:
     - khaliqgant
+
+  handlers:
+    - include: handlers/handlers.yml
