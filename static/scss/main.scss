@@ -28,11 +28,24 @@ main {
         text-align:center;
         padding-top: 25px;
     }
+    h2 {
+        font-size: 18px;
+    }
     .title {
-        padding-left:10px;
-        padding-top: 40px;
+        padding-left:37px;
         h1 {
             text-align: left;
+        }
+    }
+    .no-link-color {
+        color: black;
+        &:hover {
+            text-decoration:none;
+        }
+    }
+    .no-hover-color {
+        &:hover {
+            text-decoration:none;
         }
     }
     ul.overview-bar {
@@ -69,6 +82,13 @@ main {
             }
         }
     }
+
+    .technologies {
+        img {
+            padding-right: 10px;
+        }
+    }
+
     .activities {
         margin: 0 auto;
         width: 100%;

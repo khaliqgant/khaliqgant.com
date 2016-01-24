@@ -30,12 +30,23 @@ main h1 {
   text-align: center;
   padding-top: 25px;
 }
+main h2 {
+  font-size: 18px;
+}
 main .title {
-  padding-left: 10px;
-  padding-top: 40px;
+  padding-left: 37px;
 }
 main .title h1 {
   text-align: left;
+}
+main .no-link-color {
+  color: black;
+}
+main .no-link-color:hover {
+  text-decoration: none;
+}
+main .no-hover-color:hover {
+  text-decoration: none;
 }
 main ul.overview-bar {
   display: none;
@@ -72,6 +83,9 @@ main ul.overview-bar li:first-child {
 }
 main ul.overview-bar li:last-child {
   padding-right: 0px;
+}
+main .technologies img {
+  padding-right: 10px;
 }
 main .activities {
   margin: 0 auto;
