@@ -1,3 +1,3 @@
 alias init='tab ". venv/bin/activate && python __init__.py" && tab "grunt watch"'
-alias deploy='(cd deploy && ansible-playbook deploy.yml --ask-pass)'
+alias deploy='(cd deploy && ansible-playbook deploy.yml)'
 alias sync:config='sshpass -f auth/.pass rsync config.txt khaliqgant:/home/kjg/khaliqgant/config.txt -v'
