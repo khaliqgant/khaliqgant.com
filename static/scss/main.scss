@@ -30,6 +30,9 @@ main {
     }
     h2 {
         font-size: 18px;
+        &.projects {
+            margin-bottom:5px;
+        }
     }
     .title {
         padding-left:37px;
@@ -42,6 +45,10 @@ main {
         &:hover {
             text-decoration:none;
         }
+    }
+
+    .complete {
+        text-decoration: line-through;
     }
     .no-hover-color {
         &:hover {

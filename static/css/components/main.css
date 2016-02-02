@@ -33,6 +33,9 @@ main h1 {
 main h2 {
   font-size: 18px;
 }
+main h2.projects {
+  margin-bottom: 5px;
+}
 main .title {
   padding-left: 37px;
 }
@@ -44,6 +47,9 @@ main .no-link-color {
 }
 main .no-link-color:hover {
   text-decoration: none;
+}
+main .complete {
+  text-decoration: line-through;
 }
 main .no-hover-color:hover {
   text-decoration: none;
