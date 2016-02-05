@@ -1,8 +1,9 @@
 import requests_cache
 import ConfigParser
 import os
+from functools import wraps
 
-from flask import Flask, request, render_template
+from flask import Flask, request, render_template, Response
 app = Flask(__name__)
 
 # import custom apis
@@ -59,6 +60,36 @@ def citi():
 @app.route('/projects')
 def projects():
     return render_template('projects.html')
+
+
+def check_auth(username, password):
+    uname = configParser.get('auth', 'user')
+    passw = configParser.get('auth', 'pass')
+    return username == uname and password == passw
+
+
+def fail():
+    return Response(
+        'Could not verify your access level for that URL.\n'
+        'You have to login with proper credentials', 401,
+        {'WWW-Authenticate': 'Basic realm="Login Required"'}
+    )
+
+
+def requires_auth(f):
+    @wraps(f)
+    def decorated(*args, **kwargs):
+        auth = request.authorization
+        if not auth or not check_auth(auth.username, auth.password):
+            return fail()
+        return f(*args, **kwargs)
+    return decorated
+
+
+@app.route('/api')
+@requires_auth
+def api():
+    return render_template('api.html')
 
 
 if __name__ == '__main__':
