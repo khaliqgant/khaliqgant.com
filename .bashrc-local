@@ -1,3 +1,9 @@
 alias init='tab ". venv/bin/activate && python __init__.py" && tab "grunt watch"'
 alias deploy='(cd deploy && ansible-playbook deploy.yml)'
 alias sync:config='rsync config.txt khaliqgant:/home/kjg/khaliqgant/config.txt -v'
+
+dropbox_data=~/Dropbox\ \(Personal\)/KJG/Personal/Data
+
+sync:life() {
+    cp $dropbox_data/life.json data
+}
