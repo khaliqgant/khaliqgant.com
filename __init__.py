@@ -34,7 +34,7 @@ def index():
     lastfms = songs[0]
     nowPlaying = songs[1]
 
-    activities = helper.sort(gh_activities, fs_activities, lastfms)
+    activities = helper.sort(gh_activities, fs_activities['data'], lastfms)
 
     return render_template('home.html', activities=activities,
                            nowPlaying=nowPlaying)
