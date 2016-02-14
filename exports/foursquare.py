@@ -11,7 +11,6 @@ sys.path.insert(0, os.path.normpath(os.path.join(pwd, '../apis')))
 import foursquare
 
 
-
 def init():
     global parser, token, path, root
     parser = argparse.ArgumentParser()
