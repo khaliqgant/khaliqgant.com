@@ -36,6 +36,9 @@ main {
     }
     .title {
         padding-left:37px;
+        &.mobile {
+            padding-top: 25px;
+        }
         h1 {
             text-align: left;
         }

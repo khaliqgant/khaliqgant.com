@@ -39,6 +39,9 @@ main h2.projects {
 main .title {
   padding-left: 37px;
 }
+main .title.mobile {
+  padding-top: 25px;
+}
 main .title h1 {
   text-align: left;
 }
