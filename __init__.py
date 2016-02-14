@@ -12,6 +12,7 @@ from apis import helper, github, foursquare, lastfm, citibike
 pwd = os.path.dirname(os.path.abspath(__file__))
 
 # cache requests because rate limiting and like, sooo much traffic to my site
+# documentation: http://requests-cache.readthedocs.org/en/latest/api.html
 requests_cache.install_cache(
     '%s/data/api' % pwd, backend='sqlite', expire_after=1800
 )
@@ -24,6 +25,11 @@ configParser.read(configFilePath)
 
 @app.route('/')
 def index():
+    return render_template('home.html')
+
+
+@app.route('/activities')
+def activities():
     # get tokens from config
     token = configParser.get('foursquare', 'key')
     api_key = configParser.get('lastfm', 'api_key')
@@ -36,7 +42,7 @@ def index():
 
     activities = helper.sort(gh_activities, fs_activities['data'], lastfms)
 
-    return render_template('home.html', activities=activities,
+    return render_template('activities.html', activities=activities,
                            nowPlaying=nowPlaying)
 
 
