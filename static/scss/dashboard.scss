@@ -1,0 +1,11 @@
+@import "settings";
+
+.dashboard {
+    .info {
+        padding-top: 10px;
+        &.foursquare {
+            padding-left: 18px;
+        }
+    }
+}
+
