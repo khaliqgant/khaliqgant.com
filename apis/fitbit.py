@@ -4,6 +4,10 @@ import requests
 from libraries import fitbit
 import json
 
+"""
+    Fitbit API
+    Docs: https://dev.fitbit.com/docs/
+"""
 
 def authenticate():
     global headers
