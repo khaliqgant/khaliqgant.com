@@ -5,6 +5,35 @@
 		<h1>Dashboard</h1>
 	</div>
 
-	<ul class="activities cols-xs-12 .col-md-10">
+	<ul class="dashboard cols-xs-12 .col-md-10">
+		<li>
+		<h2>
+			<span class="col-xs-6 .col-md-4">
+				Sunday, February 14 2016
+			</span>
+		</h2>
+		</li>
+		<li>
+			<img class="icon col-xs-6 .col-md-4" src="{{ url_for('static', filename='img/github.png') }}">
+			<div class="info">
+				Number of Commits: 15
+			</div>
+		</li>
+
+		<li>
+			<img class="icon col-xs-6 .col-md-4" src="{{ url_for('static', filename='img/lastfm.png') }}">
+			<div class="info">
+				Songs Listened to: 40
+			</div>
+		</li>
+
+		<li>
+			<img class="icon icon--circle icon--left-small col-xs-6 .col-md-4" src="{{ url_for('static', filename='img/foursquare.png') }}">
+			<div class="info col-xs-8 .col-md-6 foursquare">
+				Checkins: 3
+			</div>
+		</li>
+
+
 	</ul>
 {% endblock %}
