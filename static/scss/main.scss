@@ -35,7 +35,7 @@ main {
         }
     }
     .title {
-        padding-left:37px;
+        padding-left:52px;
         &.mobile {
             padding-top: 25px;
         }
@@ -58,6 +58,12 @@ main {
             text-decoration:none;
         }
     }
+
+    .intro-blurb {
+        font-size: 14px;
+        padding-left: 18px;
+    }
+
     ul.overview-bar {
         display: none;
         @media only screen and (min-width: $bubble-breakpoint) {
@@ -99,6 +105,19 @@ main {
         }
     }
 
+    .activities {
+        .api-integrations {
+            .icon {
+                cursor: pointer;
+            }
+            .icon--circle {
+                width: 35px;
+                padding-top: 7px;
+                border-radius: 10px;
+            }
+        }
+    }
+
     .activities, .dashboard {
         margin: 0 auto;
         width: 100%;
@@ -106,6 +125,10 @@ main {
         display: inline-block;
         position: relative;
         padding-bottom: 50px;
+        &.activities--intro {
+            padding-bottom: 20px;
+        }
+
         .icon {
             width: 65px;
             padding-top: 7px;

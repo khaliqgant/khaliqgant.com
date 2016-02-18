@@ -37,7 +37,7 @@ main h2.projects {
   margin-bottom: 5px;
 }
 main .title {
-  padding-left: 37px;
+  padding-left: 52px;
 }
 main .title.mobile {
   padding-top: 25px;
@@ -56,6 +56,10 @@ main .complete {
 }
 main .no-hover-color:hover {
   text-decoration: none;
+}
+main .intro-blurb {
+  font-size: 14px;
+  padding-left: 18px;
 }
 main ul.overview-bar {
   display: none;
@@ -96,6 +100,14 @@ main ul.overview-bar li:last-child {
 main .technologies img {
   padding-right: 10px;
 }
+main .activities .api-integrations .icon {
+  cursor: pointer;
+}
+main .activities .api-integrations .icon--circle {
+  width: 35px;
+  padding-top: 7px;
+  border-radius: 10px;
+}
 main .activities, main .dashboard {
   margin: 0 auto;
   width: 100%;
@@ -103,6 +115,9 @@ main .activities, main .dashboard {
   display: inline-block;
   position: relative;
   padding-bottom: 50px;
+}
+main .activities.activities--intro, main .dashboard.activities--intro {
+  padding-bottom: 20px;
 }
 main .activities .icon, main .dashboard .icon {
   width: 65px;
