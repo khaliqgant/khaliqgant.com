@@ -9,14 +9,14 @@
 		<li>
 		<h2>
 			<span class="col-xs-6 .col-md-4">
-				Sunday, February 14 2016
+				{{ today }}
 			</span>
 		</h2>
 		</li>
 		<li>
 			<img class="icon col-xs-6 .col-md-4" src="{{ url_for('static', filename='img/github.png') }}">
 			<div class="info">
-				Number of Commits: 15
+				Number of Github Public Activities: {{ commits }}
 			</div>
 		</li>
 

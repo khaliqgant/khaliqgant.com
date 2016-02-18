@@ -6,12 +6,9 @@ import helper
 
 def retrieve():
     """ retrieve github activity"""
-    username = 'khaliqgant'
-    url = "https://api.github.com/users/%s/events" % (username)
-    response = requests.get(url)
 
     # turn the response string into a json object
-    activities = json.loads(response._content)
+    activities = get()
 
     # normalize timestamp
     for i, ac in enumerate(activities):
@@ -21,5 +18,28 @@ def retrieve():
         activities[i]["timestamp"] = timestamp
         activities[i]["time_string"] = datetime.fromtimestamp(timestamp)\
             .strftime('%A, %m/%d/%Y')
+
+    return activities
+
+
+def todaysCount():
+    activities = get()
+    count = 0
+    for i, ac in enumerate(activities):
+        created = ac['created_at']
+        timestamp = helper.iso8601_to_epoch(created)
+        if (datetime.fromtimestamp(timestamp).date() ==
+                datetime.today().date()):
+
+                count += 1
+
+    return count
+
+
+def get():
+    username = 'khaliqgant'
+    url = "https://api.github.com/users/%s/events" % (username)
+    response = requests.get(url)
+    activities = json.loads(response._content)
 
     return activities
