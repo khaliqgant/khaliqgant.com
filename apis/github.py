@@ -31,7 +31,10 @@ def todaysCount():
         if (datetime.fromtimestamp(timestamp).date() ==
                 datetime.today().date()):
 
-                count += 1
+                if (ac['type'] == 'PushEvent'):
+                    count += len(ac['payload']['commits'])
+                else:
+                    count += 1
 
     return count
 
