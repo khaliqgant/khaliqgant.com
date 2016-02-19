@@ -20,10 +20,10 @@ nav.navbar.navbar-default.top-header {
         font-weight : lighter;
         letter-spacing: 3.0px;
         margin-top:10px;
+        display: inline-block;
         @media only screen and (max-width: $mobile-breakpoint) {
             font-size:20px;
         }
-        float:left;
         a {
             color:white;
             &:hover {
@@ -66,5 +66,39 @@ nav.navbar.navbar-default.top-header {
     }
 }
 
+.nav-toggle{
+  position: relative;
+  display: inline-block;
+  width: 45px;
+  height: 25px;
+  float: left;
+  top: 10px;
+}
 
+.nav-toggle:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.25em;
+  width: 1em;
+  height: 0.15em;
+  background: lightblue;
+  box-shadow: 
+    0 0.25em 0 0 lightblue,
+    0 0.5em 0 0 lightblue;
+}
 
+.container {
+    .nav-collapse.mobile-nav {
+        top: 8px;
+        left: -25px;
+        display: none;
+        margin-bottom: 0;
+        li a {
+            color: white;
+        }
+        @media only screen and (max-width: $header-breakpoint) {
+            display:block;
+        }
+    }
+}

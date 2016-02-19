@@ -1,6 +1,13 @@
 <nav class="navbar navbar-default navbar-fixed-top top-header">
 	<div class="container">
-		<h1><a href="/">khaliqgant.com</a></h1>
+		<ul class="js-mobile-nav mobile-nav">
+			<li{% if request.endpoint == "activities" %} class="active"{% endif %}><a href="/activities">Activities</a></li>
+			<li><a href="http://www.columbia.edu/~kjg2150/" target="_blank">Portfolio</a></li>
+			<li{% if request.endpoint == "music" %} class="active"{% endif %}><a href="">Music</a></li>
+			<li{% if request.endpoint == "writing" %} class="active"{% endif %}><a href="">Writing</a></li>
+			<li{% if request.endpoint == "projects" %} class="active"{% endif %}><a href="/projects">Projects</a></li>
+		</ul>
+		<h1 id="js-head"><a href="/">khaliqgant.com</a></h1>
 		<ul class="left-nav">
 			<li>
 				<a target="_blank" href="http://github.com/khaliqgant">
