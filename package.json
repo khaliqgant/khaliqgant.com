@@ -17,6 +17,7 @@
     "npm-css": "^0.2.3"
   },
   "dependencies": {
-    "bootstrap": "^3.3.5"
+    "bootstrap": "^3.3.5",
+    "responsive-nav": "^1.0.39"
   }
 }
