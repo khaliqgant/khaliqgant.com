@@ -8,3 +8,7 @@
     accept_hostkey=yes
   notify: restart apache
 
+- name: Npm install
+  command: npm install
+  args:
+    chdir: "{{ web_root }}"
