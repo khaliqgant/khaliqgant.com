@@ -1,6 +1,7 @@
 import requests_cache
 import ConfigParser
 import os
+import datetime
 from functools import wraps
 
 from flask import Flask, request, render_template, Response
@@ -25,7 +26,15 @@ configParser.read(configFilePath)
 
 @app.route('/')
 def index():
-    return render_template('home.html')
+    token = configParser.get('foursquare', 'key')
+    api_key = configParser.get('lastfm', 'api_key')
+    today = datetime.datetime.now().strftime("%A, %B %d %Y")
+    commits = github.todaysCount()
+    songs = lastfm.todaysCount(api_key)
+    checkins = foursquare.todaysCount(token)
+
+    return render_template('home.html', today=today, commits=commits,
+                           songs=songs, checkins=checkins)
 
 
 @app.route('/activities')

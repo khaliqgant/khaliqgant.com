@@ -7,32 +7,36 @@
 
 	<ul class="dashboard cols-xs-12 .col-md-10">
 		<li>
-		<h2>
-			<span class="col-xs-6 .col-md-4">
-				{{ today }}
-			</span>
-		</h2>
+			<h2>
+				<span class="col-xs-6 .col-md-4">
+					{{ today }}
+				</span>
+			</h2>
 		</li>
+		{% if commits != 0 %}
 		<li>
 			<img class="icon col-xs-6 .col-md-4" src="{{ url_for('static', filename='img/github.png') }}">
 			<div class="info">
 				Number of Github Public Activities: {{ commits }}
 			</div>
 		</li>
+		{% endif %}
 
 		<li>
 			<img class="icon col-xs-6 .col-md-4" src="{{ url_for('static', filename='img/lastfm.png') }}">
 			<div class="info">
-				Songs Listened to: 40
+				Songs Listened to: {{ songs }}
 			</div>
 		</li>
 
+		{% if checkins != 0 %}
 		<li>
 			<img class="icon icon--circle icon--left-small col-xs-6 .col-md-4" src="{{ url_for('static', filename='img/foursquare.png') }}">
 			<div class="info col-xs-8 .col-md-6 foursquare">
-				Checkins: 3
+				Checkins: {{ checkins }}
 			</div>
 		</li>
+		{% endif %}
 
 
 	</ul>

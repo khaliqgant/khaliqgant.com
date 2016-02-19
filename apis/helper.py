@@ -1,5 +1,8 @@
 import calendar
+import helper
 from datetime import datetime
+import time as tm
+from datetime import datetime, date, time
 
 
 def iso8601_to_epoch(datestring):
@@ -24,3 +27,10 @@ def sort(github, foursquare, lastfms):
     all = sorted(activities, key=lambda t: int(t['timestamp']), reverse=True)
 
     return all
+
+def epoch_start():
+    start = datetime.combine(date.today(), time())
+    pattern = '%Y-%m-%d %H:%M:%S'
+    epoch = int(tm.mktime(tm.strptime(str(start), pattern)))
+
+    return epoch
