@@ -2,6 +2,7 @@ import requests_cache
 import ConfigParser
 import os
 import datetime
+import argparse
 from functools import wraps
 
 from flask import Flask, request, render_template, Response
@@ -22,6 +23,7 @@ requests_cache.install_cache(
 configParser = ConfigParser.RawConfigParser()
 configFilePath = '%s/config.txt' % pwd
 configParser.read(configFilePath)
+run_health = True
 
 
 @app.route('/')
@@ -32,8 +34,9 @@ def index():
     commits = github.todaysCount()
     songs = lastfm.todaysCount(api_key)
     checkins = foursquare.todaysCount(token)
-    health_stats = fitbit.todaysStats()
-    print(health_stats)
+    health_stats = {}
+    if run_health:
+        health_stats = fitbit.todaysStats()
 
     return render_template('home.html', today=today, commits=commits,
                            songs=songs, checkins=checkins,
@@ -111,5 +114,12 @@ def api():
 
 
 if __name__ == '__main__':
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--fitbit')
+    args = parser.parse_args()
+
+    if (args.fitbit == 'false'):
+        run_health = False
+
     app.run(debug=True)
     app.run()

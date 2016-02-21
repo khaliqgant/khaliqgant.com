@@ -31,7 +31,6 @@ def get(token, append=False):
         "v=20150727" % (token)
     if (append):
         url += append
-    print(url)
     response = requests.get(url)
     foursquares = json.loads(response._content)
 

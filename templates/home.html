@@ -38,6 +38,7 @@
 		</li>
 		{% endif %}
 
+		{% if health_stats %}
 		<li>
 			<img class="icon col-xs-6 .col-md-4" src="{{ url_for('static', filename='img/fitbit.png') }}">
 			<div class="info">
@@ -45,8 +46,7 @@
 				Calories: {{ health_stats.calories }}
 			</div>
 		</li>
-		
-
+		{% endif %}
 
 	</ul>
 {% endblock %}
