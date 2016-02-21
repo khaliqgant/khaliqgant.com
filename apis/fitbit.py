@@ -1,6 +1,7 @@
 import ConfigParser
 import os
 import requests
+from datetime import datetime, date
 from libraries import fitbit
 import json
 
@@ -38,6 +39,30 @@ def profile():
     url = 'https://api.fitbit.com/1/user/-/profile.json'
     response = requests.get(url, headers=headers)
     data = json.loads(response._content)
+
+
+def stats(date):
+    authenticate()
+    all_stats = {}
+    url = 'https://api.fitbit.com/1/user/-/activities/steps/date/%s/1d.json' \
+        % date
+    response = requests.get(url, headers=headers)
+    steps = json.loads(response._content)
+    print(steps)
+    all_stats['steps'] = '{:,}'.format(int(steps['activities-steps'][0]['value']))
+    url = 'https://api.fitbit.com/1/user/-/activities/calories/date/%s/1d.json' \
+        % date
+    response = requests.get(url, headers=headers)
+    calories = json.loads(response._content)
+    all_stats['calories'] = '{:,}'.format(int(calories['activities-calories'][0]['value']))
+
+    return all_stats
+
+
+def todaysStats():
+    todays = stats('today')
+
+    return todays
 
 
 if __name__ == '__main__':

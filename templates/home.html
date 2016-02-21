@@ -38,6 +38,15 @@
 		</li>
 		{% endif %}
 
+		<li>
+			<img class="icon col-xs-6 .col-md-4" src="{{ url_for('static', filename='img/fitbit.png') }}">
+			<div class="info">
+				Steps: {{ health_stats.steps }},
+				Calories: {{ health_stats.calories }}
+			</div>
+		</li>
+		
+
 
 	</ul>
 {% endblock %}

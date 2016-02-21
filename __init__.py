@@ -8,7 +8,7 @@ from flask import Flask, request, render_template, Response
 app = Flask(__name__)
 
 # import custom apis
-from apis import helper, github, foursquare, lastfm, citibike
+from apis import helper, github, foursquare, lastfm, citibike, fitbit
 
 pwd = os.path.dirname(os.path.abspath(__file__))
 
@@ -32,9 +32,12 @@ def index():
     commits = github.todaysCount()
     songs = lastfm.todaysCount(api_key)
     checkins = foursquare.todaysCount(token)
+    health_stats = fitbit.todaysStats()
+    print(health_stats)
 
     return render_template('home.html', today=today, commits=commits,
-                           songs=songs, checkins=checkins)
+                           songs=songs, checkins=checkins,
+                           health_stats=health_stats)
 
 
 @app.route('/activities')
