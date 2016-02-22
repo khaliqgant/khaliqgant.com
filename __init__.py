@@ -18,6 +18,7 @@ pwd = os.path.dirname(os.path.abspath(__file__))
 requests_cache.install_cache(
     '%s/data/api' % pwd, backend='sqlite', expire_after=1800
 )
+#requests_cache.core.clear()
 
 # set config for api info
 configParser = ConfigParser.RawConfigParser()

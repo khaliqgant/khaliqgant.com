@@ -1,7 +1,6 @@
 import ConfigParser
 import os
 import requests
-from datetime import datetime, date
 from libraries import fitbit
 import json
 
@@ -10,8 +9,13 @@ import json
     Docs: https://dev.fitbit.com/docs/
 """
 
+
+"""
+    Authenticate
+    Grab older tokens and try and refresh and set a global headers varaible
+"""
 def authenticate():
-    global headers
+    global headers, authenticated
     root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 
     configParser = ConfigParser.RawConfigParser()
@@ -23,38 +27,83 @@ def authenticate():
     old_token['refresh_token'] = configParser.get('fitbit', 'refresh_token')
 
     fit = fitbit.Fitbit()
-    creds = fit.RefAccessToken(old_token);
+    try:
+        creds = fit.RefAccessToken(old_token)
 
-    # write in the new creds
-    configParser.set('fitbit', 'access_token', creds['access_token'])
-    configParser.set('fitbit', 'refresh_token', creds['refresh_token'])
-    with open(configFilePath, 'wb') as configFile:
-        configParser.write(configFile)
+        # write in the new creds
+        configParser.set('fitbit', 'access_token', creds['access_token'])
+        configParser.set('fitbit', 'refresh_token', creds['refresh_token'])
+        with open(configFilePath, 'wb') as configFile:
+            configParser.write(configFile)
 
-    # set the auth headers to be used
-    headers = {'Authorization': 'Bearer ' + creds['access_token']}
+        # set the auth headers to be used
+        headers = {'Authorization': 'Bearer ' + creds['access_token']}
+        authenticated = True
+    except Exception:
+        headers = {}
+        authenticated = False
+        pass
+
+
+def get(url):
+    data = {}
+    try:
+        response = requests.get(url, headers=headers)
+        data = json.loads(response._content)
+    except requests.exceptions.RequestException as e:
+        print e
+
+    return data
 
 
 def profile():
     url = 'https://api.fitbit.com/1/user/-/profile.json'
-    response = requests.get(url, headers=headers)
-    data = json.loads(response._content)
+    data = get(url)
+
+    return data
+
+
+def steps(date):
+    url = 'https://api.fitbit.com/1/user/-/activities/steps/date/%s/1d.json' \
+        % date
+    data = get(url)
+    formatted = '{:,}'.format(
+        int(data['activities-steps'][0]['value'])
+    )
+
+    return formatted
+
+
+def calories(date):
+    url = 'https://api.fitbit.com/1/user/-/activities/calories/date/%s/1d.json'\
+        % date
+    data = get(url)
+    formatted = '{:,}'.format(
+        int(data['activities-calories'][0]['value'])
+    )
+
+    return formatted
+
+
+def sleep(date):
+    url = 'https://api.fitbit.com/1/user/-/sleep/date/%s.json' % date
+    data = get(url)
+    sleep_data = {}
+    asleep = format((float(data['summary']['totalMinutesAsleep']) / 60), '.2f')
+    in_bed = format((float(data['summary']['totalTimeInBed']) / 60), '.2f')
+    sleep_data['asleep'] = asleep
+    sleep_data['in_bed'] = in_bed
+
+    return sleep_data
 
 
 def stats(date):
     authenticate()
     all_stats = {}
-    url = 'https://api.fitbit.com/1/user/-/activities/steps/date/%s/1d.json' \
-        % date
-    response = requests.get(url, headers=headers)
-    steps = json.loads(response._content)
-    print(steps)
-    all_stats['steps'] = '{:,}'.format(int(steps['activities-steps'][0]['value']))
-    url = 'https://api.fitbit.com/1/user/-/activities/calories/date/%s/1d.json' \
-        % date
-    response = requests.get(url, headers=headers)
-    calories = json.loads(response._content)
-    all_stats['calories'] = '{:,}'.format(int(calories['activities-calories'][0]['value']))
+    if authenticated:
+        all_stats['steps'] = steps(date)
+        all_stats['calories'] = calories(date)
+        all_stats['sleep'] = sleep(date)
 
     return all_stats
 
@@ -67,4 +116,5 @@ def todaysStats():
 
 if __name__ == '__main__':
     authenticate()
-    profile()
+    #profile()
+    #sleep('2016-02-21')

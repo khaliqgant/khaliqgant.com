@@ -43,7 +43,8 @@
 			<img class="icon col-xs-6 .col-md-4" src="{{ url_for('static', filename='img/fitbit.png') }}">
 			<div class="info">
 				Steps: {{ health_stats.steps }},
-				Calories: {{ health_stats.calories }}
+				Calories: {{ health_stats.calories }},
+				Sleep: {{ health_stats.asleep }} / {{ health_stats.in_bed }}
 			</div>
 		</li>
 		{% endif %}
