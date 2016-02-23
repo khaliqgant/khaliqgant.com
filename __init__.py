@@ -9,7 +9,8 @@ from flask import Flask, request, render_template, Response
 app = Flask(__name__)
 
 # import custom apis
-from apis import helper, github, foursquare, lastfm, citibike, fitbit
+from apis import helper, github, foursquare, lastfm, citibike, \
+    fitbit, rescuetime
 
 pwd = os.path.dirname(os.path.abspath(__file__))
 
@@ -29,19 +30,24 @@ run_health = True
 
 @app.route('/')
 def index():
-    token = configParser.get('foursquare', 'key')
+    fq_token = configParser.get('foursquare', 'key')
     api_key = configParser.get('lastfm', 'api_key')
+    r_key = configParser.get('rescuetime', 'key')
+
     today = datetime.datetime.now().strftime("%A, %B %d %Y")
     commits = github.todaysCount()
     songs = lastfm.todaysCount(api_key)
-    checkins = foursquare.todaysCount(token)
+    checkins = foursquare.todaysCount(fq_token)
+    productivity = rescuetime.todaysProductivity(r_key)
+
     health_stats = {}
     if run_health:
         health_stats = fitbit.todaysStats()
 
     return render_template('home.html', today=today, commits=commits,
                            songs=songs, checkins=checkins,
-                           health_stats=health_stats)
+                           health_stats=health_stats, productivity=productivity
+                           )
 
 
 @app.route('/activities')

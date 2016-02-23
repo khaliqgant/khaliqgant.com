@@ -1,9 +1,26 @@
 import requests
 import json
-import calendar
-import time
-import humanize
-from datetime import timedelta
+
+"""
+    Rescuetime API
+    @docs: https://www.rescuetime.com/apidoc
+"""
+
+
+def get(url):
+    response = requests.get(url)
+    productivity = json.loads(response._content)
+
+    return productivity
+
+
+def todaysProductivity(key):
+    # get back top 3 activites
+    url = 'https://www.rescuetime.com/anapi/data?key=%s&perspective=interval& \
+    format=json&resolution_time=day&restrict_kind=overview' % (key)
+    overall = get(url)
+    top_activities = format_activities(overall)
+    return {}
 
 
 def retrieve(api_key, stats):
@@ -24,9 +41,11 @@ def retrieve(api_key, stats):
     return formatted
 
 
-def format_yesterday(productivity):
-    return 'foo'
-
-
-def format_today(productivity):
-    return 'bar'
+def format_activities(data):
+    #test url: https://www.rescuetime.com/anapi/data?key=B63DR36aZMcRDhXf4yJ3EzqUCqkeoe_p5Y6Pobf6&perspective=interval&format=json&resolution_time=day&restrict_kind=overview
+    activities = []
+    if (data['row_headers'][1] == "Time spend (seconds)"):
+        for i in range(0,2):
+            activivties[0] = {}
+            #activities[0][data[rows[i][2]]] = rows
+    return {}
