@@ -45,8 +45,11 @@
 				Steps: {{ health_stats.steps }},
 				Calories: {{ health_stats.calories }}
 				<br/>
-				Sleep: {{ health_stats.sleep.asleep }} hours out of 
+				Sleep: {{ health_stats.sleep.asleep }} hours out of
 					   {{ health_stats.sleep.in_bed }} hours in bed
+				<br/>
+				Last Exercise: {{ health_stats.lastActivity.activity }} for
+						{{ health_stats.lastActivity.time }} hours
 			</div>
 		</li>
 		{% endif %}
