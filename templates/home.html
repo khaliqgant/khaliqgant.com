@@ -54,5 +54,15 @@
 		</li>
 		{% endif %}
 
+		<li>
+			<img class="icon col-xs-6 .col-md-4" src="{{ url_for('static', filename='img/rescuetime.jpg') }}">
+			<div class="info">
+				{% for productive in productivity %}
+					{{ productive.activity }}: {{ productive.time }} hours
+					<br/>
+				{% endfor %}
+			</div>
+		</li>
+
 	</ul>
 {% endblock %}

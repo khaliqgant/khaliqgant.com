@@ -16,11 +16,11 @@ def get(url):
 
 def todaysProductivity(key):
     # get back top 3 activites
-    url = 'https://www.rescuetime.com/anapi/data?key=%s&perspective=interval& \
-    format=json&resolution_time=day&restrict_kind=overview' % (key)
+    url = 'https://www.rescuetime.com/anapi/data?key=%s&perspective=interval&'\
+        'format=json&resolution_time=day&restrict_kind=overview' % (key)
     overall = get(url)
     top_activities = format_activities(overall)
-    return {}
+    return top_activities
 
 
 def retrieve(api_key, stats):
@@ -44,8 +44,12 @@ def retrieve(api_key, stats):
 def format_activities(data):
     #test url: https://www.rescuetime.com/anapi/data?key=B63DR36aZMcRDhXf4yJ3EzqUCqkeoe_p5Y6Pobf6&perspective=interval&format=json&resolution_time=day&restrict_kind=overview
     activities = []
-    if (data['row_headers'][1] == "Time spend (seconds)"):
-        for i in range(0,2):
-            activivties[0] = {}
-            #activities[0][data[rows[i][2]]] = rows
-    return {}
+    if (data['row_headers'][1] == "Time Spent (seconds)"):
+        for i in range(0, 3):
+            activity = {}
+            activity['activity'] = data['rows'][i][3]
+            activity['time'] = format(
+                (float(data['rows'][i][1]) / 60 / 60), '.2f'
+            )
+            activities.append(activity)
+    return activities
