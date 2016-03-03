@@ -8,8 +8,12 @@ import json
 
 
 def get(url):
-    response = requests.get(url)
-    productivity = json.loads(response._content)
+    productivity = {}
+    try:
+        response = requests.get(url)
+        productivity = json.loads(response._content)
+    except requests.exceptions.RequestException as e:
+        print e
 
     return productivity
 
