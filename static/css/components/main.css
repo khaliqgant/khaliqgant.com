@@ -100,6 +100,10 @@ main ul.overview-bar li:last-child {
 main .technologies img {
   padding-right: 10px;
 }
+main .feature-image {
+  display: block;
+  padding: 10px 0;
+}
 main .activities .api-integrations .icon {
   cursor: pointer;
 }
