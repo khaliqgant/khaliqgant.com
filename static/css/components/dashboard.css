@@ -1,5 +1,6 @@
 .dashboard .info {
   padding-top: 10px;
+  display: inline-block;
 }
 .dashboard .info.foursquare {
   padding-left: 18px;

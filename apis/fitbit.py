@@ -45,11 +45,14 @@ def authenticate():
         pass
 
 
-def get(url):
+def get(url, raw=False):
     data = {}
     try:
         response = requests.get(url, headers=headers)
-        data = json.loads(response._content)
+        if raw:
+            data = response._content
+        else:
+            data = json.loads(response._content)
     except requests.exceptions.RequestException as e:
         print e
 
@@ -61,6 +64,28 @@ def profile():
     data = get(url)
 
     return data
+
+
+def activities_log(date):
+    url = 'https://api.fitbit.com/1/user/-/activities/list.json' \
+        '&user-id=-&afterDate=%s&offset=0&limit=10&sort=desc' % date
+    print(url)
+    data = get(url, True)
+    print(data)
+
+
+def recent_activities():
+    url = 'https://api.fitbit.com/1/user/-/activities/recent.json'
+    data = get(url)
+    # the fitbit api isn't great here and doesn't return back the date
+    # of the last excercise, just grab the most recent
+    lastActivity = {}
+    lastActivity['activity'] = data[0]['name']
+    lastActivity['time'] = format(
+        (float(data[0]['duration']) / 1000 / 60 / 60), '.2f'
+    )
+
+    return lastActivity
 
 
 def steps(date):
@@ -104,6 +129,7 @@ def stats(date):
         all_stats['steps'] = steps(date)
         all_stats['calories'] = calories(date)
         all_stats['sleep'] = sleep(date)
+        all_stats['lastActivity'] = recent_activities()
 
     return all_stats
 
@@ -116,5 +142,7 @@ def todaysStats():
 
 if __name__ == '__main__':
     authenticate()
+    recent_activities()
+    #activities_log('2015-11-01')
     #profile()
     #sleep('2016-02-21')
