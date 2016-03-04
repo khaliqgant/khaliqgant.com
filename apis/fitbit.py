@@ -1,8 +1,13 @@
-import ConfigParser
 import os
+import sys
 import requests
 from libraries import fitbit
 import json
+
+pwd = os.path.dirname(os.path.abspath(__file__))
+# put apis in package path
+sys.path.insert(0, os.path.normpath(os.path.join(pwd, '../config')))
+import auth
 
 """
     Fitbit API
@@ -16,11 +21,10 @@ import json
 """
 def authenticate():
     global headers, authenticated
-    root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+    configPath = os.path.abspath(os.path.join(os.path.dirname(__file__), '../config'))
 
-    configParser = ConfigParser.RawConfigParser()
-    configFilePath = '%s/config.txt' % root
-    configParser.read(configFilePath)
+    configFilePath = '%s/config.txt' % configPath
+    configParser = auth.grab()
 
     old_token = {}
     old_token['access_token'] = configParser.get('fitbit', 'access_token')

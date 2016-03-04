@@ -14,7 +14,7 @@ import os, base64, requests, urllib, ConfigParser
 class Fitbit():
 
     # let's grab the creds from a config file
-    root = os.path.abspath(os.path.join(os.path.dirname(__file__), '../..'))
+    root = os.path.abspath(os.path.join(os.path.dirname(__file__), '../../config'))
     configParser = ConfigParser.RawConfigParser()
     configFilePath = '%s/config.txt' % root
     configParser.read(configFilePath)
