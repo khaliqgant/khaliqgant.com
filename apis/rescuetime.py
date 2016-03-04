@@ -50,7 +50,7 @@ def format_activities(data):
     if (data['row_headers'][1] == "Time Spent (seconds)"):
         for i in range(0, 3):
             activity = {}
-            if (len(data['rows']) > i):
+            if (len(data['rows']) > i and len(data['rows'][i][3]) > 0):
                 activity['activity'] = data['rows'][i][3]
                 activity['time'] = format(
                     (float(data['rows'][i][1]) / 60 / 60), '.2f'
