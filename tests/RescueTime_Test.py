@@ -26,6 +26,7 @@ class RescueTimeTest(unittest.TestCase):
         )
         self.assertEqual('row_headers' in productivity, True)
         self.assertEqual('rows' in productivity, True)
+        assert 1 == 1
 
 
 if __name__ == "__main__":
