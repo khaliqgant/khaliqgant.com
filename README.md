@@ -1,3 +1,5 @@
+[![Requirements Status](https://requires.io/github/khaliqgant/khaliqgant/requirements.svg?branch=master)](https://requires.io/github/khaliqgant/khaliqgant/requirements/?branch=master)
+
 [khaliqgant.com](http://khaliqgant.com) - A [Flask](http://flask.pocoo.org/docs/0.10/) App
 =====
 
