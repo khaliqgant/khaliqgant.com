@@ -18,11 +18,13 @@ def get(url):
     return productivity
 
 
-def todaysProductivity(key):
+def todaysProductivity(key, shallow=False):
     # get back top 3 activites
     url = 'https://www.rescuetime.com/anapi/data?key=%s&perspective=interval&'\
         'format=json&resolution_time=day&restrict_kind=overview' % (key)
     overall = get(url)
+    if shallow:
+        return overall
     top_activities = format_activities(overall)
     return top_activities
 
