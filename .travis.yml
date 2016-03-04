@@ -1,13 +1,16 @@
 language: python
 sudo: required
 python:
-  - "2.7"
-  - "3.2"
-  - "3.3"
-  - "3.4"
-  - "pypy"
-# command to install dependencies
+- '2.7'
+- '3.2'
+- '3.3'
+- '3.4'
+- pypy
 install:
-  - pip install -r requirements/dev.txt
-# command to run tests
-script: make tests
+- pip install -r requirements/dev.txt
+env:
+  global:
+    secure: aC3kaqkOEXvbsUak6cUJPRUgKl4uGoPTp/Si6dEsp7AesXcdS5fhTnjOiT85GzDdHIx/z6Dy5bL8N+nmYUgmW36Yv0/lqUzNmohNAjJ5rBtSd60GVlCg6KvKrwKvYSWXmiAmpYSBKf+VcQ7Z8B5Yd5TJTNzZSajgAfp4W52CQwi+/S6u1F6scHJQABdls6pv+sf1dW4IRRFCfX8EXDvSfa6KXoG4+fm0vJbH+z2QnxsuSAzGNrx/rm0yAK9PbVdWpipbuRVt2smuggADtroNIRxwGaVMbC4FyByWctscaQUuV2jZAb7GSnpoVq6isaJWBZXmfd5SBZV4sFqucba8o3EAZsl0NEWHhxOXFY80AzQoHe6058SkOSDGOVPgTf1+A2fnxDXc8zo1f2iOCzCwxN/VTzbUNYwnyriwN5rauKi7Pic4eTXTYgCZaxoFQ+pJfzNVYaCeZjK2wPHwD9GzHtiO9YL9hzrWu+Jcfbd7Ewj3eXDXKlR6ak/b/eFdHRT6m2KARcJEonxXsbUTQ19IlfZh0BQ5jrRLroyBVoCwrAqIiVLQjSapjUHdIxz83/7qOUeFMqvMT9ZFMWvFAOmhMkXUN4n88qPpe0venjGGJVTMVFNfUuMxobHRLNKuLdfbaYkErWpwqc7YBtYRzWL/USklphjw0d3iZKJkf1p1YLI=
+script:
+    - export RESCUETIME=$RESCUETIME
+    - make tests
