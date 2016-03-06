@@ -1,8 +1,8 @@
-alias grab:config='rsync khaliqgant:/home/kjg/khaliqgant/config.txt . -v'
+alias grab:config='rsync khaliqgant:/home/kjg/khaliqgant/config/config.txt config/. -v'
 alias server='tab ". venv/bin/activate && python __init__.py --fitbit=false"'
 alias init='tab ". venv/bin/activate && python __init__.py --fitbit=false" && tab "grunt watch"'
 alias deploy='(cd deploy && ansible-playbook deploy.yml)'
-alias upload:config='rsync config.txt khaliqgant:/home/kjg/khaliqgant/config.txt -v'
+alias upload:config='rsync config/config.txt khaliqgant:/home/kjg/khaliqgant/config/config.txt -v'
 
 dropbox_data=~/Dropbox\ \(Personal\)/KJG/Personal/Data
 

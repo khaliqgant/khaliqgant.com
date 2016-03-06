@@ -1,5 +1,4 @@
 import requests_cache
-import ConfigParser
 import os
 import datetime
 import argparse
@@ -12,6 +11,8 @@ app = Flask(__name__)
 from apis import helper, github, foursquare, lastfm, citibike, \
     fitbit, rescuetime
 
+from config import auth
+
 pwd = os.path.dirname(os.path.abspath(__file__))
 
 # cache requests because rate limiting and like, sooo much traffic to my site
@@ -22,16 +23,15 @@ requests_cache.install_cache(
 #requests_cache.core.clear()
 
 # set config for api info
-configParser = ConfigParser.RawConfigParser()
-configFilePath = '%s/config.txt' % pwd
-configParser.read(configFilePath)
+configParser = auth.grab()
 run_health = True
 
 
 @app.route('/')
 def index():
     fq_token = configParser.get('foursquare', 'key')
-    api_key = configParser.get('lastfm', 'api_key')
+    api_key = configParser.get('lastfm', 'key')
+    lastfm_secret = configParser.get('lastfm', 'secret')
     r_key = configParser.get('rescuetime', 'key')
 
     today = datetime.datetime.now().strftime("%A, %B %d %Y")
@@ -54,7 +54,7 @@ def index():
 def activities():
     # get tokens from config
     token = configParser.get('foursquare', 'key')
-    api_key = configParser.get('lastfm', 'api_key')
+    api_key = configParser.get('lastfm', 'key')
 
     gh_activities = github.retrieve()
     fs_activities = foursquare.retrieve(token)

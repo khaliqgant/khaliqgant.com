@@ -6,6 +6,7 @@ import helper
 import time
 from datetime import datetime, date
 from datetime import timedelta
+from lastfmclient import LastfmClient
 
 
 def retrieve(api_key):
@@ -38,7 +39,7 @@ def todaysCount(api_key):
     listens = get(api_key, params)
     count = listens['recenttracks']['@attr']['total']
 
-    return count
+    return int(count)
 
 
 def get(api_key, additional=False):
@@ -51,3 +52,25 @@ def get(api_key, additional=False):
     listens = json.loads(response._content)
 
     return listens
+
+
+def topArtists(api_key, secret, period):
+    api = LastfmClient(
+        api_key=api_key,
+        api_secret=secret,
+        session_key=''
+    )
+    artists = api.user.get_top_artists('khaliqgant', None, None, period)
+
+    return artists
+
+
+def topAlbums(api_key, secret, period):
+    api = LastfmClient(
+        api_key=api_key,
+        api_secret=secret,
+        session_key=''
+    )
+    albums = api.user.get_top_albums('khaliqgant', None, None, period)
+
+    return albums
