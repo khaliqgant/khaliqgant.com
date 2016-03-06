@@ -8,8 +8,8 @@ pwd = os.path.dirname(os.path.abspath(__file__))
 # put apis in package path
 sys.path.insert(0, os.path.normpath(os.path.join(pwd, '../apis')))
 import lastfm
-KEY = keyHelper.grabKey('lastfm')
-SECRET = keyHelper.grabKey('lastfm', 'secret')
+KEY = keyHelper.grabKey('lastfm', 'LASTFM_KEY')
+SECRET = keyHelper.grabKey('lastfm', 'LASTFM_SECRET', 'secret')
 
 
 class LastfmTest(unittest.TestCase):
@@ -28,7 +28,7 @@ class LastfmTest(unittest.TestCase):
         self.assertIsInstance(listens, list)
 
     def test_artists(self):
-        artists = lastfm.topArtists(KEY, '1month')
+        artists = lastfm.topArtists(KEY, SECRET, '1month')
         self.assertIsInstance(artists, dict)
         self.assertIsInstance(artists['artist'], list)
 
