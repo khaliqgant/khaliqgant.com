@@ -6,9 +6,15 @@
     dest={{ web_root }}
     version={{ git_branch }}
     accept_hostkey=yes
+  notify: restart apache
 
 - name: Npm install
   command: npm install
   args:
     chdir: "{{ web_root }}"
-  notify: restart apache
+
+- name: Install dependencies
+  command: make deps
+  sudo: yes
+  args:
+    chdir: "{{ web_root }}"

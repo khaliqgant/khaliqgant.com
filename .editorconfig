@@ -24,3 +24,6 @@ indent_size = 2
 [**.scala]
 # http://docs.scala-lang.org/style/indentation.html
 indent_size = 2
+
+[Makefile]
+indent_style = tab
