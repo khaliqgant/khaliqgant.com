@@ -9,8 +9,10 @@ import auth
 def grabKey(keyName, envName='', param='key'):
     env = os.environ
 
-    if keyName.upper() in env or envName.upper() in env:
-        KEY = env[keyName.upper]
+    if keyName.upper():
+        KEY = env[keyName.upper()]
+    elif env or envName.upper() in env:
+        KEY = env[envName.upper()]
     else:
         configParser = auth.grab()
         KEY = configParser.get(keyName.lower(), param)
