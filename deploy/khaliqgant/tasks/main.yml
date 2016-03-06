@@ -12,9 +12,3 @@
   command: npm install
   args:
     chdir: "{{ web_root }}"
-
-- name: Install dependencies
-  command: make deps
-  sudo: yes
-  args:
-    chdir: "{{ web_root }}"
