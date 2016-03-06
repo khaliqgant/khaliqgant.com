@@ -54,6 +54,7 @@ def get(api_key, additional=False):
     return listens
 
 
+""" Docs: https://github.com/jkbrzt/lastfmclient/blob/master/lastfmclient/api.py#L2164 """
 def topArtists(api_key, secret, period):
     api = LastfmClient(
         api_key=api_key,
