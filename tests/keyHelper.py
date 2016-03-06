@@ -6,12 +6,12 @@ sys.path.insert(0, os.path.normpath(os.path.join(pwd, '../config')))
 import auth
 
 
-def grabKey(keyName):
+def grabKey(keyName, param='key'):
     env = os.environ
 
     if keyName.upper() in env:
         KEY = env[keyName.upper]
     else:
         configParser = auth.grab()
-        KEY = configParser.get(keyName.lower(), 'key')
+        KEY = configParser.get(keyName.lower(), param)
     return KEY
