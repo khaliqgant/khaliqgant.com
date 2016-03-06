@@ -30,7 +30,8 @@ run_health = True
 @app.route('/')
 def index():
     fq_token = configParser.get('foursquare', 'key')
-    api_key = configParser.get('lastfm', 'api_key')
+    api_key = configParser.get('lastfm', 'key')
+    lastfm_secret = configParser.get('lastfm', 'secret')
     r_key = configParser.get('rescuetime', 'key')
 
     today = datetime.datetime.now().strftime("%A, %B %d %Y")
@@ -53,7 +54,7 @@ def index():
 def activities():
     # get tokens from config
     token = configParser.get('foursquare', 'key')
-    api_key = configParser.get('lastfm', 'api_key')
+    api_key = configParser.get('lastfm', 'key')
 
     gh_activities = github.retrieve()
     fs_activities = foursquare.retrieve(token)
