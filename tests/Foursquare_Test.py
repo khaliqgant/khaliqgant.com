@@ -8,6 +8,7 @@ pwd = os.path.dirname(os.path.abspath(__file__))
 # put apis in package path
 sys.path.insert(0, os.path.normpath(os.path.join(pwd, '../apis')))
 import foursquare
+KEY = keyHelper.grabKey('foursquare')
 
 
 class FoursquareTest(unittest.TestCase):
@@ -20,7 +21,6 @@ class FoursquareTest(unittest.TestCase):
         and is of the right type
     """
     def test_checkins(self):
-        KEY = keyHelper.grabKey('foursquare')
         checkins = foursquare.retrieve(KEY)
         self.assertIn('data', checkins)
         self.assertIn('count', checkins)
@@ -29,7 +29,6 @@ class FoursquareTest(unittest.TestCase):
 
     """ Ensure returns an int """
     def test_count(self):
-        KEY = keyHelper.grabKey('foursquare')
         count = foursquare.todaysCount(KEY)
         self.assertEqual(type(1), type(count))
 
