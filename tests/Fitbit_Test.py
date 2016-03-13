@@ -15,7 +15,7 @@ class FitbitTest(unittest.TestCase):
         pass
 
     def get_sleep_fixture(self):
-        with open('fixtures/fitbit_sleep.json', 'r') as sleep:
+        with open('%s/fixtures/fitbit_sleep.json' % pwd, 'r') as sleep:
             data = json.load(sleep)
             return data
 
