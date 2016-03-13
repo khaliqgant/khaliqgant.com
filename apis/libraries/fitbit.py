@@ -18,13 +18,16 @@ class Fitbit():
     configParser = ConfigParser.RawConfigParser()
     configFilePath = '%s/config.txt' % root
     configParser.read(configFilePath)
-    key = configParser.get('fitbit', 'consumer_key')
-    secret = configParser.get('fitbit', 'consumer_secret')
+    try:
+        key = configParser.get('fitbit', 'consumer_key')
+        secret = configParser.get('fitbit', 'consumer_secret')
 
-    # All information must be as on the https://dev.fitbit.com/apps page.
-    CLIENT_ID     = key
-    CLIENT_SECRET = secret
-    REDIRECT_URI  = 'http://www.khaliqgant.com?'
+        # All information must be as on the https://dev.fitbit.com/apps page.
+        CLIENT_ID     = key
+        CLIENT_SECRET = secret
+        REDIRECT_URI  = 'http://www.khaliqgant.com?'
+    except Exception:
+        pass
 
     # Decide which information the FitBit.py should have access to.
     # Options: 'activity', 'heartrate', 'location', 'nutrition',
