@@ -20,7 +20,6 @@ pwd = os.path.dirname(os.path.abspath(__file__))
 requests_cache.install_cache(
     '%s/data/api' % pwd, backend='sqlite', expire_after=1800
 )
-#requests_cache.core.clear()
 
 # set config for api info
 configParser = auth.grab()
@@ -29,6 +28,10 @@ run_health = True
 
 @app.route('/')
 def index():
+    clear_cache = request.args.get('cache')
+    if clear_cache == "clear_dat":
+        requests_cache.core.clear()
+
     fq_token = configParser.get('foursquare', 'key')
     api_key = configParser.get('lastfm', 'key')
     lastfm_secret = configParser.get('lastfm', 'secret')
