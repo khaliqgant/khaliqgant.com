@@ -163,3 +163,4 @@ if __name__ == '__main__':
     #activities_log('2015-11-01')
     #profile()
     #sleep('2016-02-21')
+    print('fitbit test')
