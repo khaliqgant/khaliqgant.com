@@ -158,8 +158,8 @@ def todaysStats():
 
 
 if __name__ == '__main__':
-    authenticate()
-    recent_activities()
+    #authenticate()
+    #recent_activities()
     #activities_log('2015-11-01')
     #profile()
     #sleep('2016-02-21')
