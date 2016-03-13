@@ -122,8 +122,21 @@ def sleep(date):
     in_bed = format((float(data['summary']['totalTimeInBed']) / 60), '.2f')
     sleep_data['asleep'] = asleep
     sleep_data['in_bed'] = in_bed
+    sleep_data['efficiency'] = computeEfficiency(data)
 
     return sleep_data
+
+
+def computeEfficiency(data):
+    records = data['summary']['totalSleepRecords']
+    sleep_records = records - 1
+    total = 0
+    while (sleep_records >= 0):
+        total = data['sleep'][sleep_records]['efficiency'] + total
+        sleep_records = sleep_records - 1
+    avg = format((float(total) / records), '.2f')
+
+    return float(avg)
 
 
 def stats(date):
