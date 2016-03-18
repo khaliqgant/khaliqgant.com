@@ -11,7 +11,8 @@ def get(url):
     productivity = {}
     try:
         response = requests.get(url)
-        productivity = json.loads(response._content)
+        if ("_content" in response):
+            productivity = json.loads(response._content)
     except requests.exceptions.RequestException as e:
         print e
 
@@ -23,9 +24,13 @@ def todaysProductivity(key, shallow=False):
     url = 'https://www.rescuetime.com/anapi/data?key=%s&perspective=interval&'\
         'format=json&resolution_time=day&restrict_kind=overview' % (key)
     overall = get(url)
-    if shallow:
-        return overall
-    top_activities = format_activities(overall)
+    top_activities = {}
+
+    if bool(top_activities):
+        if shallow:
+            return overall
+        top_activities = format_activities(overall)
+
     return top_activities
 
 
