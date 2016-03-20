@@ -19,11 +19,12 @@ class RescueTimeTest(unittest.TestCase):
     """ Make sure the expected keys are there """
     def test_productivityResponse(self):
         productivity = rescuetime.todaysProductivity(KEY, True)
-        self.assertEqual(
-            productivity['row_headers'][1], "Time Spent (seconds)"
-        )
-        self.assertEqual('row_headers' in productivity, True)
-        self.assertEqual('rows' in productivity, True)
+        if any(productivity):
+            self.assertEqual(
+                productivity['row_headers'][1], "Time Spent (seconds)"
+            )
+            self.assertEqual('row_headers' in productivity, True)
+            self.assertEqual('rows' in productivity, True)
 
     """
         Make sure the response is formatted to what will be outputted in the
@@ -31,7 +32,8 @@ class RescueTimeTest(unittest.TestCase):
     """
     def test_todaysProductivity(self):
         productivity = rescuetime.todaysProductivity(KEY)
-        self.assertEqual(type(productivity), type([]))
+        if any(productivity):
+            self.assertEqual(type(productivity), type([]))
 
 
 if __name__ == "__main__":
