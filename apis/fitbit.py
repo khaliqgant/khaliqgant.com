@@ -129,12 +129,14 @@ def sleep(date):
 
 def computeEfficiency(data):
     records = data['summary']['totalSleepRecords']
-    sleep_records = records - 1
-    total = 0
-    while (sleep_records >= 0):
-        total = data['sleep'][sleep_records]['efficiency'] + total
-        sleep_records = sleep_records - 1
-    avg = format((float(total) / records), '.2f')
+    avg = 0
+    if records is not 0:
+        sleep_records = records - 1
+        total = 0
+        while (sleep_records >= 0):
+            total = data['sleep'][sleep_records]['efficiency'] + total
+            sleep_records = sleep_records - 1
+        avg = format((float(total) / records), '.2f')
 
     return float(avg)
 
