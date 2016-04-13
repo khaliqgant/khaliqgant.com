@@ -11,7 +11,7 @@ def get(url):
     productivity = {}
     try:
         response = requests.get(url)
-        if ("_content" in response):
+        if hasattr(response, '_content'):
             productivity = json.loads(response._content)
     except requests.exceptions.RequestException as e:
         print e
@@ -26,10 +26,9 @@ def todaysProductivity(key, shallow=False):
     overall = get(url)
     top_activities = {}
 
-    if bool(top_activities):
-        if shallow:
-            return overall
-        top_activities = format_activities(overall)
+    if shallow:
+        return overall
+    top_activities = format_activities(overall)
 
     return top_activities
 
