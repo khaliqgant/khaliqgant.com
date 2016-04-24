@@ -14,7 +14,7 @@ def search(track, artist):
     # let's keep it simple and grab the first item if available
     # sometimes from hypem tracks might be dissimilar, so let's make sure the
     # first one is similar at least
-    if len(tracks['tracks']['items']) > 0 and \
+    if hasattr(tracks, 'tracks') and len(tracks['tracks']['items']) > 0 and \
        helper.similar(tracks['tracks']['items'][0]['name'], track) > 0.5:
         return tracks['tracks']['items'][0]['external_urls']['spotify']
     else:
