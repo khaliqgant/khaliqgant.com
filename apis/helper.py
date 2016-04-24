@@ -3,6 +3,7 @@ import helper
 from datetime import datetime
 import time as tm
 from datetime import datetime, date, time
+from difflib import SequenceMatcher
 
 
 def iso8601_to_epoch(datestring):
@@ -34,3 +35,10 @@ def epoch_start():
     epoch = int(tm.mktime(tm.strptime(str(start), pattern)))
 
     return epoch
+
+
+def similar(a, b):
+    """ Check similarity of two strings
+        http://stackoverflow.com/questions/17388213/python-string-similarity-with-probability
+    """
+    return SequenceMatcher(None, a, b).ratio()
