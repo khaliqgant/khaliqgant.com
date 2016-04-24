@@ -65,6 +65,8 @@ def activities():
     fs_url = foursquare.getUrl(token)
     lastfm_url = lastfm.getUrl(api_key)
 
+    # async requests FTW
+    # https://github.com/kennethreitz/grequests
     urls = [gh_url, fs_url, lastfm_url]
     rs = (grequests.get(u) for u in urls)
     responses = grequests.map(rs)
