@@ -9,6 +9,7 @@
 		<h2 class="intro-blurb">A feed of my most recent activities, ordered by time. Integrated API's:</h2>
 		<div class="api-integrations">
 			<img class="icon col-xs-6 .col-md-4" src="{{ url_for('static', filename='img/lastfm.png') }}">
+			<img class="icon col-xs-6 .col-md-4" src="{{ url_for('static', filename='img/spotify.png') }}">
 			<img class="icon col-xs-6 .col-md-4" src="{{ url_for('static', filename='img/github.png') }}">
 			<img class="icon icon--circle icon--left-small col-xs-6 .col-md-4" src="{{ url_for('static', filename='img/foursquare.png') }}">
 			<!--Pocket-->
@@ -20,6 +21,11 @@
 		{% if nowPlaying %}
 			<li>
 				<img class="icon col-xs-6 .col-md-4" src="{{ url_for('static', filename='img/lastfm.png') }}">
+				{% if nowPlaying.spotify %}
+				<a href="{{nowPlaying.spotify}}" target="_blank">
+					<img class="icon col-xs-6 .col-md-4" src="{{ url_for('static', filename='img/spotify.png') }}">
+				</a>
+				{% endif %}
 				<div class="info col-xs-8 .col-md-6 lastfm">
 					<img class="live" src="{{ url_for('static', filename='img/listening.png') }}">
 					<a class="album-container" href="{{ nowPlaying.url }}" target="_blank">
@@ -47,6 +53,11 @@
 			{% if activity._type == "lastfm" and activity["@attr"] is not defined %}
 			<li>
 				<img class="icon col-xs-6 .col-md-4" src="{{ url_for('static', filename='img/lastfm.png') }}">
+				{% if activity.spotify %}
+				<a href="{{activity.spotify}}" target="_blank">
+					<img class="icon col-xs-6 .col-md-4" src="{{ url_for('static', filename='img/spotify.png') }}">
+				</a>
+				{% endif %}
 				<div class="info col-xs-8 .col-md-6 lastfm">
 					<a class="album-container" href="{{ activity.url }}" target="_blank">
 					{% for img in activity.image %}

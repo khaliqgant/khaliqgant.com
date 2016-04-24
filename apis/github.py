@@ -7,23 +7,13 @@ import helper
 def retrieve():
     """ retrieve github activity"""
 
-    # turn the response string into a json object
-    activities = get()
-
-    # normalize timestamp
-    for i, ac in enumerate(activities):
-        activities[i]["_type"] = "github"
-        created = ac['created_at']
-        timestamp = helper.iso8601_to_epoch(created)
-        activities[i]["timestamp"] = timestamp
-        activities[i]["time_string"] = datetime.fromtimestamp(timestamp)\
-            .strftime('%A, %m/%d/%Y')
-
-    return activities
+    response = get()
+    return parse(response)
 
 
 def todaysCount():
-    activities = get()
+    response = get()
+    activities = json.loads(response._content)
     count = 0
     for i, ac in enumerate(activities):
         created = ac['created_at']
@@ -39,10 +29,29 @@ def todaysCount():
     return count
 
 
-def get():
+def get(urlOnly=False):
     username = 'khaliqgant'
     url = "https://api.github.com/users/%s/events" % (username)
+    if urlOnly:
+        return url
     response = requests.get(url)
+
+    return response
+
+
+def getUrl():
+    return get(True)
+
+
+def parse(response):
     activities = json.loads(response._content)
+    # normalize timestamp
+    for i, ac in enumerate(activities):
+        activities[i]["_type"] = "github"
+        created = ac['created_at']
+        timestamp = helper.iso8601_to_epoch(created)
+        activities[i]["timestamp"] = timestamp
+        activities[i]["time_string"] = datetime.fromtimestamp(timestamp)\
+            .strftime('%A, %m/%d/%Y')
 
     return activities
