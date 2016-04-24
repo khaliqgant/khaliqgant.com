@@ -2,7 +2,6 @@ import requests_cache
 import os
 import datetime
 import argparse
-import grequests
 from functools import wraps
 from flask import jsonify
 
@@ -22,6 +21,9 @@ pwd = os.path.dirname(os.path.abspath(__file__))
 requests_cache.install_cache(
     '%s/data/api' % pwd, backend='sqlite', expire_after=1800
 )
+# import after cache setup
+# http://stackoverflow.com/questions/22406830/is-it-possible-to-make-grequests-and-requests-cache-work-together
+import grequests
 
 # set config for api info
 configParser = auth.grab()
@@ -73,7 +75,8 @@ def activities():
 
     gh_activities = github.parse(responses[0])
     fs_activities = foursquare.parse(responses[1])
-    songs = lastfm.parse(responses[2])
+    # merge in spotify look ups too
+    songs = spotify.lookup(lastfm.parse(responses[2]))
     lastfms = songs[0]
     nowPlaying = songs[1]
 

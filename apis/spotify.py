@@ -1,6 +1,7 @@
 import requests
 import requests_cache
 import json
+import re
 
 
 # https://developer.spotify.com/web-api/search-item/
@@ -16,3 +17,24 @@ def search(track, artist):
     else:
         return ''
 
+
+def lookup(lastfms):
+    """ Do a look up of the last 10 tracks """
+    for i, lf in enumerate(lastfms[0]):
+        # only get 10 most recent
+        if i < 10:
+            artist = lf['artist']['#text'].replace(" ", "+")
+            # remove special characters and then replace spaces with +
+            track = re.sub('[^\sa-zA-Z0-9-_*.]', '', lf['name']).replace(" ", "+")
+            spotify = search(track, artist)
+            lastfms[0][i]['spotify'] = spotify
+        else:
+            break
+
+    # lookup now playing too
+    artist = lastfms[1]['artist']['#text'].replace(" ", "+")
+    track = re.sub('[^\sa-zA-Z0-9-_*.]', '', lastfms[1]['name']).replace(" ", "+")
+    spotify = search(track, artist)
+    lastfms[1]['spotify'] = spotify
+
+    return lastfms
