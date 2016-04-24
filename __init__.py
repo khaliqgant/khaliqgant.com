@@ -9,7 +9,7 @@ app = Flask(__name__)
 
 # import custom apis
 from apis import helper, github, foursquare, lastfm, citibike, \
-    fitbit, rescuetime
+    fitbit, rescuetime, spotify
 
 from config import auth
 
@@ -69,6 +69,17 @@ def activities():
 
     return render_template('activities.html', activities=activities,
                            nowPlaying=nowPlaying)
+
+
+@app.route('/spotify')
+def spotify():
+    endpoint = 'https://api.spotify.com/v1/search'
+    artist = request.args.get('artist')
+    track = request.args.get('track')
+    if artist and track:
+        tracks = spotify.search(track, artist)
+        print(tracks)
+
 
 
 @app.route('/citi')
