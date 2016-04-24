@@ -20,17 +20,18 @@ def search(track, artist):
 
 def lookup(lastfms):
     """ Do a look up of the last 10 tracks """
-    for i, lf in enumerate(lastfms[0]):
-        # only get 10 most recent
-        if i < 10:
-            artist = lf['artist']['#text'].replace(" ", "+")
-            # remove special characters and then replace spaces with +
-            track = re.sub('[^\sa-zA-Z0-9-_*.]', '', lf['name']).replace(" ", "+")
-            # TODO use async requests to send these requests all at once
-            spotify = search(track, artist)
-            lastfms[0][i]['spotify'] = spotify
-        else:
-            break
+    if len(lastfms[0]) > 0:
+        for i, lf in enumerate(lastfms[0]):
+            # only get 10 most recent
+            if i < 10:
+                artist = lf['artist']['#text'].replace(" ", "+")
+                # remove special characters and then replace spaces with +
+                track = re.sub('[^\sa-zA-Z0-9-_*.]', '', lf['name']).replace(" ", "+")
+                # TODO use async requests to send these requests all at once
+                spotify = search(track, artist)
+                lastfms[0][i]['spotify'] = spotify
+            else:
+                break
 
     # lookup now playing too
     if len(lastfms[1]) > 0:
