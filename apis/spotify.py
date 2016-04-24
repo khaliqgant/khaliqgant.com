@@ -33,9 +33,10 @@ def lookup(lastfms):
             break
 
     # lookup now playing too
-    artist = lastfms[1]['artist']['#text'].replace(" ", "+")
-    track = re.sub('[^\sa-zA-Z0-9-_*.]', '', lastfms[1]['name']).replace(" ", "+")
-    spotify = search(track, artist)
-    lastfms[1]['spotify'] = spotify
+    if len(lastfms[1]) > 0:
+        artist = lastfms[1]['artist']['#text'].replace(" ", "+")
+        track = re.sub('[^\sa-zA-Z0-9-_*.]', '', lastfms[1]['name']).replace(" ", "+")
+        spotify = search(track, artist)
+        lastfms[1]['spotify'] = spotify
 
     return lastfms
