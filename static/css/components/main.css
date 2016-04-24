@@ -169,6 +169,12 @@ main .activities .lastfm .info, main .dashboard .lastfm .info {
   left: 10px;
   position: relative;
 }
+@media only screen and (max-width: 485px) {
+  main .activities .spotify, main .dashboard .spotify {
+    display: block;
+    padding-bottom: 60px;
+  }
+}
 main .activities .github .small, main .dashboard .github .small {
   width: 15px;
 }

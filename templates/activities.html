@@ -20,15 +20,17 @@
 	<ul class="activities cols-xs-12 .col-md-10">
 		{% if nowPlaying %}
 			<li>
-				<img class="icon col-xs-6 .col-md-4" src="{{ url_for('static', filename='img/lastfm.png') }}">
+				<a href="{{ nowPlaying.url }}" target="_blank">
+					<img class="icon col-xs-6 .col-md-4" src="{{ url_for('static', filename='img/lastfm.png') }}">
+				</a>
 				{% if nowPlaying.spotify %}
-				<a href="{{nowPlaying.spotify}}" target="_blank">
+				<a class="spotify" href="{{nowPlaying.spotify}}" target="_blank">
 					<img class="icon col-xs-6 .col-md-4" src="{{ url_for('static', filename='img/spotify.png') }}">
 				</a>
 				{% endif %}
 				<div class="info col-xs-8 .col-md-6 lastfm">
 					<img class="live" src="{{ url_for('static', filename='img/listening.png') }}">
-					<a class="album-container" href="{{ nowPlaying.url }}" target="_blank">
+					<div class="album-container">
 					{% for img in nowPlaying.image %}
 						{% if img.size == "medium" %}
 							{% if img["#text"] != "" %}
@@ -38,7 +40,7 @@
 							{% endif %}
 						{% endif %}
 					{% endfor %}
-					</a>
+					</div>
 					<div class="info">
 						<span class="track artist" data-artist="{{ nowPlaying["artist"]["#text"] }}" data-track="{{ nowPlaying.name }}">{{ nowPlaying["artist"]["#text"] }} - {{ nowPlaying.name }}</span>
 						{% if nowPlaying.album["#text"] %}
@@ -52,14 +54,16 @@
 		{% for activity in activities %}
 			{% if activity._type == "lastfm" and activity["@attr"] is not defined %}
 			<li>
-				<img class="icon col-xs-6 .col-md-4" src="{{ url_for('static', filename='img/lastfm.png') }}">
+				<a href="{{ activity.url }}" target="_blank">
+					<img class="icon col-xs-6 .col-md-4" src="{{ url_for('static', filename='img/lastfm.png') }}">
+				</div>
 				{% if activity.spotify %}
-				<a href="{{activity.spotify}}" target="_blank">
+				<a class="spotify" href="{{activity.spotify}}" target="_blank">
 					<img class="icon col-xs-6 .col-md-4" src="{{ url_for('static', filename='img/spotify.png') }}">
 				</a>
 				{% endif %}
 				<div class="info col-xs-8 .col-md-6 lastfm">
-					<a class="album-container" href="{{ activity.url }}" target="_blank">
+					<div class="album-container">
 					{% for img in activity.image %}
 						{% if img.size == "medium" %}
 							{% if img["#text"] != "" %}
@@ -69,7 +73,7 @@
 							{% endif %}
 						{% endif %}
 					{% endfor %}
-					</a>
+					</div>
 					<div class="info">
 						<span class="track artist" data-artist="{{ activity["artist"]["#text"] }}" data-track="{{ activity.name }}">{{ activity["artist"]["#text"] }} - {{ activity.name }}</span>
 						{% if activity.album["#text"] %}

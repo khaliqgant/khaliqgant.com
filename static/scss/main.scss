@@ -181,6 +181,14 @@ main {
                 position: relative;
             }
         }
+
+        .spotify {
+            @media only screen and (max-width: $mobile-breakpoint) {
+                display: block;
+                padding-bottom: 60px;
+            }
+        }
+
         .github {
             .small {
                 width: 15px;

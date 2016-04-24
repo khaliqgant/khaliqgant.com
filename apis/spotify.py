@@ -26,6 +26,7 @@ def lookup(lastfms):
             artist = lf['artist']['#text'].replace(" ", "+")
             # remove special characters and then replace spaces with +
             track = re.sub('[^\sa-zA-Z0-9-_*.]', '', lf['name']).replace(" ", "+")
+            # TODO use async requests to send these requests all at once
             spotify = search(track, artist)
             lastfms[0][i]['spotify'] = spotify
         else:
