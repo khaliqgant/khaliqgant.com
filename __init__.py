@@ -2,7 +2,9 @@ import requests_cache
 import os
 import datetime
 import argparse
+import grequests
 from functools import wraps
+from flask import jsonify
 
 from flask import Flask, request, render_template, Response
 app = Flask(__name__)
@@ -59,9 +61,17 @@ def activities():
     token = configParser.get('foursquare', 'key')
     api_key = configParser.get('lastfm', 'key')
 
-    gh_activities = github.retrieve()
-    fs_activities = foursquare.retrieve(token)
-    songs = lastfm.retrieve(api_key)
+    gh_url = github.getUrl()
+    fs_url = foursquare.getUrl(token)
+    lastfm_url = lastfm.getUrl(api_key)
+
+    urls = [gh_url, fs_url, lastfm_url]
+    rs = (grequests.get(u) for u in urls)
+    responses = grequests.map(rs)
+
+    gh_activities = github.parse(responses[0])
+    fs_activities = foursquare.parse(responses[1])
+    songs = lastfm.parse(responses[2])
     lastfms = songs[0]
     nowPlaying = songs[1]
 
@@ -72,13 +82,12 @@ def activities():
 
 
 @app.route('/spotify')
-def spotify():
-    endpoint = 'https://api.spotify.com/v1/search'
+def spotify_api():
     artist = request.args.get('artist')
     track = request.args.get('track')
     if artist and track:
-        tracks = spotify.search(track, artist)
-        print(tracks)
+        track = spotify.search(track, artist)
+        return jsonify(song=track)
 
 
 
