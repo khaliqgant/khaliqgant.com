@@ -41,4 +41,4 @@ def similar(a, b):
     """ Check similarity of two strings
         http://stackoverflow.com/questions/17388213/python-string-similarity-with-probability
     """
-    return SequenceMatcher(None, a, b).ratio()
+    return SequenceMatcher(None, a.lower(), b.lower()).ratio()
