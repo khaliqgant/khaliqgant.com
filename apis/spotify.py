@@ -49,10 +49,14 @@ def lookup(lastfms):
     return lastfms
 
 
+def exception_handler(request, exception):
+    print "Request failed"
+
+
 def bulkSearch(urls, track_names):
     """ Async requests to spotify api and parse out the track """
     rs = (grequests.get(u) for u in urls)
-    responses = grequests.map(rs)
+    responses = grequests.map(rs, exception_handler=exception_handler)
     spotifys = []
     i = 0
     for resp in responses:
@@ -64,14 +68,17 @@ def bulkSearch(urls, track_names):
 
 def parse(response, track):
     """ Check for a tracks key, items and a similarity for the song search """
-    tracks = json.loads(response._content)
-    # let's keep it simple and grab the first item if available
-    # sometimes from hypem tracks might be dissimilar, so let's make sure the
-    # first one is similar at least
-    if 'tracks' in tracks and len(tracks['tracks']['items']) > 0 and \
-       helper.similar(tracks['tracks']['items'][0]['name'], track) > 0.4:
-        return tracks['tracks']['items'][0]['external_urls']['spotify']
-    else:
+    try:
+        tracks = json.loads(response._content)
+        # let's keep it simple and grab the first item if available
+        # sometimes from hypem tracks might be dissimilar, so let's make sure
+        # the first one is similar at least
+        if 'tracks' in tracks and len(tracks['tracks']['items']) > 0 and \
+        helper.similar(tracks['tracks']['items'][0]['name'], track) > 0.4:
+            return tracks['tracks']['items'][0]['external_urls']['spotify']
+        else:
+            return ''
+    except Exception:
         return ''
 
 
