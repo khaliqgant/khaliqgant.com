@@ -24,7 +24,7 @@
 					<img class="icon col-xs-6 .col-md-4" src="{{ url_for('static', filename='img/lastfm.png') }}">
 				</a>
 				{% if nowPlaying.spotify %}
-				<a class="spotify" href="{{nowPlaying.spotify}}" target="_blank">
+				<a class="spotify" href="{{nowPlaying.spotify.track}}" target="_blank">
 					<img class="icon col-xs-6 .col-md-4" src="{{ url_for('static', filename='img/spotify.png') }}">
 				</a>
 				{% endif %}
@@ -58,21 +58,25 @@
 					<img class="icon col-xs-6 .col-md-4" src="{{ url_for('static', filename='img/lastfm.png') }}">
 				</a>
 				{% if activity.spotify %}
-				<a class="spotify" href="{{activity.spotify}}" target="_blank">
+				<a class="spotify" href="{{activity.spotify.track}}" target="_blank">
 					<img class="icon col-xs-6 .col-md-4" src="{{ url_for('static', filename='img/spotify.png') }}">
 				</a>
 				{% endif %}
 				<div class="info col-xs-8 .col-md-6 lastfm">
 					<div class="album-container">
-					{% for img in activity.image %}
-						{% if img.size == "medium" %}
-							{% if img["#text"] != "" %}
-								<img class="album" src="{{ img['#text'] }}">
-							{% else %}
-								<img class="unknown-album" src="{{ url_for('static', filename='img/album.png') }}">
-							{% endif %}
+						{% if activity.spotify and activity.spotify.image  %}
+							<img class="album" src="{{ activity.spotify.image }}">
+						{% else %}
+							{% for img in activity.image %}
+								{% if img.size == "medium" %}
+									{% if img["#text"] != "" %}
+										<img class="album" src="{{ img['#text'] }}">
+									{% else %}
+										<img class="unknown-album" src="{{ url_for('static', filename='img/album.png') }}">
+									{% endif %}
+								{% endif %}
+							{% endfor %}
 						{% endif %}
-					{% endfor %}
 					</div>
 					<div class="info">
 						<span class="track artist" data-artist="{{ activity["artist"]["#text"] }}" data-track="{{ activity.name }}">{{ activity["artist"]["#text"] }} - {{ activity.name }}</span>

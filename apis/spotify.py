@@ -73,9 +73,15 @@ def parse(response, track):
         # let's keep it simple and grab the first item if available
         # sometimes from hypem tracks might be dissimilar, so let's make sure
         # the first one is similar at least
+        spotify = {}
         if 'tracks' in tracks and len(tracks['tracks']['items']) > 0 and \
         helper.similar(tracks['tracks']['items'][0]['name'], track) > 0.4:
-            return tracks['tracks']['items'][0]['external_urls']['spotify']
+            spotify['track'] = tracks['tracks']['items'][0]['external_urls']['spotify']
+            if 'album' in tracks['tracks']['items'][0] and \
+            'images' in tracks['tracks']['items'][0]['album'] and \
+            2 < len(tracks['tracks']['items'][0]['album']['images']):
+                spotify['image'] = tracks['tracks']['items'][0]['album']['images'][2]['url']
+            return spotify
         else:
             return ''
     except Exception:
