@@ -18,17 +18,5 @@
   ga('send', 'pageview');
 </script>
 <script src="{{ url_for('static', filename='js/responsive-nav.js') }}"></script>
-<script>
-	var nav = responsiveNav(".js-mobile-nav", {
-		label: "",
-		open: function(){
-
-			document.getElementById("js-head").style.display = 'none';
-			},
-			close: function(){
-			document.getElementById("js-head").style.display = 'block';
-			document.getElementById("js-head").style.display = 'inline-block';
-
-			}
-		});
-</script>
+<script src="{{ url_for('static', filename='js/kjg.js') }}"></script>
+<script src="{{ url_for('static', filename='js/app.js') }}"></script>
