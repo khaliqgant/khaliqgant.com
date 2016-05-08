@@ -118,6 +118,11 @@ def projects():
     return render_template('projects.html')
 
 
+@app.route('/apps')
+def apps():
+    return render_template('apps.html')
+
+
 def check_auth(username, password):
     uname = configParser.get('auth', 'user')
     passw = configParser.get('auth', 'pass')
