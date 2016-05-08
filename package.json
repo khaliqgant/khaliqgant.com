@@ -20,6 +20,6 @@
     "bootstrap": "^3.3.5",
     "json-loader": "^0.5.4",
     "responsive-nav": "^1.0.39",
-    "workout-tracker": "^0.0.1"
+    "workout-tracker": "^1.0.2"
   }
 }
