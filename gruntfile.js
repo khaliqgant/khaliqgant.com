@@ -4,9 +4,9 @@ module.exports = function(grunt) {
   var
     project = './static/',
     scss    = project + 'scss/',
-    coffee  = project + 'coffee/',
     css     = project + 'css/',
     js      = project + 'js/',
+    webpack = js + '/pack/',
     npmcss  = require('npm-css');
 
   grunt.initConfig({
@@ -47,7 +47,7 @@ module.exports = function(grunt) {
 
     webpack: {
         pack: {
-            entry: js + 'pack/workout.js',
+            entry: webpack + 'workout.js',
             output: {
                 filename: js + 'app.js'
             },
@@ -58,16 +58,6 @@ module.exports = function(grunt) {
                     loader: 'json-loader'
                 }
             ]
-        }
-    },
-
-    coffee: {
-        compile: {
-            files: {
-            'static/js/kjg.js': [
-                coffee + 'kjg.coffee'
-            ]
-            }
         }
     },
 
@@ -94,10 +84,14 @@ module.exports = function(grunt) {
       }
     },
 
+    jshint: {
+        src: [webpack]
+    },
+
     watch: {
       scripts: {
-        files: [coffee + '*.coffee'],
-        tasks: ['coffee','concat','jshint','uglify']
+        files: [webpack + '*.js'],
+        tasks: ['concat','jshint','uglify']
       },
       styles: {
         files: [scss + '*.scss'],
@@ -111,7 +105,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.loadNpmTasks('grunt-contrib-coffee');
+  grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-webpack');
@@ -128,7 +122,6 @@ module.exports = function(grunt) {
 
   grunt.registerTask('scripts', 'def', function(){
     grunt.task.run('webpack');
-    grunt.task.run('coffee');
     grunt.task.run('concat');
     grunt.task.run('uglify');
   });
