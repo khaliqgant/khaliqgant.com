@@ -11,6 +11,10 @@ ul {
     display: block;
   }
 }
+.app {
+  padding-top: 50px;
+}
+
 main {
   padding-top: 260px;
 }
