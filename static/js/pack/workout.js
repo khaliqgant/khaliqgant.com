@@ -5,26 +5,12 @@
 'use strict';
 
 
+/* Dependencies ------------------------------------------------------------ */
 /**
  * @desc binds JSONEditor to the window
  * @requires json-editor
  */
 require('json-editor');
-
-
-/* App ------------------------------- */
-loadSchemas();
-
-
-/* Utils ------------------------------- */
-/**
- * Require All
- * @desc grab all the files within a directory
- * @see https://webpack.github.io/docs/context.html#context-module-api
- */
-function requireAll(requireContext) {
-  return requireContext.keys().map(requireContext);
-}
 
 /**
  * Schemas
@@ -35,6 +21,21 @@ var Schemas = requireAll(
     require.context('json!workout-tracker/workouts', true, /^\.\/.*\.json$/)
 );
 
+
+/* App --------------------------------------------------------------------- */
+loadSchemas();
+
+
+/* Utils ------------------------------------------------------------------- */
+/**
+ * Require All
+ * @desc grab all the files within a directory
+ * @see https://webpack.github.io/docs/context.html#context-module-api
+ */
+function requireAll(requireContext) {
+  return requireContext.keys().map(requireContext);
+}
+
 /**
  * Load Schemas
  * @desc iterate through each workout and load it in using JSONEditor with
@@ -42,7 +43,7 @@ var Schemas = requireAll(
  */
 function loadSchemas() {
     var editor,
-    el = document.getElementById('editor');
+        el = document.getElementById('editor');
 
     for (var i = 0; i < Schemas.length; i++)
     {
