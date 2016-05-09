@@ -46,17 +46,17 @@ module.exports = function(grunt) {
     },
 
     webpack: {
-        pack: {
+        workout: {
             entry: webpack + 'workout.js',
             output: {
                 filename: js + 'workout-app.js'
             },
             loaders:
                 [
-                {
-                    test: /\.json$/,
-                    loader: 'json-loader'
-                }
+                    {
+                        test: /\.json$/,
+                        loader: 'json-loader'
+                    }
             ]
         }
     },
