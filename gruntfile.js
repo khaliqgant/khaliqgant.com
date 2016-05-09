@@ -1,7 +1,8 @@
 module.exports = function(grunt) {
+    'use strict';
 
   var
-    project = 'static/',
+    project = './static/',
     scss    = project + 'scss/',
     coffee  = project + 'coffee/',
     css     = project + 'css/',
@@ -44,14 +45,30 @@ module.exports = function(grunt) {
       }
     },
 
-    coffee: {
-      compile: {
-        files: {
-          'static/js/kjg.js': [
-            coffee + 'kjg.coffee'
-          ]
+    webpack: {
+        pack: {
+            entry: js + 'pack/workout.js',
+            output: {
+                filename: js + 'app.js'
+            },
+            loaders:
+                [
+                {
+                    test: /\.json$/,
+                    loader: 'json-loader'
+                }
+            ]
         }
-      }
+    },
+
+    coffee: {
+        compile: {
+            files: {
+            'static/js/kjg.js': [
+                coffee + 'kjg.coffee'
+            ]
+            }
+        }
     },
 
     concat: {
@@ -97,6 +114,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-coffee');
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-webpack');
 
   grunt.registerTask('build', 'def', function(){
       var css = npmcss('static/scss/build/plugins.scss');
@@ -109,6 +127,7 @@ module.exports = function(grunt) {
   });
 
   grunt.registerTask('scripts', 'def', function(){
+    grunt.task.run('webpack');
     grunt.task.run('coffee');
     grunt.task.run('concat');
     grunt.task.run('uglify');
