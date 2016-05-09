@@ -5,7 +5,7 @@ import argparse
 from functools import wraps
 from flask import jsonify
 
-from flask import Flask, request, render_template, Response
+from flask import Flask, request, render_template, Response, send_from_directory
 app = Flask(__name__)
 
 # import custom apis
@@ -95,7 +95,6 @@ def spotify_api():
         return jsonify(song=track)
 
 
-
 @app.route('/citi')
 def citi():
     home_east = configParser.get('citibike', 'home_east')
@@ -121,6 +120,16 @@ def projects():
 @app.route('/apps')
 def apps():
     return render_template('apps.html')
+
+""" Set base schemas so they're available to the app """
+@app.route('/base/<path:path>')
+def send_workout(path):
+    return send_from_directory('node_modules/workout-tracker/base', path)
+
+
+@app.route('/apps/workout-tracker')
+def workout_tracker():
+    return render_template('workout-tracker.html')
 
 
 def check_auth(username, password):
