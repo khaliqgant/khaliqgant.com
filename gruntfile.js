@@ -49,7 +49,7 @@ module.exports = function(grunt) {
         pack: {
             entry: webpack + 'workout.js',
             output: {
-                filename: js + 'app.js'
+                filename: js + 'workout-app.js'
             },
             loaders:
                 [

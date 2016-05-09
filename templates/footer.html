@@ -19,4 +19,6 @@
 </script>
 <script src="{{ url_for('static', filename='js/responsive-nav.js') }}"></script>
 <script src="{{ url_for('static', filename='js/kjg.js') }}"></script>
-<script src="{{ url_for('static', filename='js/app.js') }}"></script>
+{% if request.endpoint == "workout_tracker" %}
+	<script src="{{ url_for('static', filename='js/workout-app.js') }}"></script>
+{% endif %}
