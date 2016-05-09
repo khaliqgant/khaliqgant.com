@@ -1,3 +1,6 @@
+/* jshint -W097 */
+/* jshint node: true */
+
 'use strict';
 
 /* global document */
