@@ -6,7 +6,7 @@ module.exports = function(grunt) {
     scss    = project + 'scss/',
     css     = project + 'css/',
     js      = project + 'js/',
-    webpack = js + '/pack/',
+    webpack = project + 'webpack/',
     npmcss  = require('npm-css');
 
   grunt.initConfig({

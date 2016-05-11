@@ -11,6 +11,7 @@
  * @requires json-editor
  */
 require('json-editor');
+var Selectors = require('./selectors');
 
 /**
  * Schemas
