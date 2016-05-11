@@ -91,7 +91,7 @@ module.exports = function(grunt) {
     watch: {
       scripts: {
         files: [webpack + '*.js'],
-        tasks: ['concat','jshint','uglify']
+        tasks: ['webpack','concat','jshint','uglify']
       },
       styles: {
         files: [scss + '*.scss'],
