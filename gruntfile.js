@@ -56,6 +56,10 @@ module.exports = function(grunt) {
                     {
                         test: /\.json$/,
                         loader: 'json-loader'
+                    },
+                    {
+                        test: /\.html/,
+                        loader: 'handlebars-loader'
                     }
             ]
         }
