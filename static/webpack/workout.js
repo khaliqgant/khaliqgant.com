@@ -1,6 +1,7 @@
 /* jshint -W097 */
 /* jshint node: true */
 /* global document */
+/* global window */
 /* global JSONEditor */
 'use strict';
 
@@ -12,6 +13,8 @@
  */
 require('json-editor');
 var Selectors = require('./selectors');
+var workoutsTemplate = require('handlebars!../templates/workouts.html');
+
 
 /**
  * Schemas
@@ -24,7 +27,14 @@ var Schemas = requireAll(
 
 
 /* App --------------------------------------------------------------------- */
-loadSchemas();
+var param = getParameterByName('workout');
+if (param !== null) {
+    document.getElementsByClassName(Selectors.header)[0].style.display = 'none';
+    loadSchema(param);
+} else {
+    document.getElementsByClassName(Selectors.back)[0].style.display = 'none';
+    loadHtml();
+}
 
 
 /* Utils ------------------------------------------------------------------- */
@@ -38,21 +48,57 @@ function requireAll(requireContext) {
 }
 
 /**
- * Load Schemas
- * @desc iterate through each workout and load it in using JSONEditor with
- *       configuration options
+ * Load Html
+ * @desc append compiled html workouts to the DOM
  */
-function loadSchemas() {
+function loadHtml() {
+    var workoutsHtml, li,
+        ul = document.getElementsByClassName(Selectors.workouts)[0];
+    for (var i = 0; i < Schemas.length; i++)
+    {
+        workoutsHtml = workoutsTemplate(Schemas[i]);
+        ul.insertAdjacentHTML('beforeend', workoutsHtml);
+    }
+}
+
+/**
+ * Load Schema
+ * @desc iterate through the schemas and load in the passed param using
+ *       JSONEditor with configuration options
+ * @param {string} param
+ */
+function loadSchema(param) {
     var editor,
         el = document.getElementById('editor');
 
     for (var i = 0; i < Schemas.length; i++)
     {
-        editor = new JSONEditor(el, {
-            ajax: true,
-            theme: 'bootstrap2',
-            collapsed: true,
-            schema: Schemas[i]
-        });
+        if (Schemas[i].id === param) {
+            editor = new JSONEditor(el, {
+                ajax: true,
+                theme: 'bootstrap2',
+                collapsed: true,
+                schema: Schemas[i]
+            });
+        }
     }
+}
+
+function getParameterByName(name, url) {
+        if (!url) {
+            url = window.location.href;
+        }
+        name = name.replace(/[\[\]]/g, '\\$&');
+        var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+        results = regex.exec(url);
+        if (!results) {
+            return null;
+        }
+        if (!results[2]) {
+            return '';
+        }
+
+        var query = decodeURIComponent(results[2].replace(/\+/g, ' ')
+                                    .replace(/\//g, ''));
+        return query;
 }
