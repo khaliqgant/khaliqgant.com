@@ -8,14 +8,12 @@
 
 /* Dependencies ------------------------------------------------------------ */
 /**
- * @desc binds JSONEditor to the window
+ * @desc binds JSONEditor to the application scope
  * @requires json-editor
  */
 require('json-editor');
 var Selectors = require('./selectors');
 var workoutsTemplate = require('handlebars!../templates/workouts.html');
-
-
 /**
  * Schemas
  * @desc grab all the workout JSON schemas from the workout-tracker directory
