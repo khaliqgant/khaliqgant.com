@@ -3,6 +3,7 @@ alias server='tab ". venv/bin/activate && python __init__.py --fitbit=false"'
 alias init='tab ". venv/bin/activate && python __init__.py --fitbit=false" && tab "grunt watch"'
 alias deploy='(cd deploy && ansible-playbook deploy.yml)'
 alias upload:config='rsync config/config.txt khaliqgant:/home/kjg/khaliqgant/config/config.txt -v'
+alias watch='tab "grunt watch"'
 
 dropbox_data=~/Dropbox\ \(Personal\)/KJG/Personal/Data
 
