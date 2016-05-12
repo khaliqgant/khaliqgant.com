@@ -22,6 +22,8 @@
   },
   "dependencies": {
     "bootstrap": "^3.3.5",
+    "handlebars": "^4.0.5",
+    "handlebars-loader": "^1.3.0",
     "json-editor": "^0.7.25",
     "json-loader": "^0.5.4",
     "responsive-nav": "^1.0.39",
