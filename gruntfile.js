@@ -6,6 +6,7 @@ module.exports = function(grunt) {
     scss    = project + 'scss/',
     css     = project + 'css/',
     js      = project + 'js/',
+    jsx     = project + 'jsx/',
     webpack = project + 'webpack/',
     npmcss  = require('npm-css');
 
@@ -45,6 +46,22 @@ module.exports = function(grunt) {
       }
     },
 
+    babel: {
+        options: {
+            plugins: ['transform-react-jsx'],
+            presets: ['es2016', 'react']
+        },
+        jsx: {
+            files: [{
+                expand: true,
+                cwd: jsx,
+                src: ['*.jsx'],
+                dest: webpack,
+                ext: '.js'
+            }]
+        }
+    },
+
     webpack: {
         workout: {
             entry: webpack + 'workout.js',
@@ -60,6 +77,14 @@ module.exports = function(grunt) {
                     {
                         test: /\.html/,
                         loader: 'handlebars-loader'
+                    },
+                    {
+                        test: /\.js$/,
+                        exclude: /node_modules/,
+                        loader: 'babel-loader',
+                        query: {
+                            presets: ['es2016', 'react']
+                        }
                     }
             ]
         }
@@ -89,13 +114,16 @@ module.exports = function(grunt) {
     },
 
     jshint: {
-        src: [webpack]
+        src: [webpack],
+        options: {
+            'esversion': 6
+        }
     },
 
     watch: {
       scripts: {
-        files: [webpack + '*.js'],
-        tasks: ['webpack','concat','jshint','uglify']
+        files: [jsx + '*.jsx'],
+        tasks: ['babel', 'webpack', 'concat','jshint','uglify']
       },
       styles: {
         files: [scss + '*.scss'],
@@ -113,6 +141,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-webpack');
+  grunt.loadNpmTasks('grunt-babel');
 
   grunt.registerTask('build', 'def', function(){
       var css = npmcss('static/scss/build/plugins.scss');
@@ -125,6 +154,7 @@ module.exports = function(grunt) {
   });
 
   grunt.registerTask('scripts', 'def', function(){
+    grunt.task.run('babel');
     grunt.task.run('webpack');
     grunt.task.run('concat');
     grunt.task.run('uglify');
