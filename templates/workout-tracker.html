@@ -1,11 +1,11 @@
 {% extends "app_layout.html" %}
 
 {% block content %}
-	<div class="container cols-xs-12 .col-md-10">
-		<h2 class="js-header">Workouts</h2>
-		<a class="js-back" href="/apps/workout-tracker">Back</a>
+	<div class="container cols-xs-12 .col-md-10" id="test">
+		<div id="js-header"></div>
 		<ul class="activities cols-xs-12 .col-md-10 js-workouts">
 		</ul>
 		<div id="editor"></div>
+		<button type="button" class="btn btn-danger js-save">Save</button>
 	</div>
 {% endblock %}
