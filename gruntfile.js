@@ -77,14 +77,6 @@ module.exports = function(grunt) {
                     {
                         test: /\.html/,
                         loader: 'handlebars-loader'
-                    },
-                    {
-                        test: /\.js$/,
-                        exclude: /node_modules/,
-                        loader: 'babel-loader',
-                        query: {
-                            presets: ['es2016', 'react']
-                        }
                     }
             ]
         }
