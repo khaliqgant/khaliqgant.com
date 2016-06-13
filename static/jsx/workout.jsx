@@ -14,9 +14,15 @@
 require('json-editor');
 var Selectors = require('./selectors');
 var workoutsTemplate = require('handlebars!../templates/workouts.html');
+var editor;
 
 import React from 'react';
 import ReactDom from 'react-dom';
+/**
+ * Superagent
+ * @see https://github.com/visionmedia/superagent
+ */
+import request from 'superagent';
 
 
 /*
@@ -43,30 +49,58 @@ var Schemas = requireAll(
 
 /* App --------------------------------------------------------------------- */
 var param = getParameterByName('workout');
-var Header;
 // this is useful: http://ricostacruz.com/cheatsheets/react.html
 
-if (param !== null) {
-    Header = React.createClass({
-        render: function() {
-            return (
-                <a href="/apps/workout-tracker">Back</a>
-            )
-        }
-    });
-    ReactDom.render(<Header/>, document.getElementById(Selectors.header));
-    loadSchema(param);
-} else {
-    Header = React.createClass({
-        render: function() {
-            return (
-                <h2>Workouts({this.props.count})</h2>
-            )
-        }
-    });
-    ReactDom.render(<Header count={Schemas.length} />, document.getElementById(Selectors.header));
+if (param === null) {
+    renderListHtml();
     loadHtml();
+} else {
+    loadSchema(param);
+    renderWorkoutHtml();
 }
+
+// Listeners
+class SaveButton extends React.Component {
+    constructor() {
+        super();
+        this.state = {
+            saved: false
+        };
+        this.handleClick = this.handleClick.bind(this);
+    }
+
+    handleClick() {
+        var json = editor.getValue();
+        json.date = new Date();
+        json.name = document.getElementById(Selectors.check).value;
+        var token = document.getElementById('editor').dataset.token;
+        request
+            .post('/api/workout')
+            .set('X-CSRFTOKEN', token)
+            .send(json)
+            .end(function (err, res) {
+                console.log(res);
+            });
+
+        this.setState({
+            saved: !this.state.saved
+        });
+    }
+
+    render() {
+        const text = this.state.saved ? 'Saved' : 'Save';
+        return (
+            <div onClick={this.handleClick}>
+            {text}
+            </div>
+        );
+    }
+}
+
+ReactDom.render(
+    <SaveButton />,
+    document.getElementById(Selectors.save)
+);
 
 
 /* Utils ------------------------------------------------------------------- */
@@ -100,8 +134,7 @@ function loadHtml() {
  * @param {string} param
  */
 function loadSchema(param) {
-    var editor,
-        el = document.getElementById('editor');
+    var el = document.getElementById('editor');
 
     for (var i = 0; i < Schemas.length; i++)
     {
@@ -114,6 +147,55 @@ function loadSchema(param) {
             });
         }
     }
+}
+
+/**
+ * Render List Html
+ * @desc add in the list specific header for a workout
+ */
+function renderListHtml()
+{
+    var Header = React.createClass({
+        render: function() {
+            return (
+                <h2>Workouts({this.props.count})</h2>
+            )
+        }
+    });
+
+    ReactDom.render(<Header count={Schemas.length} />, document.getElementById(Selectors.header));
+}
+
+/**
+ * Render Workout Html
+ * @desc add in the specific workout DOM elements
+ */
+function renderWorkoutHtml()
+{
+    var Save = React.createClass({
+        render: function() {
+            return (
+                <button type="button" id="js-save" className="btn btn-danger">Save</button>
+            )
+        }
+    });
+    var Header = React.createClass({
+        render: function() {
+            return (
+                <a href="/apps/workout-tracker">Back</a>
+            )
+        }
+    });
+    var Check = React.createClass({
+        render: function() {
+            return (
+                <input id="js-check" placeholder="Name" />
+            )
+        }
+    });
+    ReactDom.render(<Header/>, document.getElementById(Selectors.header));
+    ReactDom.render(<Save />, document.getElementById(Selectors.saveContainer));
+    ReactDom.render(<Check />, document.getElementById(Selectors.checker));
 }
 
 function getParameterByName(name, url) {
