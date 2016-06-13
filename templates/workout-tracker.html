@@ -5,7 +5,8 @@
 		<div id="js-header"></div>
 		<ul class="activities cols-xs-12 .col-md-10 js-workouts">
 		</ul>
-		<div id="editor"></div>
-		<button type="button" class="btn btn-danger js-save">Save</button>
+		<div id="workout-check"></div>
+		<div id="editor" data-token="{{ csrf_token() }}"></div>
+		<div id="save-container"></div>
 	</div>
 {% endblock %}
