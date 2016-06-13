@@ -108,7 +108,9 @@ module.exports = function(grunt) {
     jshint: {
         src: [webpack],
         options: {
-            'esversion': 6
+            esversion: 6,
+            proto: true,
+            expr: true
         }
     },
 
