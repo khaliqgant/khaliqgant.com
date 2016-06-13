@@ -2,11 +2,13 @@ import requests_cache
 import os
 import datetime
 import argparse
+import json
 from functools import wraps
-from flask import jsonify
-
+from flask import jsonify, make_response
 from flask import Flask, request, render_template, Response, send_from_directory
+from flask_wtf.csrf import CsrfProtect
 app = Flask(__name__)
+CsrfProtect(app)
 
 # import custom apis
 from apis import helper, github, foursquare, lastfm, citibike, \
@@ -38,7 +40,6 @@ def index():
 
     fq_token = configParser.get('foursquare', 'key')
     api_key = configParser.get('lastfm', 'key')
-    lastfm_secret = configParser.get('lastfm', 'secret')
     r_key = configParser.get('rescuetime', 'key')
 
     today = datetime.datetime.now().strftime("%A, %B %d %Y")
@@ -121,6 +122,7 @@ def projects():
 def apps():
     return render_template('apps.html')
 
+
 """ Set base schemas so they're available to the app """
 @app.route('/base/<path:path>')
 def send_workout(path):
@@ -130,6 +132,19 @@ def send_workout(path):
 @app.route('/apps/workout-tracker')
 def workout_tracker():
     return render_template('workout-tracker.html')
+
+
+@app.route('/api/workout', methods=['POST'])
+def workout():
+    data = json.loads(request.data)
+    name = data['name']
+    if (name == configParser.get('workout', 'key')):
+        resp = make_response(request.data)
+    else:
+        resp = make_response('{"response": "error"}')
+    resp.headers['Content-Type'] = "application/json"
+
+    return resp
 
 
 def check_auth(username, password):
@@ -170,5 +185,6 @@ if __name__ == '__main__':
     if (args.fitbit == 'false'):
         run_health = False
 
+    app.secret_key = configParser.get('app_key', 'key')
     app.run(debug=True)
     app.run()
