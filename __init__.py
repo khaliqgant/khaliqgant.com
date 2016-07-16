@@ -138,8 +138,10 @@ def workout_tracker():
 def workout():
     data = json.loads(request.data)
     name = data['name']
+    # make sure this post is legit
     if (name == configParser.get('workout', 'key')):
-        resp = make_response(request.data)
+        data['saved'] = True
+        resp = make_response(json.dumps(data))
     else:
         resp = make_response('{"response": "error"}')
     resp.headers['Content-Type'] = "application/json"
