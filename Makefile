@@ -12,3 +12,7 @@ venv/bin/activate: requirements/dev.txt
 .PHONY: deps
 deps:
 	pip install -r requirements/dev.txt
+
+.PHONY: db
+db:
+	psql -h localhost
