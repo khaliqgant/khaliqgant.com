@@ -23,6 +23,14 @@ My personal website
     ```
     sudo pip install Flask
     ```
+5. Make sure you have an sqlite file for caching
+    ```
+    mkdir data && cd data && touch api.sqlite
+    ```
+6. Initialize with
+    ```
+    python __init__.py
+    ```
 
 ## Deployment
 * [Digital Ocean Tutorial](https://www.digitalocean.com/community/tutorials/how-to-deploy-a-flask-application-on-an-ubuntu-vps)
