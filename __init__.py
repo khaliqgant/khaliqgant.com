@@ -1,6 +1,5 @@
 import requests_cache
 import os
-import datetime
 import argparse
 from functools import wraps
 from flask import jsonify
@@ -10,7 +9,7 @@ app = Flask(__name__)
 
 # import custom apis
 from apis import helper, github, foursquare, lastfm, citibike, \
-    fitbit, rescuetime, spotify
+    spotify
 
 from config import auth
 
@@ -32,29 +31,7 @@ run_health = True
 
 @app.route('/')
 def index():
-    clear_cache = request.args.get('cache')
-    if clear_cache == "clear_dat":
-        requests_cache.core.clear()
-
-    fq_token = configParser.get('foursquare', 'key')
-    api_key = configParser.get('lastfm', 'key')
-    lastfm_secret = configParser.get('lastfm', 'secret')
-    r_key = configParser.get('rescuetime', 'key')
-
-    today = datetime.datetime.now().strftime("%A, %B %d %Y")
-    commits = github.todaysCount()
-    songs = lastfm.todaysCount(api_key)
-    checkins = foursquare.todaysCount(fq_token)
-    productivity = rescuetime.todaysProductivity(r_key)
-
-    health_stats = {}
-    if run_health:
-        health_stats = fitbit.todaysStats()
-
-    return render_template('home.html', today=today, commits=commits,
-                           songs=songs, checkins=checkins,
-                           health_stats=health_stats, productivity=productivity
-                           )
+    return render_template('home.html')
 
 
 @app.route('/activities')

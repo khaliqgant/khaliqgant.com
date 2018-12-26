@@ -80,9 +80,10 @@ main ul.overview-bar li {
   padding-left: 50px;
   width: 10%;
   padding-top: 8px;
+  white-space: nowrap;
 }
 main ul.overview-bar li.active a {
-  color: #478dd6;
+  color: #478DD6;
 }
 main ul.overview-bar li a {
   color: white;
@@ -192,3 +193,5 @@ main .activities .foursquare .left-icon, main .dashboard .foursquare .left-icon 
 main .activities .foursquare .venue, main .dashboard .foursquare .venue {
   width: 25px;
 }
+
+/*# sourceMappingURL=main.css.map */

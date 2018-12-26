@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAGI,gBAAM;EACF,WAAW,EAAE,IAAI;;AACjB,2BAAa;EACT,YAAY,EAAE,IAAI",
+"sources": ["../../scss/dashboard.scss"],
+"names": [],
+"file": "dashboard.css"
+}

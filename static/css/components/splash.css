@@ -29,7 +29,7 @@
     position: relative;
   }
   .splash .bubbles hr {
-    color: #478dd6;
+    color: #478DD6;
     position: absolute;
     width: 250px;
     border: 1px solid;
@@ -129,3 +129,5 @@
     display: inline-block;
   }
 }
+
+/*# sourceMappingURL=splash.css.map */

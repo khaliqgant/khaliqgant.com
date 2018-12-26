@@ -2,70 +2,20 @@
 
 {% block content %}
 	<div class="mobile title">
-		<h1>Dashboard</h1>
+		<h1>Current Status</h1>
 	</div>
 
 	<ul class="dashboard cols-xs-12 .col-md-10">
 		<li>
-			<h2>
-				<span class="col-xs-6 .col-md-4">
-					{{ today }}
-				</span>
-			</h2>
-		</li>
-		{% if commits != 0 %}
-		<li>
-			<a href="https://github.com/khaliqgant/" target="_blank"><img class="icon col-xs-6 .col-md-4" src="{{ url_for('static', filename='img/github.png') }}"></a>
 			<div class="info">
-				Number of Github Public Activities: {{ commits }}
+				<h2>&#x1F30D; Paris, France</h2>
 			</div>
-		</li>
-		{% endif %}
-
-		<li>
-			<a href="http://www.last.fm/user/khaliqgant" target="_blank"><img class="icon col-xs-6 .col-md-4" src="{{ url_for('static', filename='img/lastfm.png') }}"></a>
 			<div class="info">
-				Songs Listened to: {{ songs }}
+				<h2>&#128084;<a href="https://vectormediagroup.com" target="_blank">Vector Media Group</a></h2>
 			</div>
-		</li>
-
-		{% if checkins != 0 %}
-		<li>
-			<a href="https://foursquare.com/khaliqgant" target="_blank"><img class="icon icon--circle icon--left-small col-xs-6 .col-md-4" src="{{ url_for('static', filename='img/foursquare.png') }}"></a>
-			<div class="info col-xs-8 .col-md-6 foursquare">
-				Checkins: {{ checkins }}
-			</div>
-		</li>
-		{% endif %}
-
-		{% if health_stats %}
-		<li>
-			<a href="https://www.fitbit.com/user/2625MH" target="_blank"><img class="icon col-xs-6 .col-md-4" src="{{ url_for('static', filename='img/fitbit.png') }}"></a>
 			<div class="info">
-				Steps: {{ health_stats.steps }},
-				Calories: {{ health_stats.calories }}
-				<br/>
-				Sleep: {{ health_stats.sleep.asleep }} hours out of
-					   {{ health_stats.sleep.in_bed }} hours in bed,
-					   {{ health_stats.sleep.efficiency }}% efficiency
-				<br/>
-				Last Exercise: {{ health_stats.lastActivity.activity }} for
-						{{ health_stats.lastActivity.time }} hours
+				<h2>&#9874;<a href="https://laidbackvj.com" target="_blank">Laid Back VJ</a></h2>
 			</div>
 		</li>
-		{% endif %}
-
-		{% if productivity %}
-		<li>
-			<a href="https://www.rescuetime.com" target="_blank"><img class="icon col-xs-6 .col-md-4" src="{{ url_for('static', filename='img/rescuetime.jpg') }}"></a>
-			<div class="info">
-				{% for productive in productivity %}
-					{{ productive.activity }}: {{ productive.time }} hours
-					<br/>
-				{% endfor %}
-			</div>
-		</li>
-		{% endif %}
-
 	</ul>
 {% endblock %}

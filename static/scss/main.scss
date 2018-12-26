@@ -80,6 +80,7 @@ main {
             padding-left: 50px;
             width: 10%;
             padding-top:8px;
+            white-space: nowrap;
             &.active a {
                 color: $blue;
             }
