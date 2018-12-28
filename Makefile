@@ -1,3 +1,5 @@
+TTAB := $(shell which ttab)
+
 .PHONY: tests
 tests :
 		python -m unittest discover -s tests -p '*_Test.py'
@@ -12,3 +14,8 @@ venv/bin/activate: requirements/dev.txt
 .PHONY: deps
 deps:
 	pip install -r requirements/dev.txt
+
+.PHONY: dev
+dev:
+	$(TTAB) '. venv/bin/activate && python __init__.py' && $(TTAB) 'grunt watch'
+

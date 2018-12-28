@@ -4,5 +4,8 @@
 .dashboard .info.foursquare {
   padding-left: 18px;
 }
+.dashboard .info h2 {
+  display: block;
+}
 
 /*# sourceMappingURL=dashboard.css.map */
