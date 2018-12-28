@@ -36,6 +36,11 @@ main h2 {
 main h2.projects {
   margin-bottom: 5px;
 }
+@media only screen and (max-width: 485px) {
+  main h2.projects {
+    margin-top: 70px;
+  }
+}
 main .title {
   padding-left: 52px;
 }
