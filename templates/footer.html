@@ -1,10 +1,12 @@
-<footer>
-	<div class="container">
-		<ul class="text-muted">
-			<li>Thanks for visiting! Check out my progress for this site on my
-				<a target="_blank" href="https://github.com/khaliqgant/khaliqgant">Github</a>
-			</li>
-		</ul>
+<footer class="grid">
+	<div class="col-12 social-links">
+		<a class="social" href="https://www.facebook.com/khaliqgant" target="_blank"><i class="fab fa-facebook-f"></i></a>
+		<a class="social" href="https://instagram.com/khaliqgant/" target="_blank"><i class="fab fa-instagram"></i></a>
+		<a class="social" href="http://www.linkedin.com/in/khaliqgant" target="_blank"><i class="fab fa-linkedin"></i></i></a>
+		<a class="social" href="http://github.com/khaliqgant" target="_blank"><i class="fab fa-github"></i></i></a>
+	</div>
+	<div class="col-12">
+		<div class="by">Site designed with ❤️ by <a class="by-link" href="https://www.facebook.com/laurence.uvin" target="_blank">Laurence Uvin</a></div>
 	</div>
 </footer>
 
@@ -19,16 +21,4 @@
 </script>
 <script src="{{ url_for('static', filename='js/responsive-nav.js') }}"></script>
 <script>
-	var nav = responsiveNav(".js-mobile-nav", {
-		label: "",
-		open: function(){
-
-			document.getElementById("js-head").style.display = 'none';
-			},
-			close: function(){
-			document.getElementById("js-head").style.display = 'block';
-			document.getElementById("js-head").style.display = 'inline-block';
-
-			}
-		});
 </script>
