@@ -177,6 +177,19 @@ h2.title {
     margin-left: 125px;
 }
 
+.work {
+    padding-top: 10px;
+    text-align: center;
+    font-size: 1.25rem;
+    width: 75%;
+    margin: 0 auto;
+    color: #707070;
+}
+
+.work a {
+    color: #707070;
+}
+
 /*
  * Footer
  */
