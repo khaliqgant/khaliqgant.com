@@ -226,6 +226,7 @@ h2.title {
 .tech-expertise {
     padding: 50px 150px;
 }
+
 @media screen and (max-width: 768px) {
     .tech-expertise {
         padding: 5%;
