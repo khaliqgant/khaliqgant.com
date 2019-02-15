@@ -33,6 +33,9 @@ run_health = True
 def index():
     return render_template('home.html')
 
+@app.route('/blog')
+def blog():
+    return render_template('blog.html')
 
 @app.route('/activities')
 def activities():

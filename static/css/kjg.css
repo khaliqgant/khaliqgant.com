@@ -15,7 +15,6 @@ header {
 }
 
 .bg-image {
-    background-image: url('/static/img/journey.jpg');
     background-size: cover;
     background-position: center;
     height: 100vh;

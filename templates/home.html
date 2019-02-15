@@ -1,101 +1,104 @@
 {% extends "layout.html" %}
 
+{% block absolute %}true{% endblock %}
+{% block header_image %}/static/img/journey.jpg{% endblock %}
+
 {% block content %}
-<section class="grid about" id="about">
-			<div class="col-5_md-5_sm-12 me-image" ></div>
-			<div class="section-title">About</div>
-			<div class="col-4_md-3_sm-12 about-description">
-				<h2>I'm Khaliq Gant.</h2>
-				<div class="all-content content">
+	<section class="grid about" id="about">
+		<div class="col-5_md-5_sm-12 me-image" ></div>
+		<div class="section-title">About</div>
+		<div class="col-4_md-3_sm-12 about-description">
+			<h2>I'm Khaliq Gant.</h2>
+			<div class="all-content content">
 				I'm an expert in web development, and nerd when it comes to tech jokes.
 				My passion is teaching others on how to make a living doing what they love.
-				</div>
-				<div class="all-content content-2">
-					Adopted New Yorker, raised in Atlanta, currently living in Paris.
-					My first love is music, followed closely by tech and music. I was
-					completely paralyzed for six months which totally changed my perspective on life.
-				</div>
 			</div>
-			<h2>
-		</section>
+			<div class="all-content content-2">
+				Adopted New Yorker, raised in Atlanta, currently living in Paris.
+				My first love is music, followed closely by tech and music. I was
+				completely paralyzed for six months which totally changed my perspective on life.
+			</div>
+		</div>
+		<h2>
+	</section>
 
-		<section class="grid quote">
-			<div class="col-12-middle quote-text">
-				&#8220;Everything happens for a reason&#8221;
-			</div>
-		</section>
+	<section class="grid quote">
+		<div class="col-12-middle quote-text">
+			&#8220;Everything happens for a reason&#8221;
+		</div>
+	</section>
 
-		<section class="featured" id="portfolio">
-			<div class="featured-container">
-				<h2 class="title">Featured Projects</h2>
-				<hr class="under">
+	<section class="featured" id="portfolio">
+		<div class="featured-container">
+			<h2 class="title">Featured Projects</h2>
+			<hr class="under">
+		</div>
+		<div class="project grid">
+			<div class="col-12 project-header">
+				<a class="project-header-content" href="https://medium.com/@khaliqgant/making-setting-up-a-new-computer-less-painful-ed0ef3d8342f">Making setting up a new computer less painful</a>
 			</div>
-			<div class="project grid">
-				<div class="col-12 project-header">
-					<a class="project-header-content" href="https://medium.com/@khaliqgant/making-setting-up-a-new-computer-less-painful-ed0ef3d8342f">Making setting up a new computer less painful</a>
+			<div class="col-6 bg-project-image bg-project-comp"></div>
+			<div class="col-6-middle button-link">
+				<a class="project-button" href="https://medium.com/@khaliqgant/making-setting-up-a-new-computer-less-painful-ed0ef3d8342f" target="_blank">
+					Read here
+				</a>
+			</div>
+		</div>
+		<div class="project grid">
+			<div class="col-12 project-header">
+				<a class="project-header-content" href="https://www.laidbackvj.com">Laid Back VJ</a>
+			</div>
+			<div class="col-6-middle button-link">
+				<a class="project-button" href="https://www.laidbackvj.com" target="_blank">
+					Check It Out
+				</a>
+			</div>
+			<div class="col-6 bg-project-image bg-project-lbv"></div>
+		</div>
+		</div>
+	</section>
+
+	<section class="expertise" id="work-with-me">
+		<div class="featured-container">
+			<h2 class="title">Expertise</h2>
+			<hr class="under">
+			<div class="tech-expertise">
+				<div class="grid left">
+					<a class="col-3" href="" target="_blank">
+						<img src="{{ url_for('static', filename='img/elasticsearch.gif') }}">
+					</a>
+					<a class="col-3" href="" target="_blank">
+						<img src="{{ url_for('static', filename='img/docker.png') }}">
+					</a>
+					<a class="col-3" href="" target="_blank">
+						<img src="{{ url_for('static', filename='img/nodejs.png') }}">
+					</a>
+					<a class="col-3" href="" target="_blank">
+						<img src="{{ url_for('static', filename='img/python.png') }}">
+					</a>
 				</div>
-				<div class="col-6 bg-project-image bg-project-comp"></div>
-				<div class="col-6-middle button-link">
-					<a class="project-button" href="https://medium.com/@khaliqgant/making-setting-up-a-new-computer-less-painful-ed0ef3d8342f" target="_blank">
-						Read here
+				<div class="grid off-left">
+					<a class="col-3" href="" target="_blank">
+						<img src="{{ url_for('static', filename='img/terraform.png') }}">
+					</a>
+					<a class="col-3_md-3_sm-3" href="" target="_blank">
+						<img src="{{ url_for('static', filename='img/typescript.png') }}">
+					</a>
+					<a class="col-3_md-3_sm-3" href="" target="_blank">
+						<img style="width: 20%;position:relative;top:-10px;" src="{{ url_for('static', filename='img/react.png') }}">
+					</a>
+					<a class="col-3_md-3_sm-3" href="" target="_blank">
+						<img style="width: 20%;position:relative;top:-15px;" src="{{ url_for('static', filename='img/angular.png') }}">
 					</a>
 				</div>
 			</div>
-			<div class="project grid">
-				<div class="col-12 project-header">
-					<a class="project-header-content" href="https://www.laidbackvj.com">Laid Back VJ</a>
-				</div>
-				<div class="col-6-middle button-link">
-					<a class="project-button" href="https://www.laidbackvj.com" target="_blank">
-						Check It Out
-					</a>
-				</div>
-				<div class="col-6 bg-project-image bg-project-lbv"></div>
-				</div>
+			<h2 class="title">Work with me</h2>
+			<hr class="under">
+			<div class="work col-12">
+				I work for <a href="https://www.vectormediagroup.com/">Vector Media Group</a>
+				and can be engaged for work there. I regularly give tech talks and enjoy
+				teaching and writing about tech. Email me at khaliqgant at gmail.com
 			</div>
-		</section>
-
-		<section class="expertise" id="work-with-me">
-			<div class="featured-container">
-				<h2 class="title">Expertise</h2>
-				<hr class="under">
-				<div class="tech-expertise">
-					<div class="grid left">
-						<a class="col-3" href="" target="_blank">
-							<img src="{{ url_for('static', filename='img/elasticsearch.gif') }}">
-						</a>
-						<a class="col-3" href="" target="_blank">
-							<img src="{{ url_for('static', filename='img/docker.png') }}">
-						</a>
-						<a class="col-3" href="" target="_blank">
-							<img src="{{ url_for('static', filename='img/nodejs.png') }}">
-						</a>
-						<a class="col-3" href="" target="_blank">
-							<img src="{{ url_for('static', filename='img/python.png') }}">
-						</a>
-					</div>
-					<div class="grid off-left">
-						<a class="col-3" href="" target="_blank">
-							<img src="{{ url_for('static', filename='img/terraform.png') }}">
-						</a>
-						<a class="col-3_md-3_sm-3" href="" target="_blank">
-							<img src="{{ url_for('static', filename='img/typescript.png') }}">
-						</a>
-						<a class="col-3_md-3_sm-3" href="" target="_blank">
-							<img style="width: 20%;position:relative;top:-10px;" src="{{ url_for('static', filename='img/react.png') }}">
-						</a>
-						<a class="col-3_md-3_sm-3" href="" target="_blank">
-							<img style="width: 20%;position:relative;top:-15px;" src="{{ url_for('static', filename='img/angular.png') }}">
-						</a>
-					</div>
-				</div>
-				<h2 class="title">Work with me</h2>
-				<hr class="under">
-				<div class="work col-12">
-					I work for <a href="https://www.vectormediagroup.com/">Vector Media Group</a>
-					and can be engaged for work there. I regularly give tech talks and enjoy
-					teaching and writing about tech. Email me at khaliqgant at gmail.com
-				</div>
-			</div>
-		</section>
+		</div>
+	</section>
 {% endblock %}
