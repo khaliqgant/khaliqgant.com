@@ -19,6 +19,7 @@ header {
     background-size: cover;
     background-position: center;
     height: 100vh;
+    position: relative;
 }
 
 h1 {
@@ -41,6 +42,18 @@ nav {
 nav a {
     color: white;
     padding: 0 15px;
+    font-size: 16px;
+}
+
+@media screen and (max-width: 700px) {
+    nav a {
+        font-size: 12px;
+    }
+}
+
+.nav-toggle {
+    color: white;
+    text-align: right;
 }
 
 /*
@@ -67,6 +80,13 @@ nav a {
     top: 25%;
     left: 40%;
 }
+@media screen and (max-width: 768px) {
+    .section-title {
+        opacity: 0.5;
+        left: 2%;
+        top: 17%;
+    }
+}
 
 .me-image {
     margin: 25px 0;
@@ -76,6 +96,12 @@ nav a {
     background-image: url('/static/img/fake.jpg');
 }
 
+@media screen and (max-width: 768px) {
+    .me-image {
+        height: 25vh;
+        border-radius: 25px;
+    }
+}
 .about-description {
     margin-left: 175px;
     margin-top: 5%;
@@ -83,11 +109,43 @@ nav a {
 
 .about-description h2 {
     color: #737373;
-    font-size: 3.5rem;
+    font-size: 3rem;
+}
+
+@media screen and (max-width: 1030px) {
+    .about-description h2 {
+        font-size: 2.5rem;
+    }
+    .about .all-content {
+        font-size: 1.5rem;
+    }
+}
+@media screen and (max-width: 768px) {
+    .about-description {
+        margin: 0;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .about-description h2 {
+        font-size: 2rem;
+    }
 }
 
 .about .all-content {
-    font-size: 1.85rem;
+    font-size: 1.35rem;
+}
+
+@media screen and (max-width: 900px) {
+    .about .all-content {
+        font-size: 1.15rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .about .all-content {
+        font-size: 1rem;
+    }
 }
 
 .about .content {
@@ -168,13 +226,19 @@ h2.title {
 .tech-expertise {
     padding: 50px 150px;
 }
+@media screen and (max-width: 768px) {
+    .tech-expertise {
+        padding: 5%;
+    }
+}
+
 
 .left, .off-left {
     padding-bottom: 25px;
 }
 
 .off-left {
-    margin-left: 125px;
+    margin-left: 15%;
 }
 
 .work {
