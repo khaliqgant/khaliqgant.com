@@ -18,4 +18,3 @@ deps:
 .PHONY: dev
 dev:
 	$(TTAB) '. venv/bin/activate && python __init__.py' && $(TTAB) 'grunt watch'
-
