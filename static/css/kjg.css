@@ -81,9 +81,16 @@ nav a {
 }
 @media screen and (max-width: 768px) {
     .section-title {
-        opacity: 0.5;
-        left: 2%;
-        top: 17%;
+        left: -7%;
+        top: 22%;
+        font-size: 4rem;
+    }
+}
+@media screen and (max-width: 576px) {
+    .section-title {
+        font-size: 2rem;
+        top: 15%;
+        left: 4%;
     }
 }
 
@@ -92,15 +99,26 @@ nav a {
     height: 90vh;
     background-size: cover;
     background-position: center;
-    background-image: url('/static/img/fake.jpg');
+    background-image: url('/static/img/me.jpg');
 }
 
 @media screen and (max-width: 768px) {
     .me-image {
-        height: 25vh;
-        border-radius: 25px;
+        height: 45vh;
+        border-radius: 250px;
+        margin: 0 auto;
+        top: 10%;
+        position: relative;
     }
 }
+
+@media screen and (max-width: 576px) {
+    .me-image {
+        height: 22vh;
+        top: 30%;
+    }
+}
+
 .about-description {
     margin-left: 175px;
     margin-top: 5%;
