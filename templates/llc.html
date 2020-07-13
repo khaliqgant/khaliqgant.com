@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie10 lt-ie9 lt-ie8 lt-ie7" itemscope itemtype="http://schema.org/WebPage"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie10 lt-ie9 lt-ie8" itemscope itemtype="http://schema.org/WebPage"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie10 lt-ie9" itemscope itemtype="http://schema.org/WebPage"> <![endif]-->
+<!--[if IE 9]>         <html class="no-js lt-ie10" itemscope itemtype="http://schema.org/WebPage"> <![endif]-->
+<!--[if gt IE 9]><!--> <html class="no-js" itemscope itemtype="http://schema.org/WebPage"> <!--<![endif]-->
+	<head>
+		<title>Khaliq Gant LLC</title>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<meta name="description" content="Business website for Khaliq Gant: Music, Sports, Tech. Always learning. Enjoy making things on the web" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/kjg.css') }}">
+	</head>
+
+	<body>
+		{% include "header.html" %}
+        <div class="splash">
+            <img class="me" src="{{ url_for('static', filename='img/khaliq-gant-llc.png') }}">
+        </div>
+		<main>
+		</main>
+        <footer>
+            <div class="container">
+                <ul class="text-muted">
+                    <li>
+                        Khaliq Gant, LLC, 404-915-8499, khaliqgant@gmail.com
+                    </li>
+                </ul>
+            </div>
+        </footer>
+
+        <script src="{{ url_for('static', filename='js/responsive-nav.js') }}"></script>
+        <script>
+            var nav = responsiveNav(".js-mobile-nav", {
+                label: "",
+                open: function(){
+
+                    document.getElementById("js-head").style.display = 'none';
+                    },
+                    close: function(){
+                    document.getElementById("js-head").style.display = 'block';
+                    document.getElementById("js-head").style.display = 'inline-block';
+
+                    }
+                });
+        </script>
+	</body>
+
+</html>
+
