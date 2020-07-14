@@ -19,6 +19,12 @@
         left:50%;
         margin-left:-185px;
     }
+    .llc {
+        width:250px;
+        position:absolute;
+        left:50%;
+        margin-left:-185px;
+    }
     .bubbles {
         display:none;
         @media only screen and (min-width: $bubble-breakpoint) {

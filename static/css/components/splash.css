@@ -20,6 +20,12 @@
 .splash .me.circle {
   border-radius: 250px;
 }
+.splash .llc {
+  width: 250px;
+  position: absolute;
+  left: 50%;
+  margin-left: -185px;
+}
 .splash .bubbles {
   display: none;
 }

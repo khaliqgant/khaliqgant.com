@@ -1,4 +1,10 @@
+@import "settings";
+
 footer {
+    &.llc {
+        position: absolute;
+        bottom: 250px;
+    }
     h1 {
         color: black;
     }
