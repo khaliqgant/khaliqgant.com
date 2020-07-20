@@ -1,6 +1,0 @@
-flask
-humanize
-requests
-requests_cache
-lastfmclient
-grequests
