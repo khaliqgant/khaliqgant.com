@@ -1,0 +1,1 @@
+FROM klakegg/hugo:alpine
