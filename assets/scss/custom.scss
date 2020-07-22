@@ -21,3 +21,28 @@
 img[src$='#logo'] {
     width: initial;
 }
+
+img[src$='#project-icon'] {
+    width: 75px;
+    display: inline-block;
+    padding-right: 7px;
+    vertical-align: middle;
+}
+
+.post {
+    .technologies {
+        color: gray;
+        p {
+            display: inline-block;
+            padding-right: 5px;
+        }
+        img {
+            display: inline-block;
+            width: initial;
+            vertical-align: middle;
+            padding-right: 10px;
+            max-width: 100px;
+        }
+    }
+
+}

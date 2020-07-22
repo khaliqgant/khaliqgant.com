@@ -4,6 +4,7 @@ slug: main
 date: 2020-07-19T09:19:29-04:00
 hideDate: true
 hidePagination: true
+hideComments: true
 keywords: ["curation", "kjg-tastes"]
 tags: ["curations", "music", "web-development", "travel"]
 ---

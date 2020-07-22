@@ -1,4 +1,3 @@
-# DO NOT REMOVE THIS
 theme = "hugo-theme-codex"
 
 # Override these settings with your own
@@ -8,7 +7,7 @@ baseURL = "https://khaliqgant.com"
 copyright = "© {year}"
 
 # Add your Disqus shortname here.
-# disqusShortname = ""
+disqusShortname = "khaliqgant"
 
 # Add your Google Analytics identifier: UA-XXXXXXXX-X
 # googleAnalytics = ""
@@ -23,7 +22,7 @@ copyright = "© {year}"
   twitter = "https://twitter.com/khaliqgant"
   github = "https://github.com/khaliqgant"
   #email = "mailto:khaliqgant@gmail.com"
-  facebook = "https://facebook.com/khaliqgant"
+  #facebook = "https://facebook.com/khaliqgant"
   # gitlab = "https://gitlab.com/<your handle>"
   instagram = "https://instagram.com/khaliqgant"
   linkedin = "https://www.linkedin.com/in/khaliqgant/"
@@ -69,7 +68,7 @@ copyright = "© {year}"
   identifier = "projects"
   name = "projects"
   title = "Projects"
-  url = "/projects"
+  url = "/projects/main"
 
 [[menu.main]]
   identifier = "curations"
