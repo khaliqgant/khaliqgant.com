@@ -5,3 +5,19 @@
 .handle {
     font-style: italic;
 }
+
+.post__footer {
+    a {
+        text-decoration: none;
+        &:visited {
+            color: #9b9b9b;
+        }
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+img[src$='#logo'] {
+    width: initial;
+}
