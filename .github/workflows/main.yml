@@ -35,6 +35,7 @@ jobs:
         container-registry-username: ${{ secrets.DOCKER_USERNAME }}
         container-registry-password: ${{ secrets.DOCKER_PASSWORD }}
         secret-name: khaliqgant-k8s-secret
+      id: create-secret
 
     - uses: Azure/k8s-deploy@v1
       with:
