@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: khaliqgant
-        image: khaliqgant:khaliqgant:latest
+        image: khaliqgant/khaliqgant:latest
         ports:
           - name: nginx-http
             containerPort: 80
