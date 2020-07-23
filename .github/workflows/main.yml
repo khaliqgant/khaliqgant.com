@@ -40,9 +40,6 @@ jobs:
         manifests: |
           infrastructure/kubernetes/manifests/deployment.yml
           infrastructure/kubernetes/manifests/service.yml
-          infrastructure/kubernetes/manifests/ingress.yml
-          infrastructure/kubernetes/manifests/certificate.yml
-          infrastructure/kubernetes/manifests/issuer.yml
         images: |
           khaliqgant/khaliqgant:latest
         imagepullsecrets: |
