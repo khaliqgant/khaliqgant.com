@@ -1,0 +1,49 @@
+name: Docker Build & Publish, Kubernetes Deploy
+
+on:
+  push:
+    branches: [ static-site ]
+  pull_request:
+    branches: [ static-site ]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Build and push Docker images
+      uses: docker/build-push-action@v1
+      with:
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
+        repository: khaliqgant/khaliqgant
+        dockerfile: infrastructure/docker/Dockerfile
+
+    - name: Set k8s context
+      uses: azure/k8s-set-context@v1
+      with:
+        method: kubeconfig
+        kubeconfig: ${{ secrets.KUBE_CONFIG }}
+      id: setcontext
+
+    - name: Create k8s secret
+      uses: Azure/k8s-create-secret@v1
+      with:
+        container-registry-url: registry.hub.docker.com
+        container-registry-username: ${{ secrets.DOCKER_USERNAME }}
+        container-registry-password: ${{ secrets.DOCKER_PASSWORD }}
+        secret-name: khaliqgant-k8s-secret
+
+    - uses: Azure/k8s-deploy@v1
+      with:
+        manifests: |
+          infrastructure/kubernetes/manifests/deployment.yml
+          infrasturcture/kubernetes/manifests/service.yml
+          infrasturcture/kubernetes/manifests/ingress.yml
+          infrasturcture/kubernetes/manifests/certificate.yml
+          infrasturcture/kubernetes/manifests/issuer.yml
+        images: |
+          khaliqgant/khaliqgant:latest
+        imagepullsecrets: |
+          khaliqgant-k8s-secret

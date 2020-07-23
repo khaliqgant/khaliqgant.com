@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+    name: khaliqgant
+    namespace: khaliqgant.com
+spec:
+    ports:
+    - name: http
+      port: 80
+      targetPort: nginx-http
+    - name: https
+      port: 443
+      targetPort: nginx-https
+    selector:
+        app: khaliqgant

@@ -1,0 +1,18 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: khaliqgant
+  namespace: khaliqgant.com
+spec:
+  tls:
+  - hosts:
+    - "khaliqgant.com"
+    secretName: tls-secret
+  rules:
+  - host: khaliqgant.com
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: khaliqgant
+          servicePort: 80

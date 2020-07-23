@@ -1,0 +1,12 @@
+apiVersion: cert-manager.io/v1alpha2
+kind: Certificate
+metadata:
+  name: le-crt
+spec:
+  secretName: tls-secret
+  issuerRef:
+    kind: Issuer
+    name: letsencrypt
+  commonName: "khaliqgant.com"
+  dnsNames:
+  - "khaliqgant.com"

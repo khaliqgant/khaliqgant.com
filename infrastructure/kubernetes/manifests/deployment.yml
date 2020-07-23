@@ -1,0 +1,22 @@
+apiVersion : apps/v1beta1
+kind: Deployment
+metadata:
+  name: khaliqgant
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: khaliqgant
+    spec:
+      containers:
+        - name: khaliqgant
+          image: khaliqgant
+          ports:
+            - name: nginx-http
+              containerPort: 80
+            - name: nginx-https
+              containerPort: 443
+          env:
+          - name: SENTRY_ORG
+            value: {{ .Values.sentry.org }}
