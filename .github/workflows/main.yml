@@ -19,6 +19,7 @@ jobs:
         password: ${{ secrets.DOCKER_PASSWORD }}
         repository: khaliqgant/khaliqgant
         dockerfile: infrastructure/docker/Dockerfile
+        tags: latest
 
     - name: Set k8s context
       uses: azure/k8s-set-context@v1
