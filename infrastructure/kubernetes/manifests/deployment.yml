@@ -4,19 +4,19 @@ metadata:
   name: khaliqgant
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: khaliqgant
   template:
     metadata:
       labels:
         app: khaliqgant
     spec:
       containers:
-        - name: khaliqgant
-          image: khaliqgant
-          ports:
-            - name: nginx-http
-              containerPort: 80
-            - name: nginx-https
-              containerPort: 443
-          env:
-          - name: SENTRY_ORG
-            value: {{ .Values.sentry.org }}
+      - name: khaliqgant
+        image: khaliqgant
+        ports:
+          - name: nginx-http
+            containerPort: 80
+          - name: nginx-https
+            containerPort: 443
