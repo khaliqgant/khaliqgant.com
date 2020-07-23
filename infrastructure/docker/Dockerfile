@@ -1,5 +1,5 @@
 FROM klakegg/hugo:alpine as hugo
 
-FROM nginx
-COPY ./infrastructure/docker/nginx/default.conf /etc/nginx/conf.d/default.conf
+FROM staticfloat/nginx-certbot
+COPY ./infrastructure/docker/nginx/default.conf /etc/nginx/user.conf.d:ro
 COPY --from=hugo /target /var/www/html

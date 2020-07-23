@@ -20,3 +20,6 @@ spec:
             containerPort: 80
           - name: nginx-https
             containerPort: 443
+        env:
+        - name: CERTBOT_EMAIL
+          value: khaliqgant@gmail.com
