@@ -1,5 +1,4 @@
-FROM klakegg/hugo:alpine-onbuild as hugo
-COPY . /src
+FROM klakegg/hugo:0.74.3-onbuild AS hugo
 
 FROM staticfloat/nginx-certbot
 COPY ./infrastructure/docker/nginx/default.conf /etc/nginx/user.conf.d/default.conf
