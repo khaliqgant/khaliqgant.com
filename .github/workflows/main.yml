@@ -19,7 +19,7 @@ jobs:
         password: ${{ secrets.DOCKER_PASSWORD }}
         repository: khaliqgant/khaliqgant
         dockerfile: infrastructure/docker/Dockerfile
-        tags: latest
+        tags: ${{ github.sha }}
 
     - name: Set k8s context
       uses: azure/k8s-set-context@v1
@@ -35,7 +35,16 @@ jobs:
         container-registry-username: ${{ secrets.DOCKER_USERNAME }}
         container-registry-password: ${{ secrets.DOCKER_PASSWORD }}
         secret-name: khaliqgant-k8s-secret
-      id: create-secret
+
+    - uses: azure/k8s-bake@v1
+      with:
+        renderEngine: helm
+        helmChart: infrastructure/helm/
+        overrides: |
+            imageVersion:${{ github.sha }}
+        helm-version: latest
+        silent: false
+      id: bake
 
     - uses: Azure/k8s-deploy@v1
       with:
@@ -43,6 +52,6 @@ jobs:
           infrastructure/kubernetes/manifests/deployment.yml
           infrastructure/kubernetes/manifests/service.yml
         images: |
-          khaliqgant/khaliqgant:latest
+          khaliqgant/khaliqgant:${{ github.sha }}
         imagepullsecrets: |
           khaliqgant-k8s-secret

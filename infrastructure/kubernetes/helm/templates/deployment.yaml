@@ -1,20 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: khaliqgant
+  name: {{ .Values.app }}
 spec:
   replicas: 1
+    type: RollingUpdate
   selector:
     matchLabels:
-      app: khaliqgant
+      app: {{ .Values.app }}
   template:
     metadata:
       labels:
-        app: khaliqgant
+        app: {{ .Values.app }}
     spec:
       containers:
-      - name: khaliqgant
-        image: khaliqgant/khaliqgant:latest
+      - name: {{ .Values.app }}
+        image: {{ .Values.app }}/{{ .Values.app }}:{{ .Values.imageVersion }}
         imagePullPolicy: Always
         ports:
           - name: nginx-http
@@ -23,6 +24,6 @@ spec:
             containerPort: 443
         env:
         - name: CERTBOT_EMAIL
-          value: khaliqgant@gmail.com
+          value: {{ .Values.email }}
       imagePullSecrets:
       - name: regcred
