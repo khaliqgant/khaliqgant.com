@@ -1,6 +1,7 @@
 ---
 hideDate: true
 hidePagination: true
+hideComments: true
 ---
 
 ![Khaliq Gant, LLC Logo](/images/khaliq-gant-llc.png#logo)
