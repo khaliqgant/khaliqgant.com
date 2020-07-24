@@ -1,0 +1,77 @@
+theme = "hugo-theme-codex"
+
+# Override these settings with your own
+title = "Khaliqgant.com"
+languageCode = "en-us"
+baseURL = "https://khaliqgant.com"
+copyright = "© {year}"
+
+# Add your Disqus shortname here.
+disqusShortname = "khaliqgant"
+
+# Add your Google Analytics identifier: UA-XXXXXXXX-X
+# googleAnalytics = ""
+
+# Optional params
+[params]
+  # Follow the Hugo date/time format reference here:
+  # https://gohugo.io/functions/format/#gos-layout-string
+  dateFormat = "2006-01-02"
+
+  # Links to your social accounts, comment/uncomment as needed. Icons will be displayed for those specified.
+  twitter = "https://twitter.com/khaliqgant"
+  github = "https://github.com/khaliqgant"
+  #email = "mailto:khaliqgant@gmail.com"
+  #facebook = "https://facebook.com/khaliqgant"
+  # gitlab = "https://gitlab.com/<your handle>"
+  instagram = "https://instagram.com/khaliqgant"
+  linkedin = "https://www.linkedin.com/in/khaliqgant/"
+  lastfm = "https://www.last.fm/user/Khaliqgant"
+  soundcloud = "https://soundcloud.com/khaliqgant"
+  # youtube = "https://www.youtube.com/channel/<your channel>"
+
+  # Titles for your icons (shown as tooltips), and also their display order.
+  # Currently, these icons are supported:
+  #   "Twitter", "GitHub", "Email", "Facebook", "GitLab", "Instagram", "LinkedIn", "YouTube"
+  iconTitles = ["Twitter", "GitHub", "Email", "LinkedIn", "Lastfm", "Soundcloud"]
+
+  # Metadata for Twitter cards, defaults to params.twitter
+  # twitterSite = "@<your handle>"
+  # twitterAuthor = "@<your handle>"
+
+# This disables Hugo's default syntax highlighting in favor
+# of prismjs. If you wish to use Hugo's default syntax highlighting
+# over prismjs, remove this. You will also need to remove the prismjs
+# vendor script in layouts/blog/single.html.
+[markup]
+  [markup.highlight]
+    codeFences = false
+
+  # Set to false to disallow raw HTML in markdown files
+  [markup.goldmark.renderer]
+      unsafe = true
+
+# Controls the navigation
+[[menu.main]]
+  identifier = "home"
+  name = "home"
+  title = "Home"
+  url = "/"
+
+[[menu.main]]
+  identifier = "blog"
+  name = "blog"
+  title = "Blog"
+  url = "/blog"
+
+[[menu.main]]
+  identifier = "projects"
+  name = "projects"
+  title = "Projects"
+  url = "/projects/main"
+
+[[menu.main]]
+  identifier = "curations"
+  name = "curations"
+  title = "Curations"
+  url = "/curations/main"
