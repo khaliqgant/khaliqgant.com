@@ -4,7 +4,6 @@ metadata:
   name: {{ .Values.app }}
 spec:
   replicas: 1
-    type: RollingUpdate
   selector:
     matchLabels:
       app: {{ .Values.app }}
