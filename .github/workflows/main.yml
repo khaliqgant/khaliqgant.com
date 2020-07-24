@@ -48,9 +48,7 @@ jobs:
 
     - uses: Azure/k8s-deploy@v1
       with:
-        manifests: |
-          infrastructure/kubernetes/manifests/deployment.yml
-          infrastructure/kubernetes/manifests/service.yml
+        manifests: ${{ steps.bake.outputs.manifestsBundle }}
         images: |
           khaliqgant/khaliqgant:${{ github.sha }}
         imagepullsecrets: |
