@@ -13,3 +13,5 @@ spec:
       targetPort: nginx-https
     selector:
         app: {{ .Values.app }}
+    externalIPs:
+      - 46.101.211.54
