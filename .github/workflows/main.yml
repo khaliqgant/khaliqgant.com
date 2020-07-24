@@ -39,7 +39,7 @@ jobs:
     - uses: azure/k8s-bake@v1
       with:
         renderEngine: helm
-        helmChart: infrastructure/helm/
+        helmChart: infrastructure/kubernetes/helm/
         overrides: |
             imageVersion:${{ github.sha }}
         helm-version: latest
