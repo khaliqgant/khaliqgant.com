@@ -2,9 +2,9 @@ name: Docker Build & Publish, Kubernetes Deploy
 
 on:
   push:
-    branches: [ static-site ]
+    branches: [ master ]
   pull_request:
-    branches: [ static-site ]
+    branches: [ master ]
 jobs:
   build:
     runs-on: ubuntu-latest
