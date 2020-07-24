@@ -15,6 +15,7 @@ spec:
       containers:
       - name: khaliqgant
         image: khaliqgant/khaliqgant:latest
+        imagePullPolicy: Always
         ports:
           - name: nginx-http
             containerPort: 80
