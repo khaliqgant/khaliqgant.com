@@ -25,4 +25,4 @@ spec:
         - name: CERTBOT_EMAIL
           value: {{ .Values.email }}
       imagePullSecrets:
-      - name: regcred
+      - name: {{ .Values.registryCreds }}
