@@ -12,6 +12,8 @@ spec:
       labels:
         app: khaliqgant
     spec:
+      strategy:
+        type: RollingUpdate
       containers:
       - name: khaliqgant
         image: khaliqgant/khaliqgant:latest
