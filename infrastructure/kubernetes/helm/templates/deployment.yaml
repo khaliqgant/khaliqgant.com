@@ -24,5 +24,12 @@ spec:
         env:
         - name: CERTBOT_EMAIL
           value: {{ .Values.email }}
+        volumeMounts:
+        - mountPath: /etc/letsencrypt
+          name: letsencrypt-volume
       imagePullSecrets:
       - name: {{ .Values.registryCreds }}
+      volumes:
+      - name: letsencrypt-volume
+        persistentVolumeClaim:
+          claimName: letsencrypt-volume
