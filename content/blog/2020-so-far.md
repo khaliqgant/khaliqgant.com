@@ -10,7 +10,6 @@ math: false
 toc: false
 ---
 
-## 2020...amirite?
 This year has been joyous, tough, frustrating, and sad. I'm sure I'm not alone
 in saying that 2020 has been a roller coaster year. I feel incredibly blessed
 to be in good health, have a lovely wife and life in Paris, France. Our family
