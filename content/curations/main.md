@@ -9,14 +9,14 @@ keywords: ["curation", "kjg-tastes"]
 tags: ["curations", "music", "web-development", "travel"]
 ---
 
-# KDW 🔥
+## KDW 🔥
 Every week (or ever other week) I compile a playlist of about 8-12 songs that
 I'm digging called KDW 🔥. Check it out on <a href="https://open.spotify.com/playlist/6KGPUOEqz4uirNH3MILuB8" target="_blank">Spotify</a>.
 Want to read more about how I build out this playlist? Check out the [methodology post 🤓](/curations/kdw-methodology).
 
 <iframe src="https://open.spotify.com/embed/playlist/6KGPUOEqz4uirNH3MILuB8" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
 
-# Dev Diaries
+## Dev Diaries
 I run a website called <a href="https://www.dev-diaries.com/" target="_blank">Dev Diaries</a>
 where I write about web development and share tips about development.
 

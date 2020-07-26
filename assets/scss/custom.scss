@@ -22,8 +22,15 @@ img[src$='#logo'] {
     width: initial;
 }
 
+img[src$='#github-icon'] {
+    width: 50px;
+    display: inline-block;
+    padding-right: 7px;
+    vertical-align: middle;
+}
+
 img[src$='#project-icon'] {
-    width: 75px;
+    width: 90px;
     display: inline-block;
     padding-right: 7px;
     vertical-align: middle;
