@@ -10,7 +10,7 @@ math: false
 toc: false
 ---
 
-## 2020...am i rite?
+## 2020...amirite?
 This year has been joyous, tough, frustrating, and sad. I'm sure I'm not alone
 in saying that 2020 has been a roller coaster year. I feel incredibly blessed
 to be in good health, have a lovely wife and life in Paris, France. Our family
@@ -33,7 +33,7 @@ opening their eyes to the injustice that has been happening for such a long time
 Bringing a baby of color into this world has also made me think much more about
 what I want to teach her what it means to be a strong woman of color and about
 accepting and embracing others. I feel lucky to have parents that raised me to be
-a confident black man with access to so much access and opportunities.
+a confident black man with so much access and opportunities.
 
 Even though this year has been so weird, I am still counting my blessings and look
 forward to a more open and accepting world.
