@@ -24,6 +24,8 @@ spec:
         env:
         - name: CERTBOT_EMAIL
           value: {{ .Values.email }}
+        - name: APP_URL
+          value: khaliqgant.com
         volumeMounts:
         - mountPath: /etc/letsencrypt
           name: letsencrypt-volume
