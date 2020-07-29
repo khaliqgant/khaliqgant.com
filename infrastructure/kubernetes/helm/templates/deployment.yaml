@@ -17,21 +17,6 @@ spec:
         image: {{ .Values.app }}/{{ .Values.app }}:{{ .Values.imageVersion }}
         imagePullPolicy: Always
         ports:
-          - name: nginx-http
-            containerPort: 80
-          - name: nginx-https
-            containerPort: 443
-        env:
-        - name: CERTBOT_EMAIL
-          value: {{ .Values.email }}
-        - name: APP_URL
-          value: khaliqgant.com
-        volumeMounts:
-        - mountPath: /etc/letsencrypt
-          name: letsencrypt-volume
+        - containerPort: 80
       imagePullSecrets:
       - name: {{ .Values.registryCreds }}
-      volumes:
-      - name: letsencrypt-volume
-        persistentVolumeClaim:
-          claimName: letsencrypt-volume
