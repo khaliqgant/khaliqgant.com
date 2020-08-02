@@ -4,7 +4,6 @@ date: 2012-05-10T17:30:55+02:00
 slug: ""
 description: ""
 keywords: []
-draft: true
 tags: ["blog-so-hard-challenge", "startup-cycle"]
 math: false
 toc: false
