@@ -18,3 +18,8 @@ HUGO_VERSION - Version of Hugo to use. Requires images for Hugo 0.71.1 or newer.
 ```
 * Using [docker-nginx-certbot](https://github.com/staticfloat/docker-nginx-certbot) for
 SSL cert renewal
+
+# Writing A New Blog Post
+```
+./blog.sh my-new-post
+```
