@@ -10,7 +10,7 @@ math: false
 toc: false
 ---
 
-It looks like the [last time I wrote](/blog-new-beginnings) I was changing jobs! Well guess what?! I've changed jobs again, but
+It looks like the [last time I wrote](/blog/new-beginnings) I was changing jobs! Well guess what?! I've changed jobs again, but
 this time rather unexpectedly. But first, let me rewind.
 
 Our time in Paris was coming to a close after four years (which should have been three)
