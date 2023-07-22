@@ -20,4 +20,6 @@ config.txt
 # misc
 data
 auth
+*.lock
 
+resources/_gen/*
