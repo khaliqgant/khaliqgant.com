@@ -1,4 +1,4 @@
-FROM klakegg/hugo:alpine-onbuild AS hugo
+FROM klakegg/hugo:0.100.0-ext-alpine-onbuild AS hugo
 
 FROM nginx
 COPY ./infrastructure/docker/nginx/default.conf /etc/nginx/conf.d/default.conf
