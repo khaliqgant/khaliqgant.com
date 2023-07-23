@@ -19,9 +19,9 @@ numerous discussions about what our top choices for her next posting would be, a
 
 1. Tel Aviv
 2. Tokyo
-3. Dublin
-4. Al Ram
-5. Kuala Lumpur
+3. Kuala Lumpur
+4. Hanoi
+5. Budapest
 
 My wife, being the boss that she is, received offers to our two top choices. After
 many spreadsheets and research we decided on the sun and beaches of Tel Aviv 🏖.
