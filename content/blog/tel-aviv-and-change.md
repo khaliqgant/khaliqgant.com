@@ -23,7 +23,7 @@ numerous discussions about what our top choices for her next posting would be, a
 4. Hanoi
 5. Budapest
 
-My wife, being the boss that she is, received offers to our two top choices. After
+My wife, being the boss that she is, received interviews to our two top choices. After
 many spreadsheets and research we decided on the sun and beaches of Tel Aviv 🏖.
 
 Towards the end of our Paris stay my wife also became pregnant with our second child,
@@ -44,7 +44,7 @@ a month later. We were fortunate enough to get her into an exceptional daycare a
 
 Tel Aviv is markedly different from Paris. It feels like a beach town with a
 very laid-back, bohemian vibe. Leaving the political backdrop aside, it feels
-like a very western city with what I think is an underrated and fantastic restaurant scene.
+like a very western city with what I think is an underrated and fantastic restaurant scene. I've heard it described as Brooklyn but on the beach and that's actuslly a decent description. 
 Sophia loved the huge playgrounds and was overjoyed that there was always one
 seemingly right around the corner.
 
