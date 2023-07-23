@@ -48,7 +48,7 @@ like a very western city with what I think is an underrated and fantastic restau
 Sophia loved the huge playgrounds and was overjoyed that there was always one
 seemingly right around the corner.
 
-In February our second daughter was born, and I started by paternity leave soon
+In February our second daughter was born, and I started my paternity leave soon
 after. I had heard that having two children versus one was a game changer
 but that didn't prepare me for the amount of adjustments and juggling required
 to keep the household running.
