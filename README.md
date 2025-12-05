@@ -1,5 +1,5 @@
 Khaliqgant.com Static Site
-=========
+==========
 
 # Technology
 * Built using [Hugo](https://gohugo.io/documentation/) and using the [Codex theme](https://themes.gohugo.io/hugo-theme-codex/)
