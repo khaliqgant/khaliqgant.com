@@ -10,7 +10,7 @@ math: false
 toc: false
 ---
 
-Agent Relay has been in [YC](https://www.ycombinator.com/) for a week and a half. It already
+[Agent Relay](https://agentrelay.com) has been [in YC](https://www.ycombinator.com/companies/agent-relay) for a week and a half. It already
 feels like two months, and we have moved the company further in that stretch than we did in
 the months before it.
 
@@ -36,7 +36,7 @@ same thing now.
 
 ## Customers who push you
 
-I felt another part of this when I was the first engineer hired at [Nango](https://www.nango.dev/).
+I felt another part of this when I was the first engineer hired at [Nango](https://nango.dev).
 Feedback from our earliest customers exposed holes we never would have found ourselves and
 helped make the product nearly 10x better. Now companies in our YC batch are using Agent
 Relay, and their feedback has already moved both the product and the way we think about it in
