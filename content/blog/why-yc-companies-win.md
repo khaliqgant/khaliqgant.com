@@ -1,7 +1,7 @@
 ---
-title: "YC Feels Like a Championship Team"
+title: "Why YC Companies Win"
 date: 2026-09-27T17:49:44+02:00
-slug: "yc-feels-like-a-championship-team"
+slug: "why-yc-companies-win"
 description: "A week and a half into YC with Agent Relay, and it already feels like two months."
 keywords: ["y combinator", "yc", "agent relay", "startups", "founders"]
 draft: false
